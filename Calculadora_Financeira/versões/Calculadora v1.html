@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<B><I>CALCULADORA FINANCEIRA BEEAWARE</I></B>
+<BR></BR>
+Insira a produção mensal da colmeia (Kg):
+<br>
+<input type="text" id="input_kg">
+<BR></BR>
+Insira o preço da produção (R$):
+<br>
+<input type="text" id="input_preco">
+<BR></BR>
+<button onclick="analisar()" >Analisar cenários</button>
+<BR></BR>
+<div id="div_mensg"></div>
+
+</body>
+</html>
+
+<script>
+
+function analisar(){
+
+var peso = Number(input_kg.value) 
+var preço = Number(input_preco.value)
+var rendimento = preço * peso
+var RendIdeal = rendimento * 1.36
+var RendAbaixo = rendimento * 0.76
+var RendAcima = rendimento * 0.88
+
+div_mensg.innerHTML = 
+`
+<b>Atual produção:</b>
+<br>
+valor mensal do rendimento: R$:${rendimento}
+<BR></BR>
+
+<b><i style="color: DarkRed;">Produção crítica:</i></b>
+<br>
+Temperatura: abaixo de 9°C e acima de 40°C
+<br>
+status produção: Paralisada
+<BR></BR>
+
+<b><i style="color: orange;">produção acima do ideal:</i></b>
+<br>
+Temperatura: entre 37°C ~ 40°C
+<br>
+status produção: prejuízo de até 12%
+<br>
+impacto no rendimento: R$:${RendAcima}
+<BR></BR>
+
+<b><i style="color: DarkOrange;">produção abaixo do ideal:</i></b>
+<br>
+Temperatura: entre 29°C ~ 9°C
+<br>
+status produção: prejuízo de até 24%
+<br>
+impacto no rendimento: R$:${RendAbaixo}
+<BR></BR>
+
+<b><i style="color: DarkGreen;">produção ideal:</i></b>
+<br>
+Temperatura: entre 30°C a 36°C
+<br>
+status produção: ganho de até 36%
+<br>
+impacto no rendimento: R$:${RendIdeal}
+`
+}
+</script>
