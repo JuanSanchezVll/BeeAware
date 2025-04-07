@@ -1,5 +1,4 @@
 # BeeAware
-# BeeAware
 
 <img src="https://planetacampo.canalrural.com.br/wp-content/uploads/sites/9/2022/02/caixa-de-abelhas-1.png">
 
