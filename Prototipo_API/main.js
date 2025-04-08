@@ -1,3 +1,4 @@
+
 // importa os bibliotecas necessários
 const serialport = require('serialport');
 const express = require('express');
@@ -8,7 +9,7 @@ const SERIAL_BAUD_RATE = 9600;
 const SERVIDOR_PORTA = 3300;
 
 // habilita ou desabilita a inserção de dados no banco de dados
-const HABILITAR_OPERACAO_INSERIR = false;
+const HABILITAR_OPERACAO_INSERIR = true;
 
 // função para comunicação serial
 const serial = async (
@@ -19,10 +20,10 @@ const serial = async (
     // conexão com o banco de dados MySQL
     let poolBancoDados = mysql.createPool(
         {
-            host: 'HOST_DO_BANCO',
-            user: 'USUARIO_DO_BANCO',
-            password: 'SENHA_DO_BANCO',
-            database: 'DATABASE_DO_BANCO',
+            host: '127.0.0.1',
+            user: 'coordenador',
+            password: 'Urubu100@',
+            database: 'beeaware',
             port: 3306
         }
     ).promise();
@@ -63,10 +64,16 @@ const serial = async (
 
             // este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO medida (sensor_analogico, sensor_digital) VALUES (?, ?)',
-                [sensorAnalogico, sensorDigital]
+                'INSERT INTO historicoTemperatura (temperatura, historico) VALUES (?, current_time())',
+                [sensorAnalogico]
             );
-            console.log("valores inseridos no banco: ", sensorAnalogico + ", " + sensorDigital);
+            console.log("valores inseridos no banco: ", sensorAnalogico);
+            await poolBancoDados.execute(
+                'update sensorTemperatura set temperatura = (?) where idSensor = 1;',
+                [sensorAnalogico],
+                'update sensorTemperatura set historico = current_time() where idSensor = 1;'
+            );
+            console.log("valores atualizado no banco: ", sensorAnalogico);
 
         }
 
@@ -115,12 +122,12 @@ const servidor = (
     // inicia a comunicação serial
     await serial(
         ValoresSensorTemperatura,
-        valoresSensorDigital
+        // valoresSensorDigital
     );
 
     // inicia o servidor web
     servidor(
         ValoresSensorTemperatura,
-        valoresSensorDigital
+        // valoresSensorDigital
     );
 })();
