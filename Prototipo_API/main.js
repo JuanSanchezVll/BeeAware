@@ -12,7 +12,7 @@ const SERVIDOR_PORTA = 3300;
 const HABILITAR_OPERACAO_INSERIR = true;
 
 // função para comunicação serial
-const se    rial = async (
+const serial = async (
     ValoresSensorTemperatura,
     valoresSensorDigital,
 ) => {
@@ -21,10 +21,10 @@ const se    rial = async (
     let poolBancoDados = mysql.createPool(
         {
             host: '127.0.0.1',
-            user: 'coordenador',
-            password: 'Urubu100@',
+            user: 'aluno',
+            password: 'Sptech#2024',
             database: 'beeaware',
-            port: 3306
+            port: 3307
         }
     ).promise();
 
@@ -68,11 +68,11 @@ const se    rial = async (
                 [sensorAnalogico]
             );
             console.log("valores inseridos no banco: ", sensorAnalogico);
-            await poolBancoDados.execute(
-                'update sensorTemperatura set temperatura = (?) where idSensor = 1;',
-                [sensorAnalogico],
-                'update sensorTemperatura set historico = current_time() where idSensor = 1;'
-            );
+            // await poolBancoDados.execute(
+            //     'update sensorTemperatura set temperatura = (?) where idSensor = 1;',
+            //     [sensorAnalogico],
+            //     'update sensorTemperatura set historico = current_time() where idSensor = 1;'
+            // );
             console.log("valores atualizado no banco: ", sensorAnalogico);
 
         }
