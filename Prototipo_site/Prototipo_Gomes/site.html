@@ -10,43 +10,52 @@
     
 
     <div id="div_card"> 
-        <img src="baixados.jpg">
         <div id="div_texto">
-            <h1>EQUILÍBRIO IDEAL, PARA
-                COLMEIAS QUE PROSPERAM.</h1>
+            <h1>EQUILÍBRIO IDEAL, PARA COLMEIAS QUE PROSPERAM.</h1>
                 <br>
-                <h4>Com o BeeAware, você acompanha em tempo real as condições
-                da sua colmeia e recebe alertas quando ha risco para suas
-                abelhas.</h4>
+                <h4>Com o BeeAware, você acompanha em tempo real as condições da sua colmeia e recebe alertas quando há risco para suas abelhas.</h4>
         </div>
+
+        <div id="div_imagem"></div>
         
         <div id="div_cadastro">
+
             <div id="div_titulo">
-            <H1>BEEAWARE</H1>
-            <h3>Cadastro Empresas</h3>
-            </div>
-            <div id="div_formulario"> 
-            <span>Nome Empresa</span>
-            <input type="text" id="input_nome" placeholder="Digite o nome da Empresa">
-            <br><br>
-            <span>Email</span>
-            <input type="text" id="input_email" placeholder="Digite o Email da Empresa">
-            <br><br>
-            <span>CNPJ</span>
-            <input type="text" id="input_cnpj" placeholder="Digite o CNPJ da Empresa">
-            <br><br>
-            <span>Senha</span>
-            <input type="text" id="input_senha" placeholder="Crie sua Senha">
-            <br><br>
-            <span>Confirme sua Senha</span>
-            <input type="text" id="input_conf" placeholder="Confirme sua Senha">
-            <br><br>
+                <img src="Logo_BeeAware.png" alt="">
+                <h3>Cadastro Empresas</h3>
             </div>
 
+            <div id="div_formulario">
+                <div class="campo nome">
+                    <span>Nome Empresa</span>
+                    <input type="text" id="input_nome" placeholder="Digite o nome da Empresa">
+                </div>
+
+                    <div class="campo email">
+                    <span>Email</span>
+                    <input type="text" id="input_email" placeholder="Digite o Email da Empresa">
+                </div>
+
+                <div class="campo cnpj">
+                    <span>CNPJ</span>
+                    <input type="text" id="input_cnpj" placeholder="Digite o CNPJ da Empresa">
+                </div>
+
+                    <div class="campo senha">
+                    <span>Senha</span>
+                    <input type="password" id="input_senha" placeholder="Crie sua Senha">
+                </div>
+
+                <div class="campo confirmar_senha">
+                    <span>Confirme sua Senha</span>
+                    <input type="password" id="input_conf" placeholder="Confirme sua Senha">
+                </div>
+
+            </div>
+            <div id="div_alerta"> <span></span> </div>
             <div id="div_botao">
                <button onclick="criar()">Criar Conta Para Empresas</button>
-               <br><br>
-               <button id="login" onclick="login()">Login Para Empresas</button>
+               <span> Já possui conta? <a href="">Fazer login</a></span>
             </div>
 
         </div>
