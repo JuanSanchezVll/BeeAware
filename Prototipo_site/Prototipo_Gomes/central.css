@@ -8,6 +8,7 @@ body{
     margin: 0px;
     overflow-x: hidden;
     overflow: hidden;
+    background-color: black;
 }
 
 #div_card {
@@ -27,6 +28,7 @@ body{
 }
 .campo span{
     padding-bottom: 2px;
+    color: white;
 }
 #div_imagem{
     width: 80%;
@@ -77,7 +79,7 @@ body{
 
 .campo input {
     border-radius: 6px;
-    border: solid 1px black ;
+    border: solid 1px white;
     padding-left: 10px ;
     padding-top: 3px;
     padding-bottom: 3px;
@@ -85,11 +87,6 @@ body{
     height: 100%;
     transition: 0.3s;
     font-weight: 500;
-}
-
-.campo input:hover{
-    transition: 0.3s;
-    scale: 1.05;
 }
 
 .campo input:focus{
@@ -104,12 +101,13 @@ body{
     font-size: 28px;
     margin: 0px;
     margin-bottom: 15px;
+    color: white;
 }
 
 #div_titulo img{
     margin-top: 10px;
     width: 200px;
-    height: 95px;
+    height: 70px;
 }
 
 #div_botao{
@@ -123,10 +121,11 @@ body{
 #div_botao span{
     padding-top: 10px;
     font-size: 12px;
+    color: white;
 }
 
 #div_botao span a{
-    color: black;
+    color: white;
     text-decoration-line: none;
 }
 
