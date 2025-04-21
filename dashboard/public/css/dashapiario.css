@@ -206,13 +206,14 @@ body {
 .cor1 {
   font-family: "Poppins", sans-serif;
   font-size: 15px;
-  background-color: #C00000;
+  background-color: #47D359;
 }
 
 .cor2 {
   font-family: "Poppins", sans-serif;
   font-size: 15px;
-  background-color: #FF0000;
+  background-color: #FFFF00;
+  color: black;
 }
 
 .cor3 {
@@ -225,14 +226,14 @@ body {
 .cor4 {
   font-family: "Poppins", sans-serif;
   font-size: 15px;
-  background-color: #FFFF00;
-  color: black;
+  background-color: #FF0000;
+  color: white;
 }
 
 .cor5 {
   font-family: "Poppins", sans-serif;
   font-size: 15px;
-  background-color: #47D359;
+  background-color: #C00000;
 }
 
 /* KPI */

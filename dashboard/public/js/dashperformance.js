@@ -19,7 +19,7 @@ const cores = valores.map(valor => {
 const data = {
     labels: labels,
     datasets: [{
-        label: 'SETORES',
+        label: 'PERFORMANCE',
         data: valores,
         backgroundColor: cores,
         barPercentage: 0.5,
