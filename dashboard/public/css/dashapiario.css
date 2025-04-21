@@ -13,6 +13,13 @@ body {
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  display: contents;
+  all: unset;
+}
+
 .Logo {
   width: 110px;
 }
@@ -207,6 +214,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 15px;
   background-color: #47D359;
+  color: black;
 }
 
 .cor2 {
@@ -227,13 +235,14 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 15px;
   background-color: #FF0000;
-  color: white;
+  color: black;
 }
 
 .cor5 {
   font-family: "Poppins", sans-serif;
   font-size: 15px;
   background-color: #C00000;
+  color: black;
 }
 
 /* KPI */
@@ -338,7 +347,7 @@ body {
 
 /* BOTÕES DE DASH */
 
-.botaoSetor1 {
+.botaoApiario1 {
   font-family: "Poppins", sans-serif;
   background-color: #fa9d05;
   position: absolute;
@@ -357,7 +366,7 @@ body {
   font-weight: bold;
 }
 
-.botaoSetor1:hover {
+.botaoApiario1:hover {
   background-color: #fa9c05e8;
   /* cor mais clara */
   transform: translateY(-4px) scale(1.03);
@@ -366,7 +375,7 @@ body {
   /* sombra suave */
 }
 
-.botaoSetor2 {
+.botaoApiario2 {
   font-family: "Poppins", sans-serif;
   background-color: #fa9d05;
   position: absolute;
@@ -385,7 +394,7 @@ body {
   font-weight: bold;
 }
 
-.botaoSetor2:hover {
+.botaoApiario2:hover {
   background-color: #fa9c05e8;
   /* cor mais clara */
   transform: translateY(-4px) scale(1.03);
@@ -394,7 +403,7 @@ body {
   /* sombra suave */
 }
 
-.botaoSetor3 {
+.botaoApiario3 {
   font-family: "Poppins", sans-serif;
   background-color: #fa9d05;
   position: absolute;
@@ -413,7 +422,7 @@ body {
   font-weight: bold;
 }
 
-.botaoSetor3:hover {
+.botaoApiario3:hover {
   background-color: #fa9c05e8;
   /* cor mais clara */
   transform: translateY(-4px) scale(1.03);
@@ -422,7 +431,7 @@ body {
   /* sombra suave */
 }
 
-.botaoSetor4 {
+.botaoApiario4 {
   font-family: "Poppins", sans-serif;
   background-color: #fa9d05;
   position: absolute;
@@ -441,7 +450,7 @@ body {
   font-weight: bold;
 }
 
-.botaoSetor4:hover {
+.botaoApiario4:hover {
   background-color: #fa9c05e8;
   /* cor mais clara */
   transform: translateY(-4px) scale(1.03);
@@ -450,7 +459,7 @@ body {
   /* sombra suave */
 }
 
-.botaoSetor5 {
+.botaoApiario5 {
   font-family: "Poppins", sans-serif;
   background-color: #fa9d05;
   position: absolute;
@@ -469,7 +478,7 @@ body {
   font-weight: bold;
 }
 
-.botaoSetor5:hover {
+.botaoApiario5:hover {
   background-color: #fa9c05e8;
   /* cor mais clara */
   transform: translateY(-4px) scale(1.03);
@@ -478,7 +487,7 @@ body {
   /* sombra suave */
 }
 
-.botaoSetor6 {
+.botaoApiario6 {
   font-family: "Poppins", sans-serif;
   background-color: #fa9d05;
   position: absolute;
@@ -497,7 +506,7 @@ body {
   font-weight: bold;
 }
 
-.botaoSetor6:hover {
+.botaoApiario6:hover {
   background-color: #fa9c05e8;
   /* cor mais clara */
   transform: translateY(-4px) scale(1.03);
