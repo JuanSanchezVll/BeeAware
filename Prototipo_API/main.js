@@ -64,16 +64,10 @@ const serial = async (
 
             // este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
-                'INSERT INTO historicoTemperatura (temperatura, historico) VALUES (?, current_time())',
+                'INSERT INTO leitura (temperatura, dtLeitura, fkSensor) VALUES (?, current_time(), 1)',
                 [sensorAnalogico]
             );
             console.log("valores inseridos no banco: ", sensorAnalogico);
-            // await poolBancoDados.execute(
-            //     'update sensorTemperatura set temperatura = (?) where idSensor = 1;',
-            //     [sensorAnalogico],
-            //     'update sensorTemperatura set historico = current_time() where idSensor = 1;'
-            // );
-            console.log("valores atualizado no banco: ", sensorAnalogico);
 
         }
 
