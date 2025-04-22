@@ -33,13 +33,13 @@
             <form class="form-login">
 
                 <!-- Campo de email -->
-                <input type="email" placeholder="Email" class="input-email">
+                <input type="email" placeholder="Email" class="input-email" id="input_email">
 
                 <!-- Campo de senha -->
-                <input type="password" placeholder="Senha" class="input-senha">
+                <input type="password" placeholder="Senha" class="input-senha" id="input_senha">
 
                 <!-- Botão para login -->
-                <button type="submit" class="btn-login">Login Para Empresas</button>
+                <button onclick="login()" type="submit" class="btn-login">Login Para Empresas</button>
 
                 <!-- Botão para criar conta -->
                 <button class="btn-criar-conta">Criar Conta Para Empresas</button>
@@ -47,6 +47,8 @@
                 <!-- Link alternativo para login de usuário -->
                 <p class="login-user">Tem conta para usuário? <a href="#">login usuário</a></p>
 
+                <!-- <div id="div_mensagem" style="color: white"></div> -->
+            
             </form>
             <!-- Fim do formulario -->
 
@@ -61,12 +63,42 @@
                 <p>Que sejamos como as abelhas, que voam além dos limites, espalhando doçura e vida
                     por onde passam</p>
             </div>
-
         </div>
         <!-- Fim do lado direito -->
-
     </div>
     <!-- Fim do Container Principal -->
+
+
+
+
+
+
+
+
 </body>
 
 </html>
+<script>
+    function login(){
+
+        var email_login = input_email.value;
+        var senha_login = input_senha.value; 
+
+        var email = "Usuario01@beeaware.com"; 
+        var senha = "Bee.2025"; 
+
+        // validação: campo vazio 
+        if(email_login == "" || senha_login == "") {
+            alert("Preencha os campos para realizar o login.");
+        }
+
+        // validação campos corretos
+        if(email_login == email && senha_login == senha) {
+            alert("Login efetuado");
+        } else {
+            alert("Email e/ou senha incorretos.");
+        }
+
+    }
+
+</script>

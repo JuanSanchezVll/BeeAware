@@ -41,12 +41,12 @@ body {
 
 
 .logo-text span:first-child {
-    color: #ffe600; /* BEE amarelo */
+    color: yellow; /* BEE amarelo */
 }
 
 
 .logo-text span:last-child {
-    color: #000; /* AWARE preto */
+    color: white; /* AWARE preto */
 }
 
 
@@ -67,7 +67,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    background-color: #fff;
+    background-color: black;
 }
 
 
@@ -75,13 +75,14 @@ body {
 h2 {
     font-weight: bold;
     font-size: 24px;
+    color: white;
 }
 
 
 /* Subtitulo */
 p {
     margin-bottom: 20px;
-    color: #666;
+    color: white;
 }
 
 
