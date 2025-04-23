@@ -1,6 +1,7 @@
 CREATE DATABASE BeeAware;
 USE BeeAware;
 
+/*-------------------------------------------------------------------------------------------- Criação da tabela empresa --------------------------------------------------------------------------------------------------------------- */
 CREATE TABLE empresa (
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     razaoSocial VARCHAR(255),
@@ -13,9 +14,9 @@ CREATE TABLE empresa (
     complemento VARCHAR(255),
     statusAtividade TINYINT
 );
+DESCRIBE empresa;
 
-INSERT INTO empresa (razaoSocial, fantasia, cnpj, telefone, email, cep, numero, complemento, statusAtividade)
-VALUES
+INSERT INTO empresa (razaoSocial, fantasia, cnpj, telefone, email, cep, numero, complemento, statusAtividade) VALUES
 ('ApisTech Soluções Apícolas LTDA', 'ApisTech', '12.345.678/0001-01', '(11)91234-5678', 'contato@apistech.com.br', '12345-678', 101, 'Sala 3', 1),
 ('Mel & Cia Tecnologia Apícola', 'Mel&Cia', '23.456.789/0001-02', '(11)93456-7890', 'suporte@melecia.com', '23456-789', 250, '', 1),
 ('BioBee Sistemas Inteligentes', 'BioBee', '34.567.890/0001-03', '(11)95678-9012', 'info@biobee.io', '34567-890', 30, 'Bloco A', 1),
@@ -32,6 +33,10 @@ VALUES
 ('Pólen e Bytes S.A.', 'PólenBytes', '44.556.677/0001-14', '(11)98901-3456', 'bytes@poleneb.com.br', '44556-677', 78, '3º andar', 1),
 ('EcoMel Sustentabilidade LTDA', 'EcoMel', '55.667.788/0001-15', '(11)99012-4567', 'eco@melverde.com', '55667-788', 23, 'Térreo', 1);
 
+SELECT * FROM empresa;
+
+/*-------------------------------------------------------------------------------------------- Criação da tabela usuário --------------------------------------------------------------------------------------------------------------- */
+
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(255),
@@ -44,8 +49,9 @@ CREATE TABLE usuario (
         REFERENCES empresa (idEmpresa)
 );
 
-INSERT INTO usuario (nome, senha, cpf, email, cargo, fkEmpresa)
-VALUES
+DESCRIBE usuario;
+
+INSERT INTO usuario (nome, senha, cpf, email, cargo, fkEmpresa) VALUES
 ('Lucas Almeida', 'J8@vN5l#zR', '103.472.918-54', 'lucasalmeida@gmail.com', 'gestor', 1),
 ('Marina Costa', 'M#92qvL!xp', '294.381.657-22', 'marinacosta@hotmail.com', 'técnico', 2),
 ('Rafael Souza', 'R@f33l!Xyz', '398.264.105-77', 'rafaelsouza@outlook.com', 'técnico', 3),
@@ -62,6 +68,10 @@ VALUES
 ('Natália Ribeiro', 'Nr@!21KZx', '412.793.065-70', 'nataliaribeiro@hotmail.com', 'técnico', 14),
 ('Igor Monteiro', 'Ig!Mo@89#', '557.402.189-94', 'igormonteiro@gmail.com', 'gestor', 15);
 
+SELECT * FROM usuario;
+
+/*-------------------------------------------------------------------------------------------- Criação da tabela setor --------------------------------------------------------------------------------------------------------------- */
+
 CREATE TABLE setor (
     idSetor INT PRIMARY KEY AUTO_INCREMENT,
     setor VARCHAR(45),
@@ -69,6 +79,8 @@ CREATE TABLE setor (
     CONSTRAINT fkSetorEmpresa FOREIGN KEY (fkEmpresa)
         REFERENCES empresa (idEmpresa)
 );
+
+DESCRIBE setor;
 
 INSERT INTO setor (setor, fkEmpresa)
 VALUES
@@ -127,6 +139,10 @@ VALUES
 -- Empresa 15 (1 setor)
 ('Setor 1', 15);
 
+SELECT * FROM setor;
+
+/*-------------------------------------------------------------------------------------------- Criação da tabela apiario --------------------------------------------------------------------------------------------------------------- */
+
 CREATE TABLE apiario (
     idApiario INT PRIMARY KEY AUTO_INCREMENT,
     identificador VARCHAR(45),
@@ -134,6 +150,8 @@ CREATE TABLE apiario (
     CONSTRAINT fkSetorSensor FOREIGN KEY (fkSetor)
         REFERENCES setor (idSetor)
 );
+
+DESCRIBE apiario;
 
 INSERT INTO apiario (identificador, fkSetor)
 VALUES
@@ -164,6 +182,9 @@ VALUES
 ('Apiário 1', 24), ('Apiário 2', 24), ('Apiário 3', 24), ('Apiário 4', 24),
 ('Apiário 1', 25), ('Apiário 2', 25), ('Apiário 3', 25), ('Apiário 4', 25);
 
+SELECT * FROM apiario;
+
+/*-------------------------------------------------------------------------------------------- Criação da tabela sensor --------------------------------------------------------------------------------------------------------------- */
 
 CREATE TABLE sensor (
     idSensor INT PRIMARY KEY AUTO_INCREMENT,
@@ -176,8 +197,9 @@ CREATE TABLE sensor (
 		REFERENCES apiario(idApiario)
 );
 
-INSERT INTO sensor (numSerie, codInterno, statusSen, fkApiario)
-VALUES
+DESCRIBE sensor;
+
+INSERT INTO sensor (numSerie, codInterno, statusSen, fkApiario) VALUES
 ('SN9828', 'CI3875', 'Inativo', 1),
 ('SN9857', 'CI1499', 'Inativo', 1),
 ('SN3863', 'CI3045', 'Manutenção', 1),
@@ -479,6 +501,9 @@ VALUES
 ('SN3198', 'CI1830', 'Inativo', 100),
 ('SN3467', 'CI9451', 'Com problema', 100);
 
+SELECT * FROM sensor;
+
+/*-------------------------------------------------------------------------------------------- Criação da tabela leitura --------------------------------------------------------------------------------------------------------------- */
 
 CREATE TABLE leitura (
     idLeitura INT PRIMARY KEY AUTO_INCREMENT,
@@ -489,3 +514,7 @@ CREATE TABLE leitura (
     CONSTRAINT fkLeituraSensor FOREIGN KEY (fkSensor)
         REFERENCES sensor (idSensor)
 );
+
+DESCRIBE leitura;
+
+SELECT * FROM leitura;
