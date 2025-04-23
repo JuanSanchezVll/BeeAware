@@ -1,0 +1,514 @@
+/*Importando fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*Impotando fonte  Montserrat*/
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+body {
+  background-color: rgb(255, 223, 143);
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.Logo {
+  width: 110px;
+}
+
+.header-left {
+  font-family: "Poppins", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100vh;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-right: 3px solid #fa9d05;
+  background-color: black;
+}
+
+.hello {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hello h3 {
+  font-family: "Poppins", sans-serif;
+  color: #fa9d05;
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+.hello h3 span {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+}
+
+.btn-nav-white {
+  font-family: "Poppins", sans-serif;
+  width: 40%;
+  background-color: #fa9c05e8;
+  border: 3px solid #fa9c05c4;
+  border-radius: 5px;
+  text-align: center;
+  padding: 2% 5%;
+  text-decoration: none;
+  color: black;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn-nav-white:hover {
+  background-color: #fa9c05e8;
+  /* cor mais clara */
+  transform: translateY(-4px) scale(1.03);
+  /* "sobe" e aumenta */
+  box-shadow: 0 8px 15px white;
+  /* sombra suave */
+}
+
+.btn-nav-white a {
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  color: black;
+}
+
+.btn-nav-white a:visited,
+.btn-nav-white a:hover,
+.btn-nav-white a:active {
+  text-decoration: none;
+  color: black;
+}
+
+
+.btn-nav {
+  font-family: "Poppins", sans-serif;
+  width: 40%;
+  background-color: #fa9c05e8;
+  border: 3px solid #fa9c05c4;
+  border-radius: 5px;
+  text-align: center;
+  padding: 2% 5%;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn-nav:hover {
+  background-color: #fa9c05e8;
+  /* cor mais clara */
+  transform: translateY(-4px) scale(1.03);
+  /* "sobe" e aumenta */
+  box-shadow: 0 8px 15px white;
+  /* sombra suave */
+}
+
+.btn-logout {
+  font-family: "Poppins", sans-serif;
+  width: 40%;
+  background-color: #fa9c05e8;
+  border: 3px solid #fa9c05c4;
+  border-radius: 5px;
+  text-align: center;
+  padding: 2% 5%;
+  margin-bottom: 100px;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+  margin-bottom: 30px;
+}
+
+.btn-logout:hover {
+  background-color: #fa9c05e8;
+  /* cor mais clara */
+  transform: translateY(-4px) scale(1.03);
+  /* "sobe" e aumenta */
+  box-shadow: 0 8px 15px white;
+  /* sombra suave */
+}
+
+
+/* pagina graficos */
+
+.titulo {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  width: 385px;
+  height: 84px;
+  top: 3%;
+  left: 47%;
+  font-size: 27px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background: #fa9c05e8;
+  border: 5px solid;
+  font-weight: bold;
+}
+
+/* Graficos */
+
+#myChart {
+  font-family: "Poppins", sans-serif;
+  display: block !important;
+  box-sizing: border-box !important;
+  height: 340px !important;
+  width: auto !important;
+  position: relative;
+  left: 371px;
+  top: 195px;
+}
+
+
+/* Legenda */
+
+.tabela-legenda {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  border: 1px solid black;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  height: 80px;
+  position: relative;
+  top: 658px;
+  font-size: 13px;
+  width: 75%;
+  left: 358px;
+}
+
+.coluna {
+  font-family: "Poppins", sans-serif;
+  width: 30px;
+  flex: 1;
+  padding: 10px;
+  color: black;
+  border-left: 1px solid black;
+}
+
+.coluna:first-child {
+  border-left: none;
+}
+
+.cor1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  background-color: #C00000;
+  color: black;
+}
+
+.cor2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  background-color: #FF0000;
+  color: black;
+}
+
+.cor3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  background-color: #FFC000;
+  color: black;
+}
+
+.cor4 {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  background-color: #FFFF00;
+  color: black;
+}
+
+.cor5 {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  background-color: #47D359;
+  color: black;
+}
+
+/* KPI */
+
+.KPI1 {
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+  border: 2px solid;
+  position: absolute;
+  height: 93px;
+  width: 127px;
+  left: 22.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 143px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.KPI2 {
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+  border: 2px solid;
+  position: absolute;
+  height: 93px;
+  width: 127px;
+  left: 35.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 143px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.KPI3 {
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+  border: 2px solid;
+  position: absolute;
+  height: 93px;
+  width: 127px;
+  left: 48.7%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 143px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.KPI4 {
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+  border: 2px solid;
+  position: absolute;
+  height: 93px;
+  width: 127px;
+  left: 61.9%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 143px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.KPI5 {
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+  border: 2px solid;
+  position: absolute;
+  height: 93px;
+  width: 127px;
+  left: 75.1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 143px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.KPI6 {
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+  border: 2px solid;
+  position: absolute;
+  height: 93px;
+  width: 127px;
+  left: 88.2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 143px;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+
+/* BOTÕES DE DASH */
+
+.botaoSetor1 {
+  font-family: "Poppins", sans-serif;
+  background-color: #fa9d05;
+  position: absolute;
+  width: 150px;
+  height: 54px;
+  left: 71%;
+  top: 38%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.botaoSetor1:hover {
+  background-color: #fa9c05e8;
+  /* cor mais clara */
+  transform: translateY(-4px) scale(1.03);
+  /* "sobe" e aumenta */
+  box-shadow: 0 8px 15px black;
+  /* sombra suave */
+}
+
+.botaoSetor2 {
+  font-family: "Poppins", sans-serif;
+  background-color: #fa9d05;
+  position: absolute;
+  width: 150px;
+  height: 54px;
+  left: 86%;
+  top: 38%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.botaoSetor2:hover {
+  background-color: #fa9c05e8;
+  /* cor mais clara */
+  transform: translateY(-4px) scale(1.03);
+  /* "sobe" e aumenta */
+  box-shadow: 0 8px 15px black;
+  /* sombra suave */
+}
+
+.botaoSetor3 {
+  font-family: "Poppins", sans-serif;
+  background-color: #fa9d05;
+  position: absolute;
+  width: 150px;
+  height: 54px;
+  left: 71%;
+  top: 53.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.botaoSetor3:hover {
+  background-color: #fa9c05e8;
+  /* cor mais clara */
+  transform: translateY(-4px) scale(1.03);
+  /* "sobe" e aumenta */
+  box-shadow: 0 8px 15px black;
+  /* sombra suave */
+}
+
+.botaoSetor4 {
+  font-family: "Poppins", sans-serif;
+  background-color: #fa9d05;
+  position: absolute;
+  width: 150px;
+  height: 54px;
+  left: 86%;
+  top: 53.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.botaoSetor4:hover {
+  background-color: #fa9c05e8;
+  /* cor mais clara */
+  transform: translateY(-4px) scale(1.03);
+  /* "sobe" e aumenta */
+  box-shadow: 0 8px 15px black;
+  /* sombra suave */
+}
+
+.botaoSetor5 {
+  font-family: "Poppins", sans-serif;
+  background-color: #fa9d05;
+  position: absolute;
+  width: 150px;
+  height: 54px;
+  left: 71%;
+  top: 69%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.botaoSetor5:hover {
+  background-color: #fa9c05e8;
+  /* cor mais clara */
+  transform: translateY(-4px) scale(1.03);
+  /* "sobe" e aumenta */
+  box-shadow: 0 8px 15px black;
+  /* sombra suave */
+}
+
+.botaoSetor6 {
+  font-family: "Poppins", sans-serif;
+  background-color: #fa9d05;
+  position: absolute;
+  width: 150px;
+  height: 54px;
+  left: 86%;
+  top: 69%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.botaoSetor6:hover {
+  background-color: #fa9c05e8;
+  /* cor mais clara */
+  transform: translateY(-4px) scale(1.03);
+  /* "sobe" e aumenta */
+  box-shadow: 0 8px 15px black;
+  /* sombra suave */
+}

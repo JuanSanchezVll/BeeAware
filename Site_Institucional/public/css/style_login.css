@@ -1,0 +1,186 @@
+/* RESET GERAL */
+
+/* Remove margens/ paddigns padrão e define fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+
+/* Corpo da página centralizado e tela cheia */
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ESTILOS DA LOGO NO CANTO SUPERIOR ESQUERDO */
+.header-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 999;
+}
+
+
+
+.logo-img {
+    width: 150px;
+    height: auto;
+}
+
+.logo-text {
+    font-weight: 900;
+}
+
+
+.logo-text span:first-child {
+    color: yellow; /* BEE amarelo */
+}
+
+
+.logo-text span:last-child {
+    color: white; /* AWARE preto */
+}
+
+
+/* CONTAINER PRINCIPAL  */
+/* Divide a tela em dois lados (login + imagem) */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+
+/* LADO ESQUERDO: ÀREA DE LOGIN */
+.login-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: black;
+}
+
+
+/* Titulo do Login */
+h2 {
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+}
+
+
+/* Subtitulo */
+p {
+    margin-bottom: 20px;
+    color: white;
+}
+
+
+/* FORMULARIO DE LOGIN */
+.form-login {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+/* Campos de email e senha */
+.input-email,
+.input-senha {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+
+/* Botão amarelo de login */
+.btn-login {
+    background-color: #ffe600;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* Botão branco de criar conta */
+.btn-criar-conta {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* Texto do link de login alternativo */
+.login-user {
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/* Link para login de usuario */
+.login-user a {
+    text-decoration: none;
+    color: inherit;
+    display: contents;
+    all: unset;
+    transition: 0.5s;    
+}
+
+.form-login a{
+    color: white;
+    transition: 0.3s;
+}
+.form-login a:hover{
+    color: blue;
+}
+
+
+/* LADO DIREITO: IMAGEM DE FUNDO COM FRASE */
+.login-right {
+    flex: 1;
+    background: url(../img/uma-abelha-em-uma-flor-amarela-com-uma-faixa-preta-nas-costas_891301-7124.avif) center/cover no-repeat; 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Caixa da frase com fundo translúcido */
+.quote-box {
+    background-color: rgba(225, 225, 225, 0.3); /* Transparência */
+    backdrop-filter: blur(5px); /* Efeito blur por trás */
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 400px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+}
+
+
+.quote-box * {
+    color: white !important;
+}
+
+
