@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="../public/img/favicon.ico" type="image/x-icon">
     <title>BeeAware</title>
     <link rel="stylesheet" href="../public/css/dashsensor.css">
+    <link rel="stylesheet" href="../public/css/geralDash.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0"></script>
 </head>
@@ -35,33 +36,60 @@
                     <h3>Voltar</h3>
                 </a>
             </div>
-
-            <div class="btn-logout">
-                <h3>Sair</h3>
-            </div>
-
+            <h3> <a href="login.html">Sair</a></h3>
         </div>
 
         <div>
 
             <div class="titulo">Sensores do apiário</div>
 
-            <div class="KPISensor1">SENSOR 01  |  Temperatura: 14°C | (CRÍTICO 1°)</div>
-            <div class="KPISensor2">SENSOR 02  |  Temperatura: 34°C | (IDEAL)</div>
-            <div class="KPISensor3">SENSOR 03  |  Temperatura: 44°C | (CRÍTICO MAX°)</div>
+            <div class="KPISensor1">SENSOR 01<br>Temperatura: 14°C<br>(CRÍTICO)</div>
+            <div class="KPISensor2">SENSOR 02<br>Temperatura: 34°C<br>(IDEAL)</div>
+            <div class="KPISensor3">SENSOR 03<br>Temperatura: 44°C<br>(CRÍTICO)</div>
+
+            <div class="alert-log" id="alertLog">
+                <!-- Exemplo de linhas estáticas -->
+                <span class="alert-line">
+                    <span class="timestamp">Sensor 03: Critico [01/01/2025 12:00:00]</span>
+                </span>
+                <span class="alert-line">
+                    <span class="timestamp">Sensor 01: Alerta [01/01/2025 12:05:30]</span>
+                </span>
+                <span class="alert-line">
+                    <span class="timestamp">Sensor 03: Alerta [01/01/2025 11:55:30]</span>
+                </span>
+                <span class="alert-line">
+                    <span class="timestamp">Sensor 03: Alerta [01/01/2025 12:05:30]</span>
+                </span>
+                <span class="alert-line">
+                    <span class="timestamp">Sensor 03: Critico [01/01/2025 12:00:00]</span>
+                </span>
+                <span class="alert-line">
+                    <span class="timestamp">Sensor 01: Alerta [01/01/2025 12:05:30]</span>
+                </span>
+                <span class="alert-line">
+                    <span class="timestamp">Sensor 03: Critico [01/01/2025 12:00:00]</span>
+                </span>
+                <span class="alert-line">
+                    <span class="timestamp">Sensor 01: Alerta [01/01/2025 12:05:30]</span>
+                </span>
+                <span class="alert-line">
+                    <span class="timestamp">Sensor 03: Critico [01/01/2025 12:00:00]</span>
+                </span>
+                <span class="alert-line">
+                    <span class="timestamp">Sensor 01: Alerta [01/01/2025 12:05:30]</span>
+                </span>
+                <!-- Novas linhas serão inseridas aqui -->
+            </div>
 
             <div class="tabela-legenda">
-                <div class="coluna cor1">menor que 0<br><b>Crítico max° (Temperatura Letal)</b><br> apiário comprometido
+                <div class="coluna cor1">19 ou menos<br><b>Crítico (Temperatura muito baixa)</b><br> risco imediato
                 </div>
-                <div class="coluna cor2">0 - 10<br><b>Extremamente Crítico (Temperatura muito baixa)</b><br> risco de
-                    morte</div>
-                <div class="coluna cor3">11 - 20<br><b>Crítico 1° (Abaixo do ideal)</b><br>desenvolvimento comprometido
+                <div class="coluna cor2">20 - 31<br><b>Alerta (Abaixo do ideal)</b><br>desenvolvimento comprometido
                 </div>
-                <div class="coluna cor4">21 - 31<br><b>Atenção (Abaixo do ótimo)</b><br>atenção recomendada</div>
-                <div class="coluna cor5">32 - 36<br><b>Ideal (Faixa ideal)</b><br>condição segura</div>
-                <div class="coluna cor6">37 - 39<br><b>Alerta (Acima do ideal)</b><br>possível estresse térmico</div>
-                <div class="coluna cor7"> mais que 39<br><b>Crítico max° (Superaquecimento Temperatura letal)</b><br>risco
-                    imediato</div>
+                <div class="coluna cor3">32 - 36<br><b>Ideal (Faixa ideal)</b><br>condição segura</div>
+                <div class="coluna cor4">37 - 39<br><b>Alerta (Acima do ideal)</b><br>possível estresse térmico</div>
+                <div class="coluna cor5"> mais que 39<br><b>Crítico (Superaquecimento)</b><br>risco imediato</div>
             </div>
 
 

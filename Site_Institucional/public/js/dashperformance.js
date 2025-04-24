@@ -7,13 +7,13 @@ const labels = [
     'SETOR 06'
 ];
 
-const valores = [0, 10, 24, 36, 55, 80];
+const valores = [0, 90, 24, 36, 55, 80];
 const cores = valores.map(valor => {
-    if (valor < 16) return '#C00000'; // vermelho escuro
-    if (valor < 26) return '#FF0000'; // vermelho
-    if (valor <= 49) return '#FFC000'; // laranja
-    if (valor <= 74) return '#FFFF00'; // amarelo
-    return '#47D359'; // verde
+    if (valor < 16) return '#8b008b'; 
+    if (valor < 26) return '#FF0000';
+    if (valor <= 49) return '#ff8c00'; 
+    if (valor <= 74) return '#FFFF00';
+    return '#47D359'; 
 });
 
 const data = {
@@ -33,18 +33,31 @@ const config = {
     type: 'bar',
     data: data,
     options: {
-        scales: {
-            y: {
-                beginAtZero: true,
-                max: 100,
-                ticks: {
-                    callback: function (value) {
-                        return value + '%';
-                    }
-                }
-            }
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100,
+          ticks: {
+            color: '#FFFFFF',
+            callback: value => value + '%'
+          },
+          grid: {
+            color: 'rgba(255, 255, 255, 0.2)',  // branco com 20% de opacidade
+            borderDash: [5, 5]                   // traço de 5px, espaço de 5px
+          }
         },
-        plugins: {
+        x: {
+          ticks: { color: '#FFFFFF' },
+          grid: {
+            color: 'rgba(255, 255, 255, 0.2)',  // idem no eixo X
+            borderDash: [5, 5]
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: { color: '#FFFFFF' }
+        },
             annotation: {
                 annotations: {
                     linha16: {
@@ -56,19 +69,27 @@ const config = {
                         label: {
                             content: '16%',
                             enabled: true,
-                            color: '#FF0000'
+                            color: '#FF0000',
+                            backgroundColor: '#00000', // fundo transparente
+                            borderColor: '#FF0000',
+                            borderWidth: 1,
+                            
                         }
                     },
                     linha26: {
                         type: 'line',
                         yMin: 26,
                         yMax: 26,
-                        borderColor: '#FFC000',
+                        borderColor: '#ff8c00',
                         borderWidth: 2,
                         label: {
                             content: '26%',
                             enabled: true,
-                            color: '#FFC000'
+                            color: '#ff8c00',
+                            backgroundColor: '#00000',
+                            borderColor: '#ff8c00',
+                            borderWidth: 1,
+                            
                         }
                     },
                     linha50: {
@@ -80,7 +101,11 @@ const config = {
                         label: {
                             content: '50%',
                             enabled: true,
-                            color: '#FFFF00'
+                            color: '#FFFF00',
+                            backgroundColor: '#00000',
+                            borderColor: '#FFFF00',
+                            borderWidth: 1,
+                            
                         }
                     },
                     linha75: {
@@ -92,7 +117,11 @@ const config = {
                         label: {
                             content: '75%',
                             enabled: true,
-                            color: '#47D359'
+                            color: '#47D359',
+                            backgroundColor: '#00000',
+                            borderColor: '#47D359',
+                            borderWidth: 1,
+                            
                         }
                     }
                 }
@@ -106,4 +135,3 @@ const myChart = new Chart(
     document.getElementById('myChart'),
     config
 );
-

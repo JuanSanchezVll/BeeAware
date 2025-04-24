@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="../public/img/favicon.ico" type="image/x-icon">
     <title>BeeAware</title>
     <link rel="stylesheet" href="../public/css/dashperformance.css">
+    <link rel="stylesheet" href="../public/css/geralDash.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0"></script>
 </head>
@@ -37,7 +38,7 @@
             </div>
 
             <div class="btn-logout">
-                <h3>Sair</h3>
+              <h3> <a href="login.html">Sair</a></h3>
             </div>
 
         </div>
@@ -53,12 +54,47 @@
             <div class="KPI5">SETOR 05:<br>55% <br>Moderada</div>
             <div class="KPI6">SETOR 06:<br>80% <br>Ideal</div>
 
-            <div class="botaoSetor1"><a href="../public/dashapiario.html">SETOR 01</a></div>
-            <div class="botaoSetor2">SETOR 02</div>
-            <div class="botaoSetor3">SETOR 03</div>
-            <div class="botaoSetor4">SETOR 04</div>
-            <div class="botaoSetor5">SETOR 05</div>
-            <div class="botaoSetor6">SETOR 06</div>
+            
+            <div class="alert-log" id="alertLog">
+                <span class="alert-line">
+                  <span class="timestamp">Setor 1: Extrema (5%) [24/04/2025 10:00:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Setor 3: Muito Baixa (18%) [24/04/2025 10:02:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Setor 4: Baixa (30%) [24/04/2025 10:04:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Setor 5: Média (50%) [24/04/2025 10:06:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Setor 1: Muito Baixa (16%) [24/04/2025 10:08:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Setor 3: Baixa (30%) [24/04/2025 10:10:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Setor 4: Extrema (5%) [24/04/2025 10:12:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Setor 5: Ideal (80%) [24/04/2025 10:14:00]</span>
+                </span>
+              </div>
+              
+
+            <!-- Botão da setinha que abre/fecha o menu -->
+            <div id="botao-menu">◀</div>
+
+            <!-- Menu lateral oculto por padrão -->
+            <nav id="faixa-menu">
+                <a href="../public/dashapiario.html">SETOR 01</a>
+                <a>SETOR 02</a>
+                <a>SETOR 03</a>
+                <a>SETOR 04</a>
+                <a>SETOR 05</a>
+                <a>SETOR 06</a>
+            </nav>
 
             <div class="tabela-legenda">
                 <div class="coluna cor1">0% - 15%<br><b>Extremamente baixa</b><br>Ação Extremamente urgente</div>
@@ -75,6 +111,7 @@
             </div>
 
         </div>
+        
     </div>
 
 
@@ -84,3 +121,4 @@
 </html>
 
 <script src="../public/js/dashperformance.js"></script>
+<script src="../public/js/menulateral.js"></script>

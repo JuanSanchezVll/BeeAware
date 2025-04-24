@@ -1,183 +1,14 @@
-/*Importando fonte Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-/*Impotando fonte  Montserrat*/
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
-
-body {
-    background-color: rgb(255, 223, 143);
-    margin: 0;
-    padding: 0;
-    font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    display: contents;
-    all: unset;
-}
-
-.Logo {
-    width: 110px;
-}
-
-.header-left {
-    font-family: "Poppins", sans-serif;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    height: 100vh;
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border-right: 3px solid #fa9d05;
-    background-color: black;
-}
-
-.hello {
-    font-family: "Poppins", sans-serif;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.hello h3 {
-    font-family: "Poppins", sans-serif;
-    color: #fa9d05;
-    font-weight: 300;
-    font-size: 1.1rem;
-}
-
-.hello h3 span {
-    font-family: "Poppins", sans-serif;
-    font-weight: 800;
-}
-
-.btn-nav-white {
-    font-family: "Poppins", sans-serif;
-    width: 40%;
-    background-color: #fa9c05e8;
-    border: 3px solid #fa9c05c4;
-    border-radius: 5px;
-    text-align: center;
-    padding: 2% 5%;
-    text-decoration: none;
-    color: black;
-    transition:
-        transform 0.25s ease,
-        background-color 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-.btn-nav-white:hover {
-    background-color: #fa9c05e8;
-    /* cor mais clara */
-    transform: translateY(-4px) scale(1.03);
-    /* "sobe" e aumenta */
-    box-shadow: 0 8px 15px white;
-    /* sombra suave */
-}
-
-.btn-nav-white a {
-    font-family: "Poppins", sans-serif;
-    text-decoration: none;
-    color: black;
-}
-
-.btn-nav-white a:visited,
-.btn-nav-white a:hover,
-.btn-nav-white a:active {
-    text-decoration: none;
-    color: black;
-}
-
-
-.btn-nav {
-    font-family: "Poppins", sans-serif;
-    width: 40%;
-    background-color: #fa9c05e8;
-    border: 3px solid #fa9c05c4;
-    border-radius: 5px;
-    text-align: center;
-    padding: 2% 5%;
-    transition:
-        transform 0.25s ease,
-        background-color 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-.btn-nav:hover {
-    background-color: #fa9c05e8;
-    /* cor mais clara */
-    transform: translateY(-4px) scale(1.03);
-    /* "sobe" e aumenta */
-    box-shadow: 0 8px 15px white;
-    /* sombra suave */
-}
-
-.btn-logout {
-    font-family: "Poppins", sans-serif;
-    width: 40%;
-    background-color: #fa9c05e8;
-    border: 3px solid #fa9c05c4;
-    border-radius: 5px;
-    text-align: center;
-    padding: 2% 5%;
-    margin-bottom: 100px;
-    cursor: pointer;
-    transition:
-        transform 0.25s ease,
-        background-color 0.25s ease,
-        box-shadow 0.25s ease;
-    margin-bottom: 30px;
-}
-
-.btn-logout:hover {
-    background-color: #fa9c05e8;
-    /* cor mais clara */
-    transform: translateY(-4px) scale(1.03);
-    /* "sobe" e aumenta */
-    box-shadow: 0 8px 15px white;
-    /* sombra suave */
-}
-
-
-/* pagina graficos */
-
-.titulo {
-    font-family: "Montserrat", sans-serif;
-    position: absolute;
-    width: 385px;
-    height: 84px;
-    top: 3%;
-    left: 47%;
-    font-size: 27px;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    background: #fa9c05e8;
-    border: 5px solid;
-    font-weight: bold;
-}
-
 /* Graficos */
 
 #myChart {
     font-family: "Poppins", sans-serif;
     display: block !important;
     box-sizing: border-box !important;
-    height: 380px !important;
+    height: 340px !important;
     width: auto !important;
     position: relative;
-    left: 371px;
-    top: 178px;
+    left: 22%;
+    top: 263px;
 }
 
 
@@ -191,7 +22,7 @@ a {
     text-align: center;
     height: auto;
     position: absolute;
-    top: 597px;
+    top: 83%;
     font-size: 13px;
     width: 78%;
     left: 330px;
@@ -213,20 +44,20 @@ a {
 .cor1 {
     font-family: "Poppins", sans-serif;
     font-size: 15px;
-    background-color: #C00000;
+    background-color: #FF0000;
 }
 
 .cor2 {
     font-family: "Poppins", sans-serif;
     font-size: 15px;
-    background-color: #FF0000;
+    background-color: #FFFF00;
     color: black;
 }
 
 .cor3 {
     font-family: "Poppins", sans-serif;
     font-size: 15px;
-    background-color: #FFC000;
+    background-color: #47D359;
     color: black;
 }
 
@@ -240,22 +71,10 @@ a {
 .cor5 {
     font-family: "Poppins", sans-serif;
     font-size: 15px;
-    background-color: #47D359;
-}
-
-.cor6 {
-    font-family: "Poppins", sans-serif;
-    font-size: 15px;
-    background-color: #FFC000;
+    background-color: #FF0000;
     color: black;
 }
 
-.cor7 {
-    font-family: "Poppins", sans-serif;
-    font-size: 15px;
-    background-color: #C00000;
-    color: black;
-}
 
 /* KPI */
 
@@ -263,32 +82,36 @@ a {
     font-family: "Poppins", sans-serif;
     background-color: white;
     position: absolute;
-    width: 408px;
-    height: 54px;
-    left: 72.5%;
-    top: 31%;
+    width: auto;
+    height: auto;
+    left: 30.5%;
+    top: 16%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 6px;
     font-weight: bold;
     border: 2px solid;
+    padding: 1%;
+    text-align: center;
 }
 
 .KPISensor2 {
     font-family: "Poppins", sans-serif;
     background-color: white;
     position: absolute;
-    width: 408px;
-    height: 54px;
-    left: 72.5%;
-    top: 46%;
+    width: auto;
+    height: auto;
+    left: 55%;
+    top: 16%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 6px;
     font-weight: bold;
     border: 2px solid;
+    padding: 1%;
+    text-align: center;
 }
 
 
@@ -297,14 +120,17 @@ a {
     font-family: "Poppins", sans-serif;
     background-color: white;
     position: absolute;
-    width: 408px;
-    height: 54px;
-    left: 72.5%;
-    top: 61.5%;
+    width: auto;
+    height: auto;
+    left: 80%;
+    top: 16%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 6px;
     font-weight: bold;
     border: 2px solid;
+    padding: 1%;
+    text-align: center;
 }
+

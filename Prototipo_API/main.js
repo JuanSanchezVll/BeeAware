@@ -23,7 +23,7 @@ const serial = async (
             host: '127.0.0.1',
             user: 'aluno',
             password: 'Sptech#2024',
-            database: 'beeaware',
+            database: 'BeeAware',
             port: 3307
         }
     ).promise();
