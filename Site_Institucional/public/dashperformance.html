@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../public/img/favicon.ico" type="image/x-icon">
+    <title>BeeAware</title>
+    <link rel="stylesheet" href="../public/css/dashperformance.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0"></script>
+</head>
+
+<body>
+
+    <div class="janela">
+        <div class="header-left">
+            <img src="../public/img/Icone BeeAware (2).png" alt="" class="Logo">
+
+            <div class="hello">
+                <h3>Monitoramento <span id="b_usuario">BeeAware</span>!</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="../public/dashperformance.html">
+                    <h3>Início</h3>
+                </a>
+            </div>
+
+
+            <div class="btn-nav-white">
+                <a href="../public/dashperformance.html">
+                    <h3>Voltar</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
+
+        <div>
+
+            <div class="titulo">Performance dos setores</div>
+
+            <div class="KPI1">SETOR 01:<br>0% <br>Extremamente baixa</div>
+            <div class="KPI2">SETOR 02:<br>10% <br>Extremamente baixa</div>
+            <div class="KPI3">SETOR 03:<br>24% <br>Muito Baixa</div>
+            <div class="KPI4">SETOR 04:<br>36% <br>Baixa</div>
+            <div class="KPI5">SETOR 05:<br>55% <br>Moderada</div>
+            <div class="KPI6">SETOR 06:<br>80% <br>Ideal</div>
+
+            <div class="botaoSetor1"><a href="../public/dashapiario.html">SETOR 01</a></div>
+            <div class="botaoSetor2">SETOR 02</div>
+            <div class="botaoSetor3">SETOR 03</div>
+            <div class="botaoSetor4">SETOR 04</div>
+            <div class="botaoSetor5">SETOR 05</div>
+            <div class="botaoSetor6">SETOR 06</div>
+
+            <div class="tabela-legenda">
+                <div class="coluna cor1">0% - 15%<br><b>Extremamente baixa</b><br>Ação Extremamente urgente</div>
+                <div class="coluna cor2">16% - 25%<br><b>Muito Baixa</b><br>Ação urgente</div>
+                <div class="coluna cor3">26% - 49%<br><b>Baixa</b><br>Ação necessária</div>
+                <div class="coluna cor4">50% - 74%<br><b>Média</b><br>Ação preventiva</div>
+                <div class="coluna cor5">75% - 100%<br><b>Ideal</b><br>Ação não necessária</div>
+            </div>
+
+
+
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
+
+<script src="../public/js/dashperformance.js"></script>

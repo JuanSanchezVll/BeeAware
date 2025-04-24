@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../public/img/favicon.ico" type="image/x-icon">
+    <title>BeeAware</title>
+    <link rel="stylesheet" href="../public/css/dashsensor.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0"></script>
+</head>
+
+<body>
+
+    <div class="janela">
+        <div class="header-left">
+            <img src="../public/img/Icone BeeAware (2).png" alt="" class="Logo">
+
+            <div class="hello">
+                <h3>Monitoramento <span id="b_usuario">BeeAware</span>!</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="../public/dashperformance.html">
+                    <h3>Início</h3>
+                </a>
+            </div>
+
+
+            <div class="btn-nav-white">
+                <a href="../public/dashapiario.html">
+                    <h3>Voltar</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
+
+        <div>
+
+            <div class="titulo">Sensores do apiário</div>
+
+            <div class="KPISensor1">SENSOR 01  |  Temperatura: 14°C | (CRÍTICO 1°)</div>
+            <div class="KPISensor2">SENSOR 02  |  Temperatura: 34°C | (IDEAL)</div>
+            <div class="KPISensor3">SENSOR 03  |  Temperatura: 44°C | (CRÍTICO MAX°)</div>
+
+            <div class="tabela-legenda">
+                <div class="coluna cor1">menor que 0<br><b>Crítico max° (Temperatura Letal)</b><br> apiário comprometido
+                </div>
+                <div class="coluna cor2">0 - 10<br><b>Extremamente Crítico (Temperatura muito baixa)</b><br> risco de
+                    morte</div>
+                <div class="coluna cor3">11 - 20<br><b>Crítico 1° (Abaixo do ideal)</b><br>desenvolvimento comprometido
+                </div>
+                <div class="coluna cor4">21 - 31<br><b>Atenção (Abaixo do ótimo)</b><br>atenção recomendada</div>
+                <div class="coluna cor5">32 - 36<br><b>Ideal (Faixa ideal)</b><br>condição segura</div>
+                <div class="coluna cor6">37 - 39<br><b>Alerta (Acima do ideal)</b><br>possível estresse térmico</div>
+                <div class="coluna cor7"> mais que 39<br><b>Crítico max° (Superaquecimento Temperatura letal)</b><br>risco
+                    imediato</div>
+            </div>
+
+
+
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
+
+<script src="../public/js/dashsensor.js"></script>
