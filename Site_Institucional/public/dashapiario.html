@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../public/img/favicon.ico" type="image/x-icon">
+    <title>BeeAware</title>
+    <link rel="stylesheet" href="../public/css/dashapiario.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0"></script>
+</head>
+
+<body>
+
+    <div class="janela">
+        <div class="header-left">
+            <img src="../public/img/Icone BeeAware (2).png" alt="" class="Logo">
+
+            <div class="hello">
+                <h3>Monitoramento <span id="b_usuario">BeeAware</span>!</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="../public/dashperformance.html">
+                    <h3>Início</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="../public/dashperformance.html">
+                    <h3>Voltar</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout">
+                <h3>Sair</h3>
+            </div>
+
+        </div>
+
+        <div>
+
+            <div class="titulo">Grau Prejuizo nos apiários</div>
+
+            <div class="KPI1">APIÁRIO 01:<br>0 <br>Nenhum</div>
+            <div class="KPI2">APIÁRIO 02:<br>10 <br>Extremo</div>
+            <div class="KPI3">APIÁRIO 03:<br>7 <br>Alto</div>
+            <div class="KPI4">APIÁRIO 04:<br>4 <br>Muito Baixo</div>
+            <div class="KPI5">APIÁRIO 05:<br>6 <br>Moderado</div>
+            <div class="KPI6">APIÁRIO 06:<br>2 <br>Nenhum</div>
+
+            <div class="botaoApiario1">APIÁRIO 01</div>
+            <div class="botaoApiario2"><a href="../public/dashsesor.html">APIÁRIO 02</a></div>
+            <div class="botaoApiario3">APIÁRIO 03</div>
+            <div class="botaoApiario4">APIÁRIO 04</div>
+            <div class="botaoApiario5">APIÁRIO 05</div>
+            <div class="botaoApiario6">APIÁRIO 06</div>
+
+            <div class="tabela-legenda">
+                <div class="coluna cor1">0 - 2<br><b>Nenhum</b><br>Ação não necessária</div>
+                <div class="coluna cor2">3 - 4<br><b>Muito Baixo</b><br>Ação preventiva</div>
+                <div class="coluna cor3">5 - 6<br><b>Moderado</b><br>Ação necessária</div>
+                <div class="coluna cor4">7 - 8<br><b>Alto</b><br>Ação urgente</div>
+                <div class="coluna cor5">9 - 10<br><b>Extremo</b><br>Ação Extremamente urgente</div>
+            </div>
+
+
+
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
+
+<script src="../public/js/dashapiario.js"></script>
