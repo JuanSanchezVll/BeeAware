@@ -26,7 +26,7 @@ function cadastrar(){
     if (senhaVar.length < 6) {
       alert('A senha deve ter pelo menos 6 numeros!')
 
-    }
+    }else{
     if (( email_com && ( email_arroba > -1 ) && senhaVar == confirmacaoSenhaVar) && (cnpjVar.length == 15)) {
       alert('Cadastro Efetuado com sucesso!!')
 
@@ -35,7 +35,7 @@ function cadastrar(){
     }else {
         alert(`Email inválido`)
     }
-   
+  }
   }
    
 
