@@ -28,7 +28,7 @@
     </div>
     <div class="bt_header">
       <div><a href="cadastro.html"><button class="bt_Cad">Cadastre-se</button></a></div>
-      <div> <a href="Login_index.html"><button class="bt_Log">Login</button></a></div>
+      <div> <a href="login.html"><button class="bt_Log">Login</button></a></div>
     </div>
   </header>
   <div class="div_geral_simulador">
@@ -36,11 +36,36 @@
     <div class="div_tabelas_simulador">
       <div class="tabela_simulador">
         <div class="div_logo_simulador"><img src="img/logo_branca.png" style="height: 50%; width: auto;"></div>
-        <div class="div_pergunta_simulador" style="color: black;">PERGUNTAS</div>
+        <div class="div_pergunta_simulador" style="color: black;">
+
+          <span class="txt">
+              Insira a temperatura média da colmeia (°C):
+          </span>
+          <input class="ipt" type="number" id="input_temp">
+
+          <br><br>
+  
+          <span class="txt">
+              Insira a produção mensal da colmeia (Kg):
+          </span>
+          <input class="ipt" type="number" id="input_kg">
+
+          <br><br>
+  
+          <span class="txt">
+              Insira o preço da produção (R$):
+          </span>
+          <input class="ipt" type="number" id="input_preco">
+  
+          <button onclick="analisar()">Analisar cenários</button>
+  
+      </div>
       </div>
       <div class="tabela_simulador">
         <div style="font-size: 300%; color: #E98800; margin-top: 5%">Resultado</div>
-        <div class="div_resposta" style="margin-top: 10%;"></div>
+        <div class="div_resposta" style="margin-top: 10%;">
+          <div id="div_mensg" class="div_msg"></div>
+        </div>
       </div>
     </div>
   </div>
