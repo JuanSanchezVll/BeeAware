@@ -14,6 +14,7 @@ function login(){
     // validação campos corretos
     if(email_login == email && senha_login == senha) {
         alert("Login efetuado");
+        window.location.href="dashperformance.html"
         
     } else {
         alert("Email e/ou senha incorretos.");

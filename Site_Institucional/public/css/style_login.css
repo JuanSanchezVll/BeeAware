@@ -137,8 +137,19 @@ p {
 
 /* Link para login de usuario */
 .login-user a {
-    color: #5b5bff;
     text-decoration: none;
+    color: inherit;
+    display: contents;
+    all: unset;
+    transition: 0.5s;    
+}
+
+.form-login a{
+    color: white;
+    transition: 0.3s;
+}
+.form-login a:hover{
+    color: blue;
 }
 
 

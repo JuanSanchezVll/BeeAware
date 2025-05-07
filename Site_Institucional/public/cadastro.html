@@ -18,25 +18,25 @@
       </div>
       <div class="bt_header">
         <div><a href="cadastro.html"><button class="bt_Cad">Cadastre-se</button></a></div>
-        <div> <a href="Login_index.html"><button class="bt_Log">Login</button></a></div>
+        <div> <a href="login.html"><button class="bt_Log">Login</button></a></div>
       </div>
     </header>
 
     
-
+<div class="div_cadastro_geral">
     <div id="div_card"> 
         <div id="div_texto">
             <h1>EQUILÍBRIO IDEAL, PARA COLMEIAS QUE PROSPERAM.</h1>
                 <br>
                 <h4>Com o BeeAware, você acompanha em tempo real as condições da sua colmeia e recebe alertas quando há risco para suas abelhas.</h4>
         </div>
+    </div>   
 
-        <div id="div_imagem"></div>
         
         <div id="div_cadastro">
 
+            <img src="img/logo_branca.png" style="width: 40%; height: auto;">
             <div id="div_titulo">
-                <img src="img/LogoHeader.png" alt="">
                 <h3>Cadastro Empresas</h3>
             </div>
 
@@ -69,55 +69,14 @@
             <div id="div_alerta"> <span></span> </div>
             <div id="div_botao">
                <button onclick="cadastrar()">Criar Conta Para Empresas</button>
-               <span> Já possui conta? <a href="">Fazer login</a></span>
+               <span> Já possui conta? <a href="login.html">Fazer login</a></span>
             </div>
         </div>
-    </div>   
+
+</div>
+
 </body>
 </html>
 
-<script>
+<script src="../public/js/cadastro.js"></script>
 
- function cadastrar(){
-    var nomeVar = input_nome.value;
-    var emailVar = input_email.value;
-    var senhaVar = input_senha.value;
-    var confirmacaoSenhaVar = input_conf.value;
-    var cnpjVar = input_cnpj.value;
-
-    var email_com = emailVar.endsWith(".com")
-    var email_arroba = emailVar.indexOf("@") 
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      cnpjVar == ""
-    ){
-      alert('Preencha todos os campos para continuar');
-
-     
-    }
-   
-    if (senhaVar != confirmacaoSenhaVar) {
-      alert('As senhas não são iguais')
-
-    }
-    if (senhaVar.length < 6) {
-      alert('A senha deve ter pelo menos 6 numeros!')
-
-    }
-    if (( email_com && ( email_arroba > -1 ) && senhaVar == confirmacaoSenhaVar) && (cnpjVar.length == 15)) {
-      alert('Cadastro Efetuado com sucesso!!')
-
-    } else if(cnpjVar.length != 15){
-        alert(`CNPJ inválido`)
-    }else {
-        alert(`Email inválido`)
-    }
-   
-  }
-   
-
-
-</script>

@@ -1,0 +1,283 @@
+/*Importando fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*Impotando fonte  Montserrat*/
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+body {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: contents;
+  all: unset;
+}
+
+/* Titulo */
+.titulo {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  width: 560px;
+  height: 84px;
+  top: 3%;
+  left: 43%;
+  font-size: 38px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #fa9c05e8;
+  font-weight: bold;
+}
+
+.Logo {
+  width: 110px;
+}
+
+.header-left {
+  font-family: "Poppins", sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100vh;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-right: 3px solid white;
+  background-color: #fa9d05;
+}
+
+.hello {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hello h3 {
+  font-family: "Poppins", sans-serif;
+  color: black;
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+.hello h3 span {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+}
+
+.btn-nav-white {
+  font-family: "Poppins", sans-serif;
+  width: 40%;
+  background-color: black;
+  border: 3px solid #fa9c05c4;
+  border-radius: 5px;
+  text-align: center;
+  padding: 2% 5%;
+  text-decoration: none;
+  color: white;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn-nav-white:hover {
+  background-color: black;
+  /* cor mais clara */
+  transform: translateY(-4px) scale(1.03);
+  /* "sobe" e aumenta */
+  box-shadow: 0 8px 15px black;
+  /* sombra suave */
+}
+
+.btn-nav-white a {
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-nav-white a:visited,
+.btn-nav-white a:hover,
+.btn-nav-white a:active {
+  text-decoration: none;
+  color: white;
+}
+
+
+.btn-nav {
+  font-family: "Poppins", sans-serif;
+  width: 40%;
+  background-color: black;
+  color: white;
+  border: 3px solid #fa9c05c4;
+  border-radius: 5px;
+  text-align: center;
+  padding: 2% 5%;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn-nav:hover {
+  background-color: black;
+  /* cor mais clara */
+  transform: translateY(-4px) scale(1.03);
+  /* "sobe" e aumenta */
+  box-shadow: 0 8px 15px black;
+  /* sombra suave */
+}
+
+.btn-logout {
+  font-family: "Poppins", sans-serif;
+  width: 40%;
+  background-color: black;
+  color: white;
+  border: 3px solid #fa9c05c4;
+  border-radius: 5px;
+  text-align: center;
+  padding: 2% 5%;
+  margin-bottom: 100px;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+  margin-bottom: 30px;
+}
+
+.btn-logout:hover {
+  background-color: black;
+  /* cor mais clara */
+  transform: translateY(-4px) scale(1.03);
+  /* "sobe" e aumenta */
+  box-shadow: 0 8px 15px black;
+  /* sombra suave */
+}
+
+
+
+/* Container da setinha */
+
+/* BOTÕES DE DASH */
+#botao-menu {
+  position: fixed;
+  top: 50%;  
+  right: 0;
+  transform: translateY(-50%);
+  background-color: #fa9d05;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+#botao-menu:hover {
+  background-color: #e88c04;
+}
+
+#botao-menu.open {
+  background-color: black;
+}
+
+/* Menu lateral */
+#faixa-menu {
+  position: fixed;
+  top: 0;
+  right: -200px;        /* escondido para fora da tela */
+  width: 200px;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;    /* espaço para não bater no botão */
+  transition: right 0.3s;
+  z-index: 999;
+  border-left: 3px solid #fa9d05;
+}
+
+/* Links dentro do menu */
+#faixa-menu a {
+  text-decoration: none;
+  background-color: #e88c04;
+  color: white;
+  padding: 15px;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.2s;
+  border: 1px solid black;
+}
+#faixa-menu a:hover {
+  background-color: #444;
+  transform: scale(1.05);
+}
+
+/* Classe que mostra o menu */
+#faixa-menu.open {
+  right: 0;
+}
+
+
+.alert-log {
+  font-family: "Poppins", sans-serif;
+  width: 29%;
+  height: 40%;
+  background: #333;
+  color: #ffffff;
+
+  /* Alterações: */
+  white-space: normal;     /* quebra de linha automática, sem espaços extras */
+  line-height: 1.2;        /* reduz altura de cada linha */
+
+  overflow-y: auto;
+  border: 2px solid #fa9c05;
+  border-radius: 4px;
+  position: absolute;
+  top: 38%;
+  left: 68%;
+  font-size: 110%;
+  text-align: center;
+}
+
+.alert-log .alert-line {
+  display: block;
+  padding: 4% 0;          /* menos espaçamento vertical */
+  border-bottom: 1px solid #fa9c05; /* linha mais fina */
+}
+
+.alert-log .timestamp {
+  color: white;
+}
+
+.alert-log .message {
+  margin-left: 0.25rem;   /* recuo horizontal reduzido, opcional */
+}
+.div_sair_dash{
+  font-family: "Poppins", sans-serif;
+  width: 40%;
+  background-color: black;
+  color: white;
+  border: 3px solid #fa9c05c4;
+  border-radius: 5px;
+  text-align: center;
+  padding: 2% 5%;
+  margin-bottom: 100px;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+  margin-bottom: 30px;
+}

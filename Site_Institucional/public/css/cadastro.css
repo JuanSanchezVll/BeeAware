@@ -12,8 +12,15 @@ body{
 }
 
 #div_card {
+    width: 70%;
+    height: 100vh;
+    background-image:url(../img/abelha_cad.jpg) ;
+    background-repeat: no-repeat;
+    background-size: contain;  
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
 }
 #div_formulario{
     display: flex ;
@@ -30,15 +37,7 @@ body{
     padding-bottom: 2px;
     color: white;
 }
-#div_imagem{
-    width: 80%;
-    height: 1000vh;
-    background-image: url(../img/abelha2.png) ;
-    background-repeat: no-repeat;
-    background-size: contain;   
-    
-    z-index: -1;
-}   
+   
 
 #div_texto h1{
     font-size: 40px;
@@ -57,22 +56,28 @@ body{
 }
 
 #div_texto{
-    margin-top: 10%;
-    position: absolute;
-    height: fit-content;
-    width: 520px;
-    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    width: 40%;
     color: white;
-    background:  rgb(211, 123, 0, 0.7);
+    background: rgb(211, 123, 0, 0.7);
     padding: 10px;
     border-radius: 20px;
 
 }
 
 #div_cadastro {
+    width: 30%;
    padding-left: 20px;
    padding-right: 25px;
    background-color: black;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
 } 
 
 
@@ -102,6 +107,9 @@ body{
     margin: 0px;
     margin-bottom: 15px;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #div_titulo img{
@@ -166,4 +174,8 @@ body{
     text-align: center;
     font-size: 10px;
     color: #E98800;
+}
+.div_cadastro_geral{
+display: flex;
+flex-direction: row;
 }

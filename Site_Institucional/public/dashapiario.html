@@ -9,6 +9,7 @@
     <link rel="shortcut icon" href="../public/img/favicon.ico" type="image/x-icon">
     <title>BeeAware</title>
     <link rel="stylesheet" href="../public/css/dashapiario.css">
+    <link rel="stylesheet" href="../public/css/geralDash.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.1.0"></script>
 </head>
@@ -36,28 +37,61 @@
             </div>
 
             <div class="btn-logout">
-                <h3>Sair</h3>
+                <h3> <a href="login.html">Sair</a></h3>
             </div>
 
         </div>
 
         <div>
 
-            <div class="titulo">Grau Prejuizo nos apiários</div>
+            <div class="titulo">Grau de risco nos apiários</div>
 
             <div class="KPI1">APIÁRIO 01:<br>0 <br>Nenhum</div>
             <div class="KPI2">APIÁRIO 02:<br>10 <br>Extremo</div>
             <div class="KPI3">APIÁRIO 03:<br>7 <br>Alto</div>
             <div class="KPI4">APIÁRIO 04:<br>4 <br>Muito Baixo</div>
-            <div class="KPI5">APIÁRIO 05:<br>6 <br>Moderado</div>
-            <div class="KPI6">APIÁRIO 06:<br>2 <br>Nenhum</div>
 
-            <div class="botaoApiario1">APIÁRIO 01</div>
-            <div class="botaoApiario2"><a href="../public/dashsesor.html">APIÁRIO 02</a></div>
-            <div class="botaoApiario3">APIÁRIO 03</div>
-            <div class="botaoApiario4">APIÁRIO 04</div>
-            <div class="botaoApiario5">APIÁRIO 05</div>
-            <div class="botaoApiario6">APIÁRIO 06</div>
+            <div class="alert-log" id="alertLog">
+                <span class="alert-line">
+                  <span class="timestamp">Apiário 3: Alto (7) [24/04/2025 08:25:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Apiário 4: Muito Baixo (3) [24/04/2025 08:40:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Apiário 2: Moderado (4) [24/04/2025 08:05:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Apiário 3: Crítico (9) [24/04/2025 08:30:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Apiário 2: Alto (7) [24/04/2025 08:10:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Apiário 4: Baixo (5) [24/04/2025 08:45:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Apiário 2: Crítico (9) [24/04/2025 08:15:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Apiário 3: Extremo (10) [24/04/2025 08:35:00]</span>
+                </span>
+                <span class="alert-line">
+                  <span class="timestamp">Apiário 2: Extremo (10) [24/04/2025 08:20:00]</span>
+                </span>
+              </div>
+              
+
+            <!-- Botão da setinha que abre/fecha o menu -->
+            <div id="botao-menu">◀</div>
+
+            <!-- Menu lateral oculto por padrão -->
+            <nav id="faixa-menu">
+                <a>APIÁRIO 01</a>
+                <a href="../public/dashsesor.html">APIÁRIO 02</a>
+                <a>APIÁRIO 03</a>
+                <a>APIÁRIO 04</a>
+            </nav>
 
             <div class="tabela-legenda">
                 <div class="coluna cor1">0 - 2<br><b>Nenhum</b><br>Ação não necessária</div>
@@ -76,10 +110,9 @@
         </div>
     </div>
 
-
-
 </body>
 
 </html>
 
 <script src="../public/js/dashapiario.js"></script>
+<script src="../public/js/menulateral.js"></script>

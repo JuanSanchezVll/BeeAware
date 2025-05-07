@@ -5,16 +5,15 @@ const labels = [
 ];
 
 // Valores de temperatura
-const valores = [14, 34, 42];
+const valores = [24, 34, 42];
 
+// mapeamento de cores segundo as suas faixas
 const cores = valores.map(valor => {
-    if (valor < 0) return '#C00000';      
-    if (valor < 11) return '#FF0000';     
-    if (valor < 21) return '#FFC000';     
-    if (valor < 32) return '#FFFF00';     
-    if (valor < 37) return '#47D359';     
-    if (valor < 40) return '#FFC000';     
-    return '#C00000';                     
+    if (valor <= 19) return '#FF0000';
+    if (valor >= 20 && valor < 32) return '#FFFF00';
+    if (valor >= 32 && valor < 37) return '#47D359';
+    if (valor >= 37 && valor <= 40) return '#FFFF00';
+    return '#FF0000';
 });
 
 const data = {
@@ -40,38 +39,48 @@ const config = {
                 max: 45,
                 ticks: {
                     stepSize: 5,
-                    callback: function (value) {
-                        return value + '°C';
-                    }
+                    color: '#FFFFFF',
+                    callback: value => value + '°C'
+                },
+                grid: {
+                    color: 'rgba(255, 255, 255, 0.2)',  // idem no eixo X
+                    borderDash: [5, 5]
+                }
+            },
+            x: {
+                ticks: { color: '#FFFFFF' },
+                grid: {
+                    color: 'rgba(255, 255, 255, 0.2)',  // idem no eixo X
+                    borderDash: [5, 5]
                 }
             }
         },
         plugins: {
+            legend: {
+                labels: { color: '#FFFFFF' }
+            },
             annotation: {
                 annotations: {
-                    linha11: {
+                    linha0: {
                         type: 'line',
-                        yMin: 11,
-                        yMax: 11,
-                        borderColor: '#FFC000',
-                        borderWidth: 2,
-                        label: {
-                            content: '11°C',
-                            enabled: true,
-                            color: '#FFC000',
-                            position: 'end'
-                        }
+                        yMin: 0,
+                        yMax: 0,
+                        borderColor: '#FF0000',
+                        borderWidth: 2
                     },
-                    linha21: {
+                    linha20: {
                         type: 'line',
-                        yMin: 21,
-                        yMax: 21,
+                        yMin: 20,
+                        yMax: 20,
                         borderColor: '#FFFF00',
                         borderWidth: 2,
                         label: {
-                            content: '21°C',
+                            content: '20°C',
                             enabled: true,
                             color: '#FFFF00',
+                            backgroundColor: '#000000',
+                            borderColor: '#FFFF00',
+                            borderWidth: 1,
                             position: 'end'
                         }
                     },
@@ -85,6 +94,9 @@ const config = {
                             content: '32°C',
                             enabled: true,
                             color: '#47D359',
+                            backgroundColor: '#000000',
+                            borderColor: '#47D359',
+                            borderWidth: 1,
                             position: 'end'
                         }
                     },
@@ -92,12 +104,15 @@ const config = {
                         type: 'line',
                         yMin: 37,
                         yMax: 37,
-                        borderColor: '#FFC000',
+                        borderColor: '#FFFF00',
                         borderWidth: 2,
                         label: {
                             content: '37°C',
                             enabled: true,
-                            color: '#FFC000',
+                            color: '#FFFF00',
+                            backgroundColor: '#000000',
+                            borderColor: '#FFFF00',
+                            borderWidth: 1,
                             position: 'end'
                         }
                     },
@@ -105,12 +120,15 @@ const config = {
                         type: 'line',
                         yMin: 40,
                         yMax: 40,
-                        borderColor: '#C00000',
+                        borderColor: '#FF0000',
                         borderWidth: 2,
                         label: {
                             content: '40°C',
                             enabled: true,
-                            color: '#C00000',
+                            color: '#FF0000',
+                            backgroundColor: '#000000',
+                            borderColor: '#FF0000',
+                            borderWidth: 1,
                             position: 'end'
                         }
                     }
@@ -125,3 +143,7 @@ const myChart = new Chart(
     document.getElementById('myChart'),
     config
 );
+
+
+
+

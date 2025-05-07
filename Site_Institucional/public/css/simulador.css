@@ -58,6 +58,7 @@ color: white;
     margin-top: 5%;
 }
 .div_pergunta_simulador{
+    padding: 2%;
     overflow: auto;
     margin-top: -10%;
     width: 90%;
@@ -65,9 +66,14 @@ color: white;
     background-color: white;
     border: #E98800 solid 5px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: center;
 }
 
 .div_resposta{
+    padding: 1%;
     overflow: auto;
     margin-top: -10%;
     width: 90%;
@@ -75,4 +81,89 @@ color: white;
     background-color: white;
     border: #E98800 solid 5px;
     border-radius: 10px;
+    
+}
+.div_msg{
+    color: black;
+    width: 100%;
+    height: 100%;
+}
+.txt{
+    font-size: 150%;
+}
+.ipt{
+    align-items: center;
+    width: 90%;
+    height: 5%;
+    font-size: 130%;
+}
+.bt_analisar{
+    width: 40%;
+    height: 10%;
+    background-color: #E98800;
+    color: white;
+    border-radius: 15px;
+    border: black 2px solid;
+    transition: 0.3s;
+}
+.bt_analisar:hover{
+    transform: scale(1.1);
+}
+.div_pt1_respostas{
+    height: 50%;
+}
+.div_pt2_respostas{
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+}
+.div_dentro_pt2_respostas{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.preju_simulador{
+    border: 2px solid #E54F52; 
+    background-color:rgba(255, 0, 0, 0.30);;
+    border-radius: 10px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}.ideal_simulador{
+    border: 2px solid #28a745; /* verde */
+    background-color: #e9fbe5;
+    color: #1a3c1a;
+    border-radius: 10px;
+    height: 80%;
+}
+.positivo{
+    font-size: 150%;
+    color: green;
+}
+.preju{
+    font-size: 150%;
+    color: red;
+}
+.alerta_40{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 250%;
+    color: red;
+    font-weight: 700;
+}
+.img_alerta{
+    width: 70%;
+    height: auto;
+}
+.txt_fild{
+    font-size: 150%;
 }
