@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+}
+
+.div_fundo {
+    background-color: #FFFB00;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.div_caixa_cadastro {
+    height: 85%;
+    width: 50%;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_caixa_cadastro div {
+    padding: 1.3%;
+}
+
+.div_titulo {
+    color: white;
+    font-size: 6vh;
+}
+
+.div_input input{
+    width: 40vh;
+    height: 3vh;
+    border-radius: 5px;
+}
+
+.div_botao_cadastro button {
+    width: 40vh;
+    height: 5vh;
+    background-color: #FFFB00;
+    border-color: white;
+    border-radius: 8px;
+    color: black;
+    box-shadow: none;
+}
+
+.div_botao button {
+    width: 35vh;
+    height: 5vh;
+    background-color: transparent;
+    border-color: white;
+    border-radius: 15px;
+    color: white;
+    box-shadow: none;
+}
