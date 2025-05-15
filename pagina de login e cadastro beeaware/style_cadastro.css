@@ -3,24 +3,27 @@ body {
 }
 
 .div_fundo {
-    background-color: #FFFB00;
+    background-image: url(imagens/OIP.jpg);
     height: 100vh;
     display: flex;
     align-items: center;
 }
 
 .div_caixa_cadastro {
-    height: 85%;
-    width: 50%;
-    background-color: blue;
+    height: 75%;
+    width: 35%;
+    background-color: rgba(217, 217, 217, 0.8);
+;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-left: 3%;
 }
 
 .div_caixa_cadastro div {
-    padding: 1.3%;
+    padding: 1%;
 }
 
 .div_titulo {
