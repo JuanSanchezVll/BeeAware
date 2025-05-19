@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.div_fundo {
+    background-image: url(imagens/abelha.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.div_caixa {
+    height: 75%;
+    width: 35%;
+    background-color: rgba(217, 217, 217, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3%;
+    border-radius: 12px;
+}
+
+.div_caixa div {
+    padding: 1.5;
+}
+
+.div_titulo {
+    color: white;
+    font-size: 5vh;
+    margin-bottom: 5%;
+}
+
+.div_input input {
+    width: 40vh;
+    height: 4vh;
+    border-radius: 5px;
+}
+
+.div_input i {
+    position: relative;
+    left: 8%;
+}
+
+.div_botao_cadastro button {
+    width: 45vh;
+    height: 5vh;
+    background-color: #FFFB00;
+    border-color: white;
+    border-radius: 4px;
+    color: black;
+    box-shadow: none;
+    margin-top: 5%;
+}
+
+.div_botao button {
+    width: 35vh;
+    height: 5vh;
+    background-color: transparent;
+    border-color: white;
+    border-radius: 4px;
+    color: white;
+    box-shadow: none;
+}
+
+/*-------------------------------------------------------------------------- Página de login ---------------------------------------------------------------------------*/
+
+.div_fundo_login {
+    background-image: url(imagens/apicultor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.div_input input {
+    width: 40vh;
+    height: 4vh;
+    border-radius: 5px;
+    padding-left: 35px;
+}
+
+.div_botao_login button {
+    width: 45vh;
+    height: 5vh;
+    background-color: #FFFB00;
+    border-color: white;
+    border-radius: 4px;
+    color: black;
+    box-shadow: none;
+    margin-top: 5%;
+    margin-left: 3%;
+}
+
+.div_bem_vindos {
+    color: white;
+    margin-bottom: 15%;
+}
