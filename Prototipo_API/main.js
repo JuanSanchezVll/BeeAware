@@ -53,10 +53,14 @@ const serial = async (
         console.log(data);
         const valores = data.split(';');
         // const sensorDigital = parseInt(valores[0]);
-        const sensorAnalogico = parseFloat(valores[0]);
+        const sensorAnalogico1 = parseFloat(valores[0]);
+        const sensorAnalogico2 = parseFloat(valores[1]);
+        const sensorAnalogico3 = parseFloat(valores[2]);
 
         // armazena os valores dos sensores nos arrays correspondentes
-        ValoresSensorTemperatura.push(sensorAnalogico);
+        ValoresSensorTemperatura.push(sensorAnalogico1);
+        ValoresSensorTemperatura.push(sensorAnalogico2);
+        ValoresSensorTemperatura.push(sensorAnalogico3);
         // valoresSensorDigital.push(sensorDigital);
 
         // insere os dados no banco de dados (se habilitado)
@@ -65,9 +69,21 @@ const serial = async (
             // este insert irá inserir os dados na tabela "medida"
             await poolBancoDados.execute(
                 'INSERT INTO leitura (temperatura, dtLeitura, fkSensor) VALUES (?, current_time(), 1)',
-                [sensorAnalogico]
+                [sensorAnalogico1]
             );
-            console.log("valores inseridos no banco: ", sensorAnalogico);
+            console.log("valores inseridos no banco: ", sensorAnalogico1);
+            
+            await poolBancoDados.execute(
+                'INSERT INTO leitura (temperatura, dtLeitura, fkSensor) VALUES (?, current_time(), 2)',
+                [sensorAnalogico2]
+            );
+            console.log("valores inseridos no banco: ", sensorAnalogico2);
+
+            await poolBancoDados.execute(
+                'INSERT INTO leitura (temperatura, dtLeitura, fkSensor) VALUES (?, current_time(), 3)',
+                [sensorAnalogico3]
+            );
+            console.log("valores inseridos no banco: ", sensorAnalogico3);
 
         }
 
@@ -111,7 +127,7 @@ const servidor = (
 (async () => {
     // arrays para armazenar os valores dos sensores
     const ValoresSensorTemperatura = [];
-    const valoresSensorDigital = [];
+    // const valoresSensorDigital = [];
 
     // inicia a comunicação serial
     await serial(

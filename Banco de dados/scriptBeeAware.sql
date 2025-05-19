@@ -1,38 +1,20 @@
 CREATE DATABASE BeeAware;
 USE BeeAware;
 
+
+
 /*-------------------------------------------------------------------------------------------- Criação da tabela empresa --------------------------------------------------------------------------------------------------------------- */
 CREATE TABLE empresa (
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
-    razaoSocial VARCHAR(255),
-    fantasia VARCHAR(255),
-    cnpj VARCHAR(18),
+    nome varchar(45) not null,
+    cnpj VARCHAR(18) not null,
     telefone VARCHAR(14),
-    email VARCHAR(80),
-    cep CHAR(9),
-    numero INT,
-    complemento VARCHAR(255),
-    statusAtividade TINYINT
+    email VARCHAR(80) not null,
+    cep CHAR(9) not null,
+    numero INT not null,
+    complemento VARCHAR(255) not null
 );
 DESCRIBE empresa;
-
-INSERT INTO empresa (razaoSocial, fantasia, cnpj, telefone, email, cep, numero, complemento, statusAtividade) VALUES
-('ApisTech Soluções Apícolas LTDA', 'ApisTech', '12.345.678/0001-01', '(11)91234-5678', 'contato@apistech.com.br', '12345-678', 101, 'Sala 3', 1),
-('Mel & Cia Tecnologia Apícola', 'Mel&Cia', '23.456.789/0001-02', '(11)93456-7890', 'suporte@melecia.com', '23456-789', 250, '', 1),
-('BioBee Sistemas Inteligentes', 'BioBee', '34.567.890/0001-03', '(11)95678-9012', 'info@biobee.io', '34567-890', 30, 'Bloco A', 1),
-('Colmeia Conectada S.A.', 'ColmeiaNet', '45.678.901/0001-04', '(11)97890-1234', 'contato@colmeianet.com', '45678-901', 500, 'Andar 2', 1),
-('BeeGuard Segurança Apícola', 'BeeGuard', '56.789.012/0001-05', '(11)99012-3456', 'faleconosco@beeguard.com', '56789-012', 75, '', 1),
-('Doce Dados Apícolas ME', 'DoceDados', '67.890.123/0001-06', '(11)90123-4567', 'contato@docedados.com.br', '67890-123', 10, 'Casa 1', 1),
-('Harmonia da Colmeia Ltda', 'HarmoniaColmeia', '78.901.234/0001-07', '(11)91234-6789', 'suporte@harmoniacolmeia.com', '78901-234', 300, 'Fundos', 0),
-('Buzz Inteligência Apícola', 'BuzzIA', '89.012.345/0001-08', '(11)92345-7890', 'contato@buzzia.com', '89012-345', 42, '', 1),
-('NectarTech Soluções em Mel', 'NectarTech', '90.123.456/0001-09', '(11)93456-8901', 'vendas@nectartech.com', '90123-456', 88, 'Sala 1B', 1),
-('BeeLink Conexões Naturais', 'BeeLink', '01.234.567/0001-10', '(11)94567-9012', 'contato@beelink.com', '01234-567', 60, '', 1),
-('Hexágono Verde Tecnologia', 'HexVerde', '11.223.344/0001-11', '(11)95678-0123', 'info@hexverde.com', '11223-344', 404, 'Galpão', 0),
-('Flor do Campo Digital', 'FlorCampo', '22.334.455/0001-12', '(11)96789-1234', 'atendimento@florcampo.com', '22334-455', 12, 'Loja 2', 1),
-('Zangão Monitoramento Apícola', 'ZangãoMonitora', '33.445.566/0001-13', '(11)97890-2345', 'contato@zangaomonitora.com', '33445-566', 19, '', 1),
-('Pólen e Bytes S.A.', 'PólenBytes', '44.556.677/0001-14', '(11)98901-3456', 'bytes@poleneb.com.br', '44556-677', 78, '3º andar', 1),
-('EcoMel Sustentabilidade LTDA', 'EcoMel', '55.667.788/0001-15', '(11)99012-4567', 'eco@melverde.com', '55667-788', 23, 'Térreo', 1);
-
 SELECT * FROM empresa;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela usuário --------------------------------------------------------------------------------------------------------------- */
@@ -51,23 +33,6 @@ CREATE TABLE usuario (
 
 DESCRIBE usuario;
 
-INSERT INTO usuario (nome, senha, cpf, email, cargo, fkEmpresa) VALUES
-('Lucas Almeida', 'J8@vN5l#zR', '103.472.918-54', 'lucasalmeida@gmail.com', 'gestor', 1),
-('Marina Costa', 'M#92qvL!xp', '294.381.657-22', 'marinacosta@hotmail.com', 'técnico', 2),
-('Rafael Souza', 'R@f33l!Xyz', '398.264.105-77', 'rafaelsouza@outlook.com', 'técnico', 3),
-('Beatriz Lima', 'Bz!1rT7*kA', '458.193.746-81', 'bealima@gmail.com', 'gestor', 4),
-('João Pereira', 'Jo@P9v!d1', '527.804.613-65', 'joaop@hotmail.com', 'técnico', 5),
-('Ana Carolina', 'AnaC!74#xR', '612.307.589-10', 'anacarol@gmail.com', 'gestor', 6),
-('Thiago Martins', 'Tm@98!vQz', '783.912.460-09', 'thiagom@outlook.com', 'técnico', 7),
-('Fernanda Rocha', 'Fe#Rox!202', '843.206.719-30', 'ferrocha@hotmail.com', 'gestor', 8),
-('Carlos Henrique', 'Ch!98@qWe', '910.234.688-77', 'carloshenrique@gmail.com', 'técnico', 9),
-('Juliana Torres', 'JtR#2!lZx', '021.498.375-42', 'julianatorres@outlook.com', 'gestor', 10),
-('Pedro Antunes', 'Pa!xT902#', '134.672.981-05', 'pedro.antunes@hotmail.com', 'técnico', 11),
-('Larissa Nogueira', 'Ln*2024@w!', '278.913.604-88', 'larissanogueira@gmail.com', 'técnico', 12),
-('Bruno Fernandes', 'Bf#xT3!89', '369.580.412-37', 'brunofernandes@outlook.com', 'gestor', 13),
-('Natália Ribeiro', 'Nr@!21KZx', '412.793.065-70', 'nataliaribeiro@hotmail.com', 'técnico', 14),
-('Igor Monteiro', 'Ig!Mo@89#', '557.402.189-94', 'igormonteiro@gmail.com', 'gestor', 15);
-
 SELECT * FROM usuario;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela setor --------------------------------------------------------------------------------------------------------------- */
@@ -82,105 +47,19 @@ CREATE TABLE setor (
 
 DESCRIBE setor;
 
-INSERT INTO setor (setor, fkEmpresa)
-VALUES
--- Empresa 1 (3 setores)
-('Setor 1', 1),
-('Setor 2', 1),
-('Setor 3', 1),
-
--- Empresa 2 (2 setores)
-('Setor 1', 2),
-('Setor 2', 2),
-
--- Empresa 3 (1 setor)
-('Setor 1', 3),
-
--- Empresa 4 (3 setores)
-('Setor 1', 4),
-('Setor 2', 4),
-('Setor 3', 4),
-
--- Empresa 5 (2 setores)
-('Setor 1', 5),
-('Setor 2', 5),
-
--- Empresa 6 (1 setor)
-('Setor 1', 6),
-
--- Empresa 7 (2 setores)
-('Setor 1', 7),
-('Setor 2', 7),
-
--- Empresa 8 (1 setor)
-('Setor 1', 8),
-
--- Empresa 9 (3 setores)
-('Setor 1', 9),
-('Setor 2', 9),
-('Setor 3', 9),
-
--- Empresa 10 (1 setor)
-('Setor 1', 10),
-
--- Empresa 11 (2 setores)
-('Setor 1', 11),
-('Setor 2', 11),
-
--- Empresa 12 (1 setor)
-('Setor 1', 12),
-
--- Empresa 13 (1 setor)
-('Setor 1', 13),
-
--- Empresa 14 (1 setor)
-('Setor 1', 14),
-
--- Empresa 15 (1 setor)
-('Setor 1', 15);
-
 SELECT * FROM setor;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela apiario --------------------------------------------------------------------------------------------------------------- */
 
 CREATE TABLE apiario (
     idApiario INT PRIMARY KEY AUTO_INCREMENT,
-    identificador VARCHAR(45),
+    identificador_colonia VARCHAR(45),
     fkSetor INT,
     CONSTRAINT fkSetorSensor FOREIGN KEY (fkSetor)
         REFERENCES setor (idSetor)
 );
 
 DESCRIBE apiario;
-
-INSERT INTO apiario (identificador, fkSetor)
-VALUES
--- Setores de idSetor 1 a 25
-('Apiário 1', 1), ('Apiário 2', 1), ('Apiário 3', 1), ('Apiário 4', 1),
-('Apiário 1', 2), ('Apiário 2', 2), ('Apiário 3', 2), ('Apiário 4', 2),
-('Apiário 1', 3), ('Apiário 2', 3), ('Apiário 3', 3), ('Apiário 4', 3),
-('Apiário 1', 4), ('Apiário 2', 4), ('Apiário 3', 4), ('Apiário 4', 4),
-('Apiário 1', 5), ('Apiário 2', 5), ('Apiário 3', 5), ('Apiário 4', 5),
-('Apiário 1', 6), ('Apiário 2', 6), ('Apiário 3', 6), ('Apiário 4', 6),
-('Apiário 1', 7), ('Apiário 2', 7), ('Apiário 3', 7), ('Apiário 4', 7),
-('Apiário 1', 8), ('Apiário 2', 8), ('Apiário 3', 8), ('Apiário 4', 8),
-('Apiário 1', 9), ('Apiário 2', 9), ('Apiário 3', 9), ('Apiário 4', 9),
-('Apiário 1', 10), ('Apiário 2', 10), ('Apiário 3', 10), ('Apiário 4', 10),
-('Apiário 1', 11), ('Apiário 2', 11), ('Apiário 3', 11), ('Apiário 4', 11),
-('Apiário 1', 12), ('Apiário 2', 12), ('Apiário 3', 12), ('Apiário 4', 12),
-('Apiário 1', 13), ('Apiário 2', 13), ('Apiário 3', 13), ('Apiário 4', 13),
-('Apiário 1', 14), ('Apiário 2', 14), ('Apiário 3', 14), ('Apiário 4', 14),
-('Apiário 1', 15), ('Apiário 2', 15), ('Apiário 3', 15), ('Apiário 4', 15),
-('Apiário 1', 16), ('Apiário 2', 16), ('Apiário 3', 16), ('Apiário 4', 16),
-('Apiário 1', 17), ('Apiário 2', 17), ('Apiário 3', 17), ('Apiário 4', 17),
-('Apiário 1', 18), ('Apiário 2', 18), ('Apiário 3', 18), ('Apiário 4', 18),
-('Apiário 1', 19), ('Apiário 2', 19), ('Apiário 3', 19), ('Apiário 4', 19),
-('Apiário 1', 20), ('Apiário 2', 20), ('Apiário 3', 20), ('Apiário 4', 20),
-('Apiário 1', 21), ('Apiário 2', 21), ('Apiário 3', 21), ('Apiário 4', 21),
-('Apiário 1', 22), ('Apiário 2', 22), ('Apiário 3', 22), ('Apiário 4', 22),
-('Apiário 1', 23), ('Apiário 2', 23), ('Apiário 3', 23), ('Apiário 4', 23),
-('Apiário 1', 24), ('Apiário 2', 24), ('Apiário 3', 24), ('Apiário 4', 24),
-('Apiário 1', 25), ('Apiário 2', 25), ('Apiário 3', 25), ('Apiário 4', 25);
 
 SELECT * FROM apiario;
 
@@ -199,308 +78,6 @@ CREATE TABLE sensor (
 
 DESCRIBE sensor;
 
-INSERT INTO sensor (numSerie, codInterno, statusSen, fkApiario) VALUES
-('SN9828', 'CI3875', 'Inativo', 1),
-('SN9857', 'CI1499', 'Inativo', 1),
-('SN3863', 'CI3045', 'Manutenção', 1),
-('SN6817', 'CI3505', 'Inativo', 2),
-('SN4351', 'CI9851', 'Manutenção', 2),
-('SN5749', 'CI9857', 'Inativo', 2),
-('SN2490', 'CI3904', 'Ativo', 3),
-('SN9578', 'CI6028', 'Manutenção', 3),
-('SN8166', 'CI6501', 'Manutenção', 3),
-('SN8091', 'CI4084', 'Com problema', 4),
-('SN7236', 'CI6652', 'Manutenção', 4),
-('SN9239', 'CI3372', 'Com problema', 4),
-('SN5350', 'CI3475', 'Com problema', 5),
-('SN7407', 'CI8014', 'Com problema', 5),
-('SN2751', 'CI3343', 'Manutenção', 5),
-('SN6612', 'CI5171', 'Com problema', 6),
-('SN5825', 'CI1649', 'Ativo', 6),
-('SN8918', 'CI2513', 'Com problema', 6),
-('SN1276', 'CI9486', 'Inativo', 7),
-('SN4360', 'CI6678', 'Manutenção', 7),
-('SN4786', 'CI9873', 'Com problema', 7),
-('SN5055', 'CI6013', 'Com problema', 8),
-('SN2749', 'CI4367', 'Inativo', 8),
-('SN8360', 'CI4140', 'Inativo', 8),
-('SN1861', 'CI7301', 'Manutenção', 9),
-('SN7434', 'CI8269', 'Inativo', 9),
-('SN9396', 'CI9555', 'Ativo', 9),
-('SN1381', 'CI9407', 'Ativo', 10),
-('SN1830', 'CI4648', 'Ativo', 10),
-('SN5283', 'CI7195', 'Ativo', 10),
-('SN2637', 'CI4644', 'Ativo', 11),
-('SN4467', 'CI5922', 'Ativo', 11),
-('SN3904', 'CI1739', 'Ativo', 11),
-('SN2520', 'CI5037', 'Inativo', 12),
-('SN3764', 'CI6864', 'Manutenção', 12),
-('SN5605', 'CI5715', 'Com problema', 12),
-('SN8220', 'CI6849', 'Inativo', 13),
-('SN7029', 'CI2490', 'Manutenção', 13),
-('SN9451', 'CI5424', 'Manutenção', 13),
-('SN2513', 'CI1141', 'Inativo', 14),
-('SN4774', 'CI4105', 'Manutenção', 14),
-('SN7538', 'CI5350', 'Com problema', 14),
-('SN6366', 'CI5274', 'Manutenção', 15),
-('SN1465', 'CI4328', 'Inativo', 15),
-('SN7968', 'CI6356', 'Manutenção', 15),
-('SN4094', 'CI3467', 'Ativo', 16),
-('SN2441', 'CI3929', 'Inativo', 16),
-('SN4398', 'CI5283', 'Ativo', 16),
-('SN4712', 'CI4363', 'Com problema', 17),
-('SN5071', 'CI1630', 'Com problema', 17),
-('SN7588', 'CI2441', 'Inativo', 17),
-('SN3703', 'CI5289', 'Manutenção', 18),
-('SN9873', 'CI8466', 'Ativo', 18),
-('SN5974', 'CI7840', 'Ativo', 18),
-('SN3105', 'CI6323', 'Manutenção', 19),
-('SN8554', 'CI3424', 'Com problema', 19),
-('SN9851', 'CI2685', 'Inativo', 19),
-('SN9382', 'CI3846', 'Ativo', 20),
-('SN1910', 'CI3255', 'Inativo', 20),
-('SN9559', 'CI7988', 'Com problema', 20),
-('SN9863', 'CI5349', 'Inativo', 21),
-('SN7056', 'CI8203', 'Ativo', 21),
-('SN6356', 'CI1591', 'Manutenção', 21),
-('SN9838', 'CI7118', 'Manutenção', 22),
-('SN3654', 'CI4351', 'Manutenção', 22),
-('SN3505', 'CI1307', 'Manutenção', 22),
-('SN4667', 'CI9578', 'Com problema', 23),
-('SN4807', 'CI8876', 'Com problema', 23),
-('SN1472', 'CI9759', 'Com problema', 23),
-('SN9698', 'CI1362', 'Com problema', 24),
-('SN8642', 'CI4712', 'Manutenção', 24),
-('SN4644', 'CI3069', 'Com problema', 24),
-('SN8696', 'CI4713', 'Com problema', 25),
-('SN2082', 'CI6364', 'Com problema', 25),
-('SN1206', 'CI2712', 'Ativo', 25),
-('SN9034', 'CI3914', 'Ativo', 26),
-('SN7282', 'CI5713', 'Ativo', 26),
-('SN4713', 'CI7968', 'Com problema', 26),
-('SN7597', 'CI2974', 'Inativo', 27),
-('SN2401', 'CI9640', 'Com problema', 27),
-('SN3690', 'CI2829', 'Com problema', 27),
-('SN1141', 'CI3161', 'Inativo', 28),
-('SN2764', 'CI9559', 'Manutenção', 28),
-('SN6759', 'CI3703', 'Inativo', 28),
-('SN5580', 'CI4387', 'Inativo', 29),
-('SN9759', 'CI8554', 'Manutenção', 29),
-('SN7252', 'CI1381', 'Com problema', 29),
-('SN1761', 'CI2456', 'Inativo', 30),
-('SN1442', 'CI9321', 'Inativo', 30),
-('SN8750', 'CI9947', 'Manutenção', 30),
-('SN6297', 'CI7959', 'Manutenção', 31),
-('SN7150', 'CI4811', 'Manutenção', 31),
-('SN9249', 'CI6366', 'Ativo', 31),
-('SN9024', 'CI3981', 'Inativo', 32),
-('SN2456', 'CI4961', 'Inativo', 32),
-('SN7301', 'CI9382', 'Inativo', 32),
-('SN6013', 'CI3119', 'Inativo', 33),
-('SN7609', 'CI2924', 'Inativo', 33),
-('SN7658', 'CI1688', 'Manutenção', 33),
-('SN3475', 'CI3105', 'Manutenção', 34),
-('SN7185', 'CI8949', 'Ativo', 34),
-('SN4363', 'CI2986', 'Ativo', 34),
-('SN9010', 'CI2954', 'Inativo', 35),
-('SN5316', 'CI1972', 'Manutenção', 35),
-('SN9640', 'CI7252', 'Manutenção', 35),
-('SN5171', 'CI7282', 'Manutenção', 36),
-('SN3255', 'CI6319', 'Ativo', 36),
-('SN2285', 'CI1444', 'Inativo', 36),
-('SN8907', 'CI7141', 'Inativo', 37),
-('SN5357', 'CI9805', 'Ativo', 37),
-('SN7641', 'CI6841', 'Manutenção', 37),
-('SN1709', 'CI4807', 'Com problema', 38),
-('SN5849', 'CI4300', 'Manutenção', 38),
-('SN6191', 'CI5142', 'Ativo', 38),
-('SN3472', 'CI9034', 'Manutenção', 39),
-('SN6319', 'CI8907', 'Inativo', 39),
-('SN7508', 'CI1520', 'Manutenção', 39),
-('SN5962', 'CI7927', 'Manutenção', 40),
-('SN3343', 'CI8828', 'Inativo', 40),
-('SN5140', 'CI6817', 'Com problema', 40),
-('SN3728', 'CI2285', 'Manutenção', 41),
-('SN4961', 'CI5580', 'Ativo', 41),
-('SN8951', 'CI9863', 'Ativo', 41),
-('SN5968', 'CI7658', 'Ativo', 42),
-('SN4052', 'CI5112', 'Ativo', 42),
-('SN9407', 'CI8360', 'Com problema', 42),
-('SN6887', 'CI5800', 'Manutenção', 43),
-('SN9946', 'CI7538', 'Manutenção', 43),
-('SN3484', 'CI3644', 'Ativo', 43),
-('SN5800', 'CI6370', 'Manutenção', 44),
-('SN3193', 'CI8895', 'Com problema', 44),
-('SN8555', 'CI7185', 'Manutenção', 44),
-('SN4272', 'CI1472', 'Manutenção', 45),
-('SN1193', 'CI1651', 'Inativo', 45),
-('SN7585', 'CI7434', 'Com problema', 45),
-('SN1638', 'CI2426', 'Inativo', 46),
-('SN2829', 'CI4722', 'Inativo', 46),
-('SN3875', 'CI6612', 'Manutenção', 46),
-('SN1630', 'CI6519', 'Inativo', 47),
-('SN1622', 'CI7407', 'Ativo', 47),
-('SN2685', 'CI2637', 'Ativo', 47),
-('SN1651', 'CI9946', 'Com problema', 48),
-('SN1445', 'CI6759', 'Manutenção', 48),
-('SN5142', 'CI5968', 'Inativo', 48),
-('SN6678', 'CI7236', 'Inativo', 49),
-('SN2865', 'CI6296', 'Inativo', 49),
-('SN7681', 'CI5316', 'Inativo', 49),
-('SN4897', 'CI9698', 'Com problema', 50),
-('SN9364', 'CI6705', 'Manutenção', 50),
-('SN1495', 'CI7029', 'Ativo', 50),
-('SN3372', 'CI8555', 'Inativo', 51),
-('SN2973', 'CI2764', 'Manutenção', 51),
-('SN2750', 'CI3863', 'Inativo', 51),
-('SN6323', 'CI8006', 'Ativo', 52),
-('SN6652', 'CI5849', 'Manutenção', 52),
-('SN6864', 'CI2559', 'Inativo', 52),
-('SN6955', 'CI4094', 'Ativo', 53),
-('SN9608', 'CI1148', 'Ativo', 53),
-('SN6705', 'CI5749', 'Inativo', 53),
-('SN4367', 'CI7379', 'Inativo', 54),
-('SN2954', 'CI9479', 'Ativo', 54),
-('SN7221', 'CI8642', 'Com problema', 54),
-('SN1739', 'CI4672', 'Inativo', 55),
-('SN8265', 'CI2107', 'Manutenção', 55),
-('SN4874', 'CI8027', 'Com problema', 55),
-('SN3644', 'CI1902', 'Manutenção', 56),
-('SN6364', 'CI4052', 'Manutenção', 56),
-('SN6501', 'CI1210', 'Com problema', 56),
-('SN3637', 'CI9608', 'Com problema', 57),
-('SN4300', 'CI2751', 'Ativo', 57),
-('SN6110', 'CI8685', 'Ativo', 57),
-('SN9237', 'CI7834', 'Manutenção', 58),
-('SN5349', 'CI9838', 'Manutenção', 58),
-('SN6296', 'CI1206', 'Manutenção', 58),
-('SN5922', 'CI1622', 'Manutenção', 59),
-('SN2161', 'CI3193', 'Inativo', 59),
-('SN5506', 'CI6819', 'Com problema', 59),
-('SN8269', 'CI6887', 'Manutenção', 60),
-('SN8466', 'CI1093', 'Com problema', 60),
-('SN1591', 'CI7312', 'Inativo', 60),
-('SN9479', 'CI1495', 'Manutenção', 61),
-('SN8203', 'CI1445', 'Com problema', 61),
-('SN6519', 'CI2749', 'Ativo', 61),
-('SN4550', 'CI7681', 'Com problema', 62),
-('SN6819', 'CI7150', 'Inativo', 62),
-('SN7696', 'CI6862', 'Manutenção', 62),
-('SN3981', 'CI9010', 'Inativo', 63),
-('SN5763', 'CI9978', 'Inativo', 63),
-('SN2908', 'CI1709', 'Ativo', 63),
-('SN9947', 'CI5284', 'Ativo', 64),
-('SN3424', 'CI9185', 'Manutenção', 64),
-('SN8729', 'CI7641', 'Com problema', 64),
-('SN9321', 'CI2912', 'Inativo', 65),
-('SN4084', 'CI6305', 'Manutenção', 65),
-('SN8027', 'CI7508', 'Com problema', 65),
-('SN3069', 'CI1861', 'Com problema', 66),
-('SN7840', 'CI6655', 'Manutenção', 66),
-('SN7526', 'CI7585', 'Inativo', 66),
-('SN7010', 'CI5763', 'Manutenção', 67),
-('SN1110', 'CI2750', 'Com problema', 67),
-('SN1300', 'CI6970', 'Manutenção', 67),
-('SN4672', 'CI3537', 'Ativo', 68),
-('SN7959', 'CI2161', 'Manutenção', 68),
-('SN2912', 'CI7609', 'Inativo', 68),
-('SN6077', 'CI3728', 'Com problema', 69),
-('SN7988', 'CI2401', 'Inativo', 69),
-('SN1688', 'CI2520', 'Ativo', 69),
-('SN4105', 'CI1985', 'Com problema', 70),
-('SN6370', 'CI2082', 'Manutenção', 70),
-('SN7834', 'CI9178', 'Manutenção', 70),
-('SN6849', 'CI5140', 'Inativo', 71),
-('SN3836', 'CI1276', 'Inativo', 71),
-('SN7195', 'CI9501', 'Manutenção', 71),
-('SN5715', 'CI8918', 'Manutenção', 72),
-('SN9805', 'CI3472', 'Ativo', 72),
-('SN3929', 'CI4360', 'Ativo', 72),
-('SN2559', 'CI4897', 'Inativo', 73),
-('SN9185', 'CI7221', 'Ativo', 73),
-('SN8710', 'CI4874', 'Ativo', 73),
-('SN3914', 'CI6077', 'Com problema', 74),
-('SN7379', 'CI7526', 'Manutenção', 74),
-('SN6970', 'CI3664', 'Inativo', 74),
-('SN5757', 'CI4272', 'Com problema', 75),
-('SN2276', 'CI1638', 'Ativo', 75),
-('SN8072', 'CI4774', 'Ativo', 75),
-('SN8949', 'CI9828', 'Inativo', 76),
-('SN9978', 'CI8750', 'Ativo', 76),
-('SN1902', 'CI5055', 'Com problema', 76),
-('SN4140', 'CI3637', 'Ativo', 77),
-('SN4722', 'CI5757', 'Ativo', 77),
-('SN5713', 'CI1110', 'Com problema', 77),
-('SN5332', 'CI1910', 'Manutenção', 78),
-('SN2986', 'CI1285', 'Com problema', 78),
-('SN5112', 'CI7010', 'Inativo', 78),
-('SN1148', 'CI1300', 'Inativo', 79),
-('SN1549', 'CI9396', 'Ativo', 79),
-('SN1210', 'CI5071', 'Com problema', 79),
-('SN8006', 'CI2965', 'Manutenção', 80),
-('SN7927', 'CI3484', 'Ativo', 80),
-('SN1649', 'CI5357', 'Com problema', 80),
-('SN4328', 'CI9237', 'Com problema', 81),
-('SN5274', 'CI2908', 'Com problema', 81),
-('SN3161', 'CI5605', 'Ativo', 81),
-('SN8685', 'CI5962', 'Manutenção', 82),
-('SN3537', 'CI3690', 'Ativo', 82),
-('SN3813', 'CI5366', 'Inativo', 82),
-('SN2965', 'CI1193', 'Inativo', 83),
-('SN5284', 'CI5974', 'Com problema', 83),
-('SN3045', 'CI6297', 'Inativo', 83),
-('SN5037', 'CI3809', 'Ativo', 84),
-('SN1985', 'CI1465', 'Manutenção', 84),
-('SN2924', 'CI5203', 'Inativo', 84),
-('SN7141', 'CI7597', 'Ativo', 85),
-('SN9425', 'CI8091', 'Manutenção', 85),
-('SN1362', 'CI4550', 'Inativo', 85),
-('SN6655', 'CI8951', 'Ativo', 86),
-('SN5424', 'CI8266', 'Ativo', 86),
-('SN1972', 'CI6191', 'Inativo', 86),
-('SN1285', 'CI4398', 'Manutenção', 87),
-('SN2974', 'CI1549', 'Manutenção', 87),
-('SN1520', 'CI9364', 'Com problema', 87),
-('SN5203', 'CI8710', 'Ativo', 88),
-('SN3664', 'CI2865', 'Ativo', 88),
-('SN8266', 'CI2973', 'Inativo', 88),
-('SN1444', 'CI8696', 'Manutenção', 89),
-('SN2426', 'CI1761', 'Ativo', 89),
-('SN5289', 'CI7696', 'Inativo', 89),
-('SN7312', 'CI4467', 'Com problema', 90),
-('SN1499', 'CI3800', 'Manutenção', 90),
-('SN4648', 'CI5332', 'Ativo', 90),
-('SN2712', 'CI2570', 'Ativo', 91),
-('SN9147', 'CI9425', 'Com problema', 91),
-('SN8876', 'CI3198', 'Manutenção', 91),
-('SN9501', 'CI8265', 'Com problema', 92),
-('SN6841', 'CI5825', 'Manutenção', 92),
-('SN7118', 'CI7588', 'Ativo', 92),
-('SN7458', 'CI1442', 'Inativo', 93),
-('SN6862', 'CI3836', 'Com problema', 93),
-('SN1093', 'CI3654', 'Inativo', 93),
-('SN9178', 'CI6110', 'Manutenção', 94),
-('SN3846', 'CI3813', 'Inativo', 94),
-('SN6028', 'CI3001', 'Inativo', 94),
-('SN4387', 'CI7056', 'Com problema', 95),
-('SN4811', 'CI2276', 'Ativo', 95),
-('SN8014', 'CI8166', 'Com problema', 95),
-('SN8828', 'CI4786', 'Com problema', 96),
-('SN6305', 'CI9249', 'Ativo', 96),
-('SN3800', 'CI6955', 'Com problema', 96),
-('SN3119', 'CI9024', 'Inativo', 97),
-('SN2570', 'CI9147', 'Inativo', 97),
-('SN1307', 'CI9239', 'Inativo', 97),
-('SN8895', 'CI7458', 'Inativo', 98),
-('SN2107', 'CI8072', 'Manutenção', 98),
-('SN3001', 'CI4667', 'Manutenção', 98),
-('SN9486', 'CI8729', 'Manutenção', 99),
-('SN9555', 'CI3764', 'Com problema', 99),
-('SN5366', 'CI5506', 'Manutenção', 99),
-('SN3809', 'CI8220', 'Inativo', 100),
-('SN3198', 'CI1830', 'Inativo', 100),
-('SN3467', 'CI9451', 'Com problema', 100);
-
 SELECT * FROM sensor;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela leitura --------------------------------------------------------------------------------------------------------------- */
@@ -516,5 +93,31 @@ CREATE TABLE leitura (
 );
 
 DESCRIBE leitura;
-
 SELECT * FROM leitura;
+
+/*-------------------------------------------------------------------------------------------- Criação da tabela Recomendação --------------------------------------------------------------------------------------------------------------- */
+
+CREATE TABLE recomendacao(
+idRecomendacao int primary key auto_increment,
+recomendacao varchar(45)
+);
+
+
+DESCRIBE recomendacao;
+SELECT * FROM recomendacao;
+
+/*-------------------------------------------------------------------------------------------- Criação da tabela recomendação da Leitura --------------------------------------------------------------------------------------------------------------- */
+
+CREATE TABLE recomendacaoLeitura(
+fkLeitura int,
+fkSensor int,
+fkRecomendacao int,
+dtRecomendacao datetime,
+constraint chaveComposta primary key(fkLeitura, fkSensor,fkRecomendacao),
+foreign key (fkLeitura) references leitura(idLeitura),
+foreign key (fkSensor) references sensor(idSensor),
+foreign key (fkRecomendacao) references recomendacao(idRecomendacao)
+);
+
+DESCRIBE recomendacaoLeitura;
+SELECT * FROM recomendacaoLeitura;
