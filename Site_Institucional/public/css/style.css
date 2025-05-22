@@ -190,6 +190,7 @@ line-height: 52px; /* 130% */
 }
 
 .header_2 {
+    background-color: transparent;
     color: white;
     font-family: Montserrat;
     font-size: 40px;
@@ -217,10 +218,10 @@ line-height: normal;
 
 .div_cons_temp {
     margin-top: 25px;
-    width: 65%;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .textos_como_temp {
@@ -273,6 +274,7 @@ line-height: normal;
 
 .div_pt3 {
     border-top:solid 12px black ;
+    border-bottom:solid 12px black ;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/wallpaper_abelha.jpg);
 
     width: 100%;
