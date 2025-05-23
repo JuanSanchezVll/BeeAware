@@ -2,6 +2,7 @@ use BeeAware;
 
 show tables;
 
+/*-------------------------------------------------------------------------------------------- Criação da tabela empresa --------------------------------------------------------------------------------------------------------------- */
 CREATE TABLE empresa (
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     nome varchar(45) not null,
