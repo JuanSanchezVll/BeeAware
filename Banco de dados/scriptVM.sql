@@ -14,6 +14,7 @@ CREATE TABLE empresa (
     complemento VARCHAR(255) not null
 );
 DESCRIBE empresa;
+
 SELECT * FROM empresa;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela usuário --------------------------------------------------------------------------------------------------------------- */
@@ -85,13 +86,13 @@ CREATE TABLE leitura (
     idLeitura INT PRIMARY KEY AUTO_INCREMENT,
     temperatura DECIMAL(3 , 1),
     dtLeitura DATETIME,
-    alerta VARCHAR(45),
     fkSensor INT,
     CONSTRAINT fkLeituraSensor FOREIGN KEY (fkSensor)
         REFERENCES sensor (idSensor)
 );
 
 DESCRIBE leitura;
+
 SELECT * FROM leitura;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela Recomendação --------------------------------------------------------------------------------------------------------------- */
@@ -103,6 +104,7 @@ recomendacao varchar(45)
 
 
 DESCRIBE recomendacao;
+
 SELECT * FROM recomendacao;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela recomendação da Leitura --------------------------------------------------------------------------------------------------------------- */
@@ -119,6 +121,7 @@ foreign key (fkRecomendacao) references recomendacao(idRecomendacao)
 );
 
 DESCRIBE recomendacaoLeitura;
+
 SELECT * FROM recomendacaoLeitura;
 
 
