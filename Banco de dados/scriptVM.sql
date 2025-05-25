@@ -3,6 +3,8 @@ use BeeAware;
 show tables;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela empresa --------------------------------------------------------------------------------------------------------------- */
+-- Criação da tabela empresa, onde serão amazenados os dados de cada empresa.
+
 CREATE TABLE empresa (
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     nome varchar(45) not null,
@@ -18,6 +20,8 @@ DESCRIBE empresa;
 SELECT * FROM empresa;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela usuário --------------------------------------------------------------------------------------------------------------- */
+-- Criação da tabela usuário, onde serão armazenados os dados de acesso.
+
 
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY AUTO_INCREMENT,
@@ -36,6 +40,7 @@ DESCRIBE usuario;
 SELECT * FROM usuario;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela setor --------------------------------------------------------------------------------------------------------------- */
+-- Criação da tabela setor, onde serão armazenados dos dados de cada setor, relacionados com a sua respectiva empresa. 
 
 CREATE TABLE setor (
     idSetor INT PRIMARY KEY AUTO_INCREMENT,
@@ -50,6 +55,7 @@ DESCRIBE setor;
 SELECT * FROM setor;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela apiario --------------------------------------------------------------------------------------------------------------- */
+-- Criação da tabela apiário, onde serão armazenados os dados de identificação de cada apiário, relacionados com o setor em que estão localizados.
 
 CREATE TABLE apiario (
     idApiario INT PRIMARY KEY AUTO_INCREMENT,
@@ -64,6 +70,7 @@ DESCRIBE apiario;
 SELECT * FROM apiario;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela sensor --------------------------------------------------------------------------------------------------------------- */
+-- Criação da tabela sensor, onde serão armazenados os dados coletados por cada sensor, seu status de funcionamento e o apiário em que está instalado.
 
 CREATE TABLE sensor (
     idSensor INT PRIMARY KEY AUTO_INCREMENT,
@@ -81,6 +88,7 @@ DESCRIBE sensor;
 SELECT * FROM sensor;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela leitura --------------------------------------------------------------------------------------------------------------- */
+-- Criação da tabela leitura, onde serão armazenados os dados das leituras feitas pelo sensor, e qual sensor fez a leitura.
 
 CREATE TABLE leitura (
     idLeitura INT PRIMARY KEY AUTO_INCREMENT,
@@ -96,6 +104,7 @@ DESCRIBE leitura;
 SELECT * FROM leitura;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela Recomendação --------------------------------------------------------------------------------------------------------------- */
+-- Criação da tabela recomendação, onde serão armazenados os dados das recomendações geradas pelo sistema.
 
 CREATE TABLE recomendacao(
 idRecomendacao int primary key auto_increment,
@@ -124,6 +133,8 @@ DESCRIBE recomendacaoLeitura;
 
 SELECT * FROM recomendacaoLeitura;
 
+/*-------------------------------------------------------------------------------------------- Alimentação das tabelas criadas para testes --------------------------------------------------------------------------------------------------------------- */
+-- Criação de inserts fictícios para fins de testes.
 
 INSERT INTO empresa (nome, cnpj, telefone, email, cep, numero, complemento)
 VALUES 
