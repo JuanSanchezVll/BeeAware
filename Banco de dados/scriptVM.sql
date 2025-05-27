@@ -1,6 +1,6 @@
-CREATE DATABASE BeeAware;
+use BeeAware;
 
-USE BeeAware;
+show tables;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela empresa --------------------------------------------------------------------------------------------------------------- */
 -- Criação da tabela empresa, onde serão amazenados os dados de cada empresa.
@@ -21,6 +21,7 @@ SELECT * FROM empresa;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela usuário --------------------------------------------------------------------------------------------------------------- */
 -- Criação da tabela usuário, onde serão armazenados os dados de acesso.
+
 
 CREATE TABLE usuario (
     idUsuario INT PRIMARY KEY AUTO_INCREMENT,
@@ -110,12 +111,12 @@ idRecomendacao int primary key auto_increment,
 recomendacao varchar(45)
 );
 
+
 DESCRIBE recomendacao;
 
 SELECT * FROM recomendacao;
 
 /*-------------------------------------------------------------------------------------------- Criação da tabela recomendação da Leitura --------------------------------------------------------------------------------------------------------------- */
--- Criação da tabela auxiliar da tabela leitura, onde serão armazenados os dados para identificação da recomendação para cada sensor.
 
 CREATE TABLE recomendacaoLeitura(
 fkLeitura int,
@@ -131,3 +132,35 @@ foreign key (fkRecomendacao) references recomendacao(idRecomendacao)
 DESCRIBE recomendacaoLeitura;
 
 SELECT * FROM recomendacaoLeitura;
+
+/*-------------------------------------------------------------------------------------------- Alimentação das tabelas criadas para testes --------------------------------------------------------------------------------------------------------------- */
+-- Criação de inserts fictícios para fins de testes.
+
+INSERT INTO empresa (nome, cnpj, telefone, email, cep, numero, complemento)
+VALUES 
+('ApisTech Soluções', '12.345.678/0001-99', '(11)91234-5678', 'contato@apistech.com', '09210-080', 123, 'Sala 101'),
+('Mel Puro Ltda', '98.765.432/0001-88', '(11)99876-5432', 'suporte@melpuro.com.br', '04567-230', 456, 'Galpão 2');
+
+INSERT INTO usuario (nome, senha, cpf, email, cargo, fkEmpresa)
+VALUES 
+('João da Silva', 'senha123', '123.456.789-00', 'joao@apistech.com', 'admin', 1),
+('Ana Beatriz', 'senha456', '987.654.321-00', 'ana@melpuro.com.br', 'tecnico', 2);
+
+INSERT INTO setor (setor, fkEmpresa)
+VALUES 
+('Controle de Colmeias', 1),
+('Manutenção de Equipamentos', 1),
+('Monitoramento de Temperatura', 2);
+
+INSERT INTO apiario (identificador_colonia, fkSetor)
+VALUES 
+('COL-A01', 1),
+('COL-A02', 1),
+('COL-M01', 3);
+
+INSERT INTO sensor (numSerie, codInterno, statusSen, fkApiario)
+VALUES 
+('SN123456', 'INT001', 'Ativo', 1),
+('SN123457', 'INT002', 'Manutenção', 1),
+('SN987654', 'INT003', 'Inativo', 2),
+('SN321000', 'INT004', 'Com problema', 3);
