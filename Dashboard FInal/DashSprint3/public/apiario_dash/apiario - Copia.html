@@ -41,7 +41,7 @@
                 <div class="card online">Sistema<br><strong>Online</strong></div>
             </section>
 
-            <section class="grafico">
+            <section class="grafico back">
                 <div class="titulo">
                     <h2 id="monitoramento_temperatura">Monitoramento do apiário</h2>
                     <h2 id="historico_temperatura" style="display: none;">Histórico de temperatura</h2>
@@ -50,10 +50,10 @@
                         <option value="2" >Histórico de temperatura</option>
                     </select>
                 </div>
-                <div class="chart" id="dashboard_temperatura">
+                <div class="chart canvas_grafico" id="dashboard_temperatura">
                     <canvas id="temperatureChart"></canvas>
                 </div>
-                <div class="chart" style="display: none;" id="dashboard_historico">
+                <div class="chart canvas_grafico" style="display: none;" id="dashboard_historico">
                     <canvas id="temperatureChart2"></canvas>
                 </div>
 
@@ -62,26 +62,22 @@
             <section class="colmeias">
                 <h2>Historico de alertas</h2>
                 <div class="scroll">
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    <div class="colmeia ok"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                </div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
+                    
+                    
                 <!-- <h2>Monitoramento de Apiarios</h2>
                 <div class="cards-colmeias">
                     <div class="colmeia ok">Colmeia #1<br>32°C, 44%</div>
@@ -115,11 +111,13 @@
                     backgroundColor: 'rgba(241, 166, 106, 0.9)',
                     tension: 0.3,
                     pointRadius: 3,
-                    fill: true
+                    fill: true,
+                    barPercentage: 0.2
                 }]
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 plugins: {
                     legend: {
                         position: 'top'
@@ -170,6 +168,7 @@
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 plugins: {
                     legend: {
                         position: 'top'

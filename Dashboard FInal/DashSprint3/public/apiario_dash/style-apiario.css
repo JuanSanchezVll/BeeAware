@@ -295,6 +295,11 @@ body {
 .option_temperatura{
     height: fit-content;
     margin-bottom: 8px;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 1px 4px rgba(75, 58, 47, 0.32);
 }
 
 #console{
@@ -305,5 +310,19 @@ body {
     margin-left: 400px;
     background-color: transparent;
     cursor: pointer;
-    
+}
+
+.medio{
+    margin: 8px;
+    box-shadow: 0 1px 4px rgba(75, 58, 47, 0.32);
+
+}
+
+.canvas_grafico{
+    width: 500px;
+    height: 350px;
+}
+
+.back{
+    box-shadow: 0 1px 4px rgba(75, 58, 47, 0.32);
 }
