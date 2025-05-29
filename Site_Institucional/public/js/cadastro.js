@@ -28,9 +28,14 @@ function cadastrar(){
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        cpfServer: cnpjVar
+        nomeServer:nomeVar,
+        emailServer:emailVar,
+        telServer:telVar,
+        cepServer:cepVar,
+        numServer:numVar,
+        compServer:compVar,
+        cnpjServer:cnpjVar,
+        senhaServer:senhaVar,
       }),
     })
       .then(function (resposta) {

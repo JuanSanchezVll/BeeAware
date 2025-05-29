@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BeeAware Dashboard</title>
 
-    <link rel="stylesheet" href="/style-apiario.css" />
+    <link rel="stylesheet" href="./css/style-apiario.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -38,7 +38,8 @@
                 <div class="card destaque">Temperatura Média 24h<br><strong>32.5°C</strong></div>
                 <div class="card destaque">Temperatura Atual<br><strong>45°C</strong></div>
                 <div class="card alerta">Alertas totais 24h<br><strong>20</strong></div>
-                <div class="card online">Sistema<br><strong>Online</strong></div>
+                <div class="card online" id="card_online">Sistema<br><strong>Online</strong></div>
+                <div class="card alerta" style="display: none;" id="card_offline">Sistema<br><strong>Offline</strong></div>
             </section>
 
             <section class="grafico back">
@@ -61,7 +62,7 @@
 
             <section class="colmeias">
                 <h2>Historico de alertas</h2>
-                <div class="scroll">
+                <div class="scroll" id="scroll_alertas">
                     <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
                     <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
                     <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
@@ -76,17 +77,6 @@
                     <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
                     <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
                     <div class="colmeia alerta medio"> Alerta dia 21/08/2022 - temperatura elevada 39°C</div>
-                    
-                    
-                <!-- <h2>Monitoramento de Apiarios</h2>
-                <div class="cards-colmeias">
-                    <div class="colmeia ok">Colmeia #1<br>32°C, 44%</div>
-                    <div class="colmeia ok">Colmeia #2<br>32°C, 44%</div>
-                    <div class="colmeia alerta">Colmeia #3<br>38°C, 42%</div>
-                    <div class="colmeia ok">Colmeia #4<br>32°C, 44%</div>
-                    <div class="colmeia ok">Colmeia #5<br>32°C, 44%</div>
-                    <div class="colmeia aviso">Colmeia #6<br>34°C, 41%</div>
-                </div> -->
             </section>
 
             <footer class="rodape">

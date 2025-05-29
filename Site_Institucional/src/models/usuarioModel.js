@@ -11,7 +11,7 @@ function autenticar(email, senha) {
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function cadastrar(nome, email, cnpj,tel,cep,num,comp,senha) {
+function cadastrar(nome, email, cnpj, tel, cep, num, comp, senha) {
     var instrucaoSql = `
         INSERT INTO empresa VALUES (default,'${nome}', '${cnpj}', '${tel}','${email}', '${cep};', '${num}', '${comp}','${senha}');
     `;
