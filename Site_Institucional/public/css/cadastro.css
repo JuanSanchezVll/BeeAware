@@ -25,12 +25,16 @@ body{
 #div_formulario{
     display: flex ;
     flex-direction: column;
-    height: fit-content;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
 }
 .campo{
     display: flex;
     flex-direction: column;
-    height: 60px;
+    height: 60%;
     padding-bottom: 10px;
 }
 .campo span{
@@ -64,20 +68,20 @@ body{
     width: 40%;
     color: white;
     background: rgb(211, 123, 0, 0.7);
-    padding: 10px;
+    padding: 10%;
     border-radius: 20px;
 
 }
 
 #div_cadastro {
     width: 30%;
-   padding-left: 20px;
-   padding-right: 25px;
+padding: 5%;
    background-color: black;
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
    align-items: center;
+   height: 100vh;
 } 
 
 
@@ -88,10 +92,11 @@ body{
     padding-left: 10px ;
     padding-top: 3px;
     padding-bottom: 3px;
-    width: 300px;
+    width: 90%;
     height: 100%;
     transition: 0.3s;
     font-weight: 500;
+    font-size: 4vh;
 }
 
 .campo input:focus{
