@@ -7,6 +7,10 @@ router.get("/carregarApiarioSetor/:idUsuario", function (req, res) {
     apiarioSetorController.carregarApiario(req, res);
 })
 
+router.get("/carregarApiarioTemperatura/:idUsuario", function (req, res) {
+    apiarioSetorController.carregarApiarioTemp(req, res);
+})
+
 
 
 module.exports = router;

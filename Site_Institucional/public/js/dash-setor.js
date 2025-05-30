@@ -40,9 +40,9 @@ function sair(){
 
 function carregarApiario(){
 
-  idEmpresa = sessionStorage.ID_USUARIO
+  idUsuario = sessionStorage.ID_USUARIO
 
-  fetch(`/apiarioSetor/carregarApiarioSetor/${idEmpresa}`, {
+  fetch(`/apiarioSetor/carregarApiarioSetor/${idUsuario}`, {
     method: 'GET',
   })
   .then(res => { res.json() 
@@ -62,7 +62,7 @@ function carregarApiario(){
             </div>
             <div class="card-info">
               <p>Setor: <strong>${apiario[i].setor}</strong></p>
-              <p>Temperatura: <strong>${apiario[i].temperatura}ºC</strong></p>
+              <p id="card_temperatura_${apiario[i].idApiario}">Temperatura: <strong>${apiario[i].temperatura}ºC</strong></p>
               <p>Colônia: <strong>${apiario[i].identificador_colonia}</strong></p>
               <p>Última leitura: <strong>Há 5 minutos</strong></p>
             </div>
@@ -80,7 +80,7 @@ function carregarApiario(){
 
   )
   .catch(
-
+    err => console.error('Erro ao carregar temperatura:', err)
   )
 
 }
@@ -89,3 +89,42 @@ function verInformação(idApiario){
   sessionStorage.ID_APIARIO = idApiario
   window.location.href = 'dash-apiario.html';
 }
+
+function carregarTemperatura(){
+  console.log("carregado")
+  idUsuario = sessionStorage.ID_USUARIO
+  
+  fetch(`/apiarioSetor/carregarApiarioTemperatura/${idUsuario}`, {
+    method: 'GET',
+  })
+  .then(res => { res.json() 
+    .then(json => {
+
+      var apiarioTemperatura = json
+
+      
+
+      for(var i = 0; i < apiarioTemperatura.length; i++){
+
+        var div_mensagem = document.getElementById(`card_temperatura_${apiarioTemperatura[i].idApiario}`)
+
+        div_mensagem.innerHTML = `
+        
+        Temperatura: <strong>${apiarioTemperatura[i].temperatura}ºC</strong>
+        
+        `
+      }
+
+    }
+      
+
+    )
+  }
+
+  )
+  .catch(
+    err => console.error('Erro ao carregar temperatura:', err)
+  )
+}
+
+setInterval(carregarTemperatura,1000)
