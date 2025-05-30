@@ -55,10 +55,10 @@ function carregarApiario(){
       for(var i = 0; i < apiario.length; i++){
         div_mensagem.innerHTML += `
         
-        <div class="colmeia-card normal">
-            <div class="card-top">
+        <div class="colmeia-card " >
+            <div class="card-top " id="card_apiario_${apiario[i].idApiario}">
               <span>Apiario #${i + 1}</span>
-              <span class="status-label normal">Normal</span>
+              <span class="status-label " id="status_apiario_${apiario[i].idApiario}">Normal</span>
             </div>
             <div class="card-info">
               <p>Setor: <strong>${apiario[i].setor}</strong></p>
@@ -66,7 +66,7 @@ function carregarApiario(){
               <p>Colônia: <strong>${apiario[i].identificador_colonia}</strong></p>
               <p>Última leitura: <strong>Há 5 minutos</strong></p>
             </div>
-            <button class="btn-detalhes" onclick="verInformação(${apiario[i].idApiario})">Ver Detalhes</button>
+            <button class="btn-detalhes" onclick="verInformação(${apiario[i].idApiario})" id="btn_apiario_${apiario[i].idApiario}">Ver Detalhes</button>
           </div>
         
         `
@@ -91,7 +91,7 @@ function verInformação(idApiario){
 }
 
 function carregarTemperatura(){
-  console.log("carregado")
+
   idUsuario = sessionStorage.ID_USUARIO
   
   fetch(`/apiarioSetor/carregarApiarioTemperatura/${idUsuario}`, {
@@ -102,15 +102,37 @@ function carregarTemperatura(){
 
       var apiarioTemperatura = json
 
-      
-
+    
       for(var i = 0; i < apiarioTemperatura.length; i++){
+
+        if(Number(apiarioTemperatura[i].temperatura) > 36 || Number(apiarioTemperatura[i].temperatura) < 32){
+           var status_apiario = document.getElementById(`status_apiario_${apiarioTemperatura[i].idApiario}`)
+           var btn_apiario = document.getElementById(`btn_apiario_${apiarioTemperatura[i].idApiario}`)
+           var card_apiario = document.getElementById(`card_apiario_${apiarioTemperatura[i].idApiario}`)
+
+          status_apiario.innerHTML = `Alerta`
+
+          status_apiario.classList.add("alerta")
+          btn_apiario.classList.add("alerta")
+          card_apiario.classList.add("alerta")
+        }else{
+          var status_apiario = document.getElementById(`status_apiario_${apiarioTemperatura[i].idApiario}`)
+          var btn_apiario = document.getElementById(`btn_apiario_${apiarioTemperatura[i].idApiario}`)
+          var card_apiario = document.getElementById(`card_apiario_${apiarioTemperatura[i].idApiario}`)
+
+          status_apiario.innerHTML = `Normal`
+
+          status_apiario.classList.remove("alerta")
+          btn_apiario.classList.remove("alerta")
+          card_apiario.classList.remove("alerta")
+        }
 
         var div_mensagem = document.getElementById(`card_temperatura_${apiarioTemperatura[i].idApiario}`)
 
+        console.log(`${Number(apiarioTemperatura[i].temperatura)}`)
         div_mensagem.innerHTML = `
         
-        Temperatura: <strong>${apiarioTemperatura[i].temperatura}ºC</strong>
+        Temperatura: <strong>${Number(apiarioTemperatura[i].temperatura)}ºC</strong>
         
         `
       }
@@ -125,6 +147,44 @@ function carregarTemperatura(){
   .catch(
     err => console.error('Erro ao carregar temperatura:', err)
   )
+}
+
+function carregarTabelaAlerta(){
+
+fetch(`/apiarioSetor/carregarSetorAlerta/${idUsuario}`, {
+    method: 'GET',
+  })
+  .then(res => { res.json() 
+    .then(json => {
+
+      var historicoAlerta = json
+
+      var div_mensagem = document.getElementById('tbody_alerta')
+
+      for(var i = 0; i < historicoAlerta.length; i++){
+        div_mensagem.innerHTML += `
+        
+        <tr>
+                <td>${historicoAlerta[i].data_formatada}</td>
+                <td>${historicoAlerta[i].temperatura}ºC</td>
+                <td>${historicoAlerta[i].recomendacao}</td>
+                <td>${historicoAlerta[i].apiario}</td>
+        </tr>
+        `
+      }
+
+    }
+      
+
+    )
+  }
+
+  )
+  .catch(
+    err => console.error('Erro ao carregar temperatura:', err)
+  )
+
+
 }
 
 setInterval(carregarTemperatura,1000)

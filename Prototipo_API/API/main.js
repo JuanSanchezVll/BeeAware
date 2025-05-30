@@ -91,22 +91,23 @@ const serial = async (
             console.log("valores inseridos no banco: ", sensorAnalogico3);
 
 
-            // if(sensorAnalogico1 > 39 || sensorAnalogico1 < 20 ){ 
+            if(sensorAnalogico1 > 39 || sensorAnalogico1 < 20 ){ 
 
-            //     await poolBancoDados.execute(
-            //     'INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( 1, 1, 3, current_time())'
-            // );
-            // }else if(sensorAnalogico1 > 36 || sensorAnalogico1 < 32){
-            //     await poolBancoDados.execute(
-            //     'INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( 1, 1, 2, current_time())'
-            // );
-            // }else{
-            //     await poolBancoDados.execute(
-            //     'INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( 1, 1, 1, current_time())'
-            // );
-            // }
+                
+
+                await poolBancoDados.execute(
+                'INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( 1, 1, 3, current_time())'
+            );
+            }else if(sensorAnalogico1 >  || sensorAnalogico1 < 20){
+                await poolBancoDados.execute(
+                'INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( 1, 1, 2, current_time())'
+            );
+            }else{
+                await poolBancoDados.execute(
+                'INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( 1, 1, 1, current_time())'
+            );
+            }
             
-
             // 19 menos - cuidado
             // 31 a 20 - atenção
             // 32 a 36 - ideal

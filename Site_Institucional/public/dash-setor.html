@@ -13,7 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="carregarApiario()">
+<body onload="carregarApiario(), carregarTabelaAlerta()">
 
   <!-- Container principal do layout dividido entre a sidebar e o conteúdo -->
   <div class="container">
@@ -112,8 +112,8 @@
         </div>
 
         <!-- Histórico em tabela -->
-        <div class="historico">
-          <h2>Histórico de Leituras</h2>
+        <div class="historico scroll-alerta">
+          <h2>Histórico de Alerta</h2>
           <br>
           <table>
             <thead>
@@ -121,24 +121,11 @@
                 <th>Data</th>
                 <th>Temperatura</th>
                 <th>Registro</th>
+                <th>apiario</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>25/05/2025</td>
-                <td>32.5ºC</td>
-                <td>Normal</td>
-              </tr>
-              <tr>
-                <td>24/05/2025</td>
-                <td>34.1ºC</td>
-                <td>Atenção</td>
-              </tr>
-              <tr>
-                <td>23/05/2025</td>
-                <td>38.2ºC</td>
-                <td>Alerta</td>
-              </tr>
+            <tbody id="tbody_alerta">
+            
             </tbody>
           </table>
         </div>
