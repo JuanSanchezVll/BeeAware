@@ -13,7 +13,8 @@ CREATE TABLE empresa (
     email VARCHAR(80) not null,
     cep CHAR(9) not null,
     numero INT not null,
-    complemento VARCHAR(255) not null
+    complemento VARCHAR(255) not null,
+    senha VARCHAR(100) not null 
 );
 DESCRIBE empresa;
 
