@@ -89,29 +89,83 @@ const serial = async (
                 [sensorAnalogico3]
             );
             console.log("valores inseridos no banco: ", sensorAnalogico3);
-
-
-            // if(sensorAnalogico1 > 39 || sensorAnalogico1 < 20 ){ 
-
-            //     await poolBancoDados.execute(
-            //     'INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( 1, 1, 3, current_time())'
-            // );
-            // }else if(sensorAnalogico1 > 36 || sensorAnalogico1 < 32){
-            //     await poolBancoDados.execute(
-            //     'INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( 1, 1, 2, current_time())'
-            // );
-            // }else{
-            //     await poolBancoDados.execute(
-            //     'INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( 1, 1, 1, current_time())'
-            // );
-            // }
             
+            
+             if(true){
 
-            // 19 menos - cuidado
-            // 31 a 20 - atenção
-            // 32 a 36 - ideal
-            // 37 a 39 - atenção
-            // 40 mais - Cuidado 
+                
+
+             }   
+
+
+            if(sensorAnalogico1 > 39 || sensorAnalogico1 < 20 ){ 
+            var resposta = await poolBancoDados.execute(
+                "select * from leitura where fkSensor = 1 order by idLeitura desc limit 1;"
+            )
+
+                await poolBancoDados.execute(
+                `INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( ${resposta[0].idLeitura}, 1, 3, current_time())`
+            );
+            }else if(sensorAnalogico1 > 36 || sensorAnalogico1 < 32){
+                await poolBancoDados.execute(
+                `INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( ${resposta[0].idLeitura}, 1, 2, current_time())`
+            );
+            }else{
+                await poolBancoDados.execute(
+                `INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( ${resposta[0].idLeitura}, 1, 1, current_time())`
+            );
+            }
+            
+            if(sensorAnalogico2 > 39 || sensorAnalogico2 < 20 ){ 
+
+                var resposta = await poolBancoDados.execute(
+                "select * from leitura where fkSensor = 2 order by idLeitura desc limit 1;"
+                )
+
+                await poolBancoDados.execute(
+                `INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( ${resposta[0].idLeitura}, 2, 3, current_time())`
+            );
+            }else if(sensorAnalogico2 > 36 || sensorAnalogico2 < 32){
+                await poolBancoDados.execute(
+                    `INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( ${resposta[0].idLeitura}, 2, 2, current_time())`
+            );
+            }else{
+                await poolBancoDados.execute(
+                `INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( ${resposta[0].idLeitura}, 2, 1, current_time())`
+            );
+            }
+
+           
+
+            if(sensorAnalogico3 > 39 || sensorAnalogico3 < 20 ){ 
+
+                var resposta = await poolBancoDados.execute(
+                "select * from leitura where fkSensor = 3 order by idLeitura desc limit 1;"
+                )
+
+                await poolBancoDados.execute(
+                `INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( ${resposta[0].idLeitura}, 3, 3, current_time())`
+                
+                
+            );
+            }else if(sensorAnalogico3 > 36 || sensorAnalogico3 < 32){
+                await poolBancoDados.execute(
+                `INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( ${resposta[0].idLeitura}, 3, 2, current_time())`
+            );
+                
+
+            }else{
+                await poolBancoDados.execute(
+                `INSERT INTO recomendacaoLeitura (fkLeitura, fkSensor, fkRecomendacao, dtRecomendacao) VALUES ( ${resposta[0].idLeitura}, 3, 1, current_time())`
+
+            );
+            }
+            
+            // 19 menos -cuidado
+            // 31 a 20  - atenção
+            // 32 a 36  - ideal
+            // 37 a 39  - atenção
+            // 40 mais  - Cuidado 
             
 
         }

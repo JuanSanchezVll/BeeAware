@@ -261,7 +261,7 @@ JOIN leitura l ON l.fkSensor = se.idSensor where e.idEmpresa = 2
 order by l.dtLeitura desc  limit 3 ;
 
 SELECT 
-    l.dtLeitura AS data,
+    DATE_FORMAT(l.dtLeitura, '%Y-%m-%d %H:%i:%s') AS data_formatada,
     l.temperatura,
     r.recomendacao,
     a.identificador_colonia AS apiario
@@ -270,4 +270,7 @@ JOIN recomendacaoLeitura rl ON rl.fkLeitura = l.idLeitura AND rl.fkSensor = l.fk
 JOIN recomendacao r ON r.idRecomendacao = rl.fkRecomendacao
 JOIN sensor s ON s.idSensor = l.fkSensor
 JOIN apiario a ON a.idApiario = s.fkApiario
+JOIN setor st ON st.idSetor = a.fkSetor
+JOIN empresa e ON e.idEmpresa = st.fkEmpresa
+WHERE e.idEmpresa = 2
 ORDER BY l.dtLeitura DESC;
