@@ -13,6 +13,10 @@ router.get("/carregarApiarioTemperatura/:idUsuario", function (req, res) {
 
 router.get("/carregarSetorAlerta/:idUsuario", function (req, res) {
     apiarioSetorController.carregarSetorAlerta(req, res);
+}
+)
+router.get("/carregarAlertas/:idUsuario", function (req, res) {
+    apiarioSetorController.carregarAlerta15dias(req, res);
 })
 
 

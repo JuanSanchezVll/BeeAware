@@ -25,7 +25,7 @@ SELECT
     e.idEmpresa,
 	a.idApiario,
     l.temperatura,
-    l.dtLeitura
+    DATE_FORMAT(l.dtLeitura, '%Y-%m-%d %H:%i') as dataLeitura
 FROM empresa e
 JOIN setor st ON st.fkEmpresa = e.idEmpresa
 JOIN apiario a ON a.fkSetor = st.idSetor
@@ -40,7 +40,7 @@ order by l.dtLeitura desc  limit 3 ;
 function carregarApiarioEmpresaAlerta(idUsuario){
     var instrucaoSql = `
     SELECT 
-    DATE_FORMAT(l.dtLeitura, '%Y-%m-%d %H:%i:%s') AS data_formatada,
+    DATE_FORMAT(l.dtLeitura, '%Y-%m-%d %H:%i') AS data_formatada,
     l.temperatura,
     r.recomendacao,
     a.identificador_colonia AS apiario
@@ -52,15 +52,43 @@ JOIN apiario a ON a.idApiario = s.fkApiario
 JOIN setor st ON st.idSetor = a.fkSetor
 JOIN empresa e ON e.idEmpresa = st.fkEmpresa
 WHERE e.idEmpresa = ${idUsuario}
-ORDER BY l.dtLeitura DESC;
+ORDER BY l.dtLeitura DESC
+limit 100;
 
 `; 
 
     return database.executar(instrucaoSql);
 }
 
+function carregarAlertaSetor(idUsuario){
+    var instrucaoSql = `
+select 
+st.fkEmpresa as idEmpresa,
+count(rl.fkleitura) as TotalAlertas,
+date_format(rl.dtRecomendacao, '%Y-%m-%d') 
+from recomendacaoLeitura rl join leitura l
+on rl.fkLeitura = l.idLeitura
+join sensor s
+on l.fkSensor = s.idSensor
+join apiario a
+on s.fkApiario = a.idApiario
+join setor st
+on a.fkSetor = st.idSetor
+where (rl.fkRecomendacao = 2 or rl.fkRecomendacao = 3)
+group by date_format(rl.dtRecomendacao, '%Y-%m-%d'), st.fkEmpresa 
+having st.fkEmpresa = ${idUsuario}
+order by st.fkEmpresa desc limit 15;
+
+`; 
+
+    return database.executar(instrucaoSql);
+}
+
+
+
 module.exports = {
     carregarApiarioEmpresa,
     carregarApiarioEmpresaTemperatura,
-    carregarApiarioEmpresaAlerta
+    carregarApiarioEmpresaAlerta,
+    carregarAlertaSetor
 };
