@@ -8,7 +8,7 @@ const alertChart = new Chart(ctx2, {
     labels: Array.from({ length: 15 }, (_, i) => `Dia ${i + 1}`), // rótulos do eixo X
     datasets: [{
       label: 'Quantidade de Alertas',
-      data: [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 3], // dados simulados
+      data: [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 3], // dados simulados
       backgroundColor: '#F76D57' // cor das barras
     }]
   },
