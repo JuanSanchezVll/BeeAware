@@ -132,7 +132,7 @@ foreign key (fkRecomendacao) references recomendacao(idRecomendacao)
 
 DESCRIBE recomendacaoLeitura;
 
-SELECT * FROM recomendacaoLeitura;
+SELECT * FROM recomendacaoLeitura order by fkLeitura desc;
 
 create table teste(
 idTeste int primary key auto_increment,
