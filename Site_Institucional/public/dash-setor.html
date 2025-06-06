@@ -1,143 +1,140 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BeeAware Dashboard</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BeeAware Dashboard</title>
+    <!-- Vincula o CSS principal do projeto -->
+    <link rel="stylesheet" href="./css/style-dash-setor.css" />
 
-  <!-- Vincula o CSS principal do projeto -->
-  <link rel="stylesheet" href="./css/style-dash-setor.css" />
+    <!-- Importa a biblioteca Chart.js para renderizar gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
 
-  <!-- Importa a biblioteca Chart.js para renderizar gráficos -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+  <body onload="carregarApiario(), carregarTabelaAlerta(), graficoAlerta()">
+    <!-- Container principal do layout dividido entre a sidebar e o conteúdo -->
+    <div class="container">
+      <!-- Sidebar: Navegação lateral fixa -->
+      <aside class="sidebar">
+        <div class="logo">
+          <!-- Logo e nome do sistema -->
+          <img src="img/Icone BeeAware (2).png" alt="Logo BeeAware" />
 
-<body onload="carregarApiario(), carregarTabelaAlerta()">
+          <h2><span class="bee">Bee</span><span class="aware">Aware</span></h2>
+        </div>
 
-  <!-- Container principal do layout dividido entre a sidebar e o conteúdo -->
-  <div class="container">
-
-    <!-- Sidebar: Navegação lateral fixa -->
-    <aside class="sidebar">
-      <div class="logo">
-        <!-- Logo e nome do sistema -->
-        <img src="img/Icone BeeAware (2).png" alt="Logo BeeAware" />
-
-        <h2><span class="bee">Bee</span><span class="aware">Aware</span></h2>
-      </div>
-
-      <!-- Menu de navegação -->
-      <nav class="nav-sidebar">
-        <button class="nav-btn">Início</button>
-        <button class="nav-btn">Voltar</button>
-        <button class="nav-btn" onclick="sair()">Sair</button>
-      </nav>
-
-      <!-- Botão de acesso ao Jira, posicionado na parte inferior da sidebar -->
-      <div class="jira-section">
-        <button class="jira-btn">Jira</button>
-      </div>
-    </aside>
-
-    <!-- Conteúdo principal do dashboard -->
-    <main class="dashboard scroll">
-
-      <!-- Barra superior com navegação secundária -->
-      <header class="topbar">
-        <h1>Dashboard</h1>
-        <nav>
-          <a href="#">Dashboard</a>
-          <a href="#">Relatórios</a>
-          <a href="#">Configurações</a>
-          <a href="#">Ajuda</a>
+        <!-- Menu de navegação -->
+        <nav class="nav-sidebar">
+          <button class="nav-btn">Início</button>
+          <button class="nav-btn">Voltar</button>
+          <button class="nav-btn" onclick="sair()">Sair</button>
         </nav>
-      </header>
 
-      <!-- Seção dos indicadores principais (KPIs) -->
-      <section class="kpis">
-        <!-- Cartões com valores de alertas e status do sistema -->
-        <!-- Cada card representa um KPI -->
-        <div class="card moderno">
-          <div class="card-header">
-            <span>Quantidade Alertas - Mês</span>
-            <i class="icone">📶</i>
-          </div>
-          <div class="valor destaque laranja">18 alertas</div>
-          <div class="progress-bar">
-            <div class="progress-bar-inner laranja" style="width: 80%;"></div>
-          </div>
-          <div class="legenda">Última atualização: 15:36</div>
+        <!-- Botão de acesso ao Jira, posicionado na parte inferior da sidebar -->
+        <div class="jira-section">
+          <button class="jira-btn">Jira</button>
         </div>
+      </aside>
 
-        <div class="card moderno">
-          <div class="card-header">
-            <span>Quantidade Alertas - Hoje</span>
-            <i class="icone">⚗️</i>
+      <!-- Conteúdo principal do dashboard -->
+      <main class="dashboard scroll">
+        <!-- Barra superior com navegação secundária -->
+        <header class="topbar">
+          <h1>Dashboard</h1>
+          <nav>
+            <a href="#">Dashboard</a>
+            <a href="#">Relatórios</a>
+            <a href="#">Configurações</a>
+            <a href="#">Ajuda</a>
+          </nav>
+        </header>
+
+        <!-- Seção dos indicadores principais (KPIs) -->
+        <section class="kpis">
+          <!-- Cartões com valores de alertas e status do sistema -->
+          <!-- Cada card representa um KPI -->
+          <div class="card moderno">
+            <div class="card-header">
+              <span>Quantidade Alertas - Mês</span>
+              <i class="icone">📶</i>
+            </div>
+            <div class="valor destaque laranja">18 alertas</div>
+            <div class="progress-bar">
+              <div class="progress-bar-inner laranja" style="width: 80%"></div>
+            </div>
+            <div class="legenda">Última atualização: 15:36</div>
           </div>
-          <div class="valor destaque azul">2 alertas</div>
-          <div class="progress-bar">
-            <div class="progress-bar-inner azul" style="width: 60%;"></div>
+
+          <div class="card moderno">
+            <div class="card-header">
+              <span>Quantidade Alertas - Hoje</span>
+              <i class="icone">⚗️</i>
+            </div>
+            <div class="valor destaque azul">2 alertas</div>
+            <div class="progress-bar">
+              <div class="progress-bar-inner azul" style="width: 60%"></div>
+            </div>
+            <div class="legenda">Última atualização: 15:36</div>
           </div>
-          <div class="legenda">Última atualização: 15:36</div>
-        </div>
 
-        <div class="card moderno alerta">
-          <div class="card-header">
-            <span>Colmeia em Alerta</span>
-            <i class="icone">⚠️</i>
+          <div class="card moderno alerta">
+            <div class="card-header">
+              <span>Colmeia em Alerta</span>
+              <i class="icone">⚠️</i>
+            </div>
+            <div class="valor destaque vermelho">Colmeia #3</div>
+            <div class="info-alerta">
+              Temperatura: 38.2ºC<br />(Acima do limite)
+            </div>
+            <button class="btn-alerta">Ver Detalhes</button>
           </div>
-          <div class="valor destaque vermelho">Colmeia #3</div>
-          <div class="info-alerta">Temperatura: 38.2ºC<br>(Acima do limite)</div>
-          <button class="btn-alerta">Ver Detalhes</button>
-        </div>
 
-        <div class="card moderno online">
-          <div class="card-header">
-            <span>Status do Sistema</span>
-            <i class="icone">✅</i>
+          <div class="card moderno online">
+            <div class="card-header">
+              <span>Status do Sistema</span>
+              <i class="icone">✅</i>
+            </div>
+            <div class="valor destaque verde">Online</div>
+            <div class="legenda">
+              Última atualização: 15:36<br />Sensores ativos: 12/12
+            </div>
           </div>
-          <div class="valor destaque verde">Online</div>
-          <div class="legenda">Última atualização: 15:36<br>Sensores ativos: 12/12</div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Seção com gráfico e histórico lado a lado -->
-      <section class="grafico-historico">
-        <!-- Gráfico de alertas -->
-        <div class="grafico">
-          <h2>Alertas nos últimos 15 dias</h2>
-          <br>
-          <canvas id="alertChart"></canvas>
-        </div>
+        <!-- Seção com gráfico e histórico lado a lado -->
+        <section class="grafico-historico">
+          <!-- Gráfico de alertas -->
+          <div class="grafico">
+            <h2>Alertas nos últimos 15 dias</h2>
+            <br />
+            <canvas id="alertChart"></canvas>
+          </div>
 
-        <!-- Histórico em tabela -->
-        <div class="historico scroll-alerta">
-          <h2>Histórico de Alerta</h2>
-          <br>
-          <table>
-            <thead>
-              <tr>
-                <th>Data</th>
-                <th>Temperatura</th>
-                <th>Registro</th>
-                <th>apiario</th>
-              </tr>
-            </thead>
-            <tbody id="tbody_alerta">
-            
-            </tbody>
-          </table>
-        </div>
-      </section>
-      <br><br>
+          <!-- Histórico em tabela -->
+          <div class="historico scroll-alerta">
+            <h2>Histórico de Alerta</h2>
+            <br />
+            <table>
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Temperatura</th>
+                  <th>Registro</th>
+                  <th>apiario</th>
+                </tr>
+              </thead>
+              <tbody id="tbody_alerta"></tbody>
+            </table>
+          </div>
+        </section>
+        <br /><br />
 
-      <!-- Seção de monitoramento das colmeias -->
-      <section class="colmeias">
-        <h2>Monitoramento de Apiarios</h2>
-        <div class="cards-colmeias-v2" id="Scroll_apiario">
-
-          <!-- <div class="colmeia-card atencao">
+        <!-- Seção de monitoramento das colmeias -->
+        <section class="colmeias">
+          <h2>Monitoramento de Apiarios</h2>
+          <div class="cards-colmeias-v2" id="Scroll_apiario">
+            <!-- <div class="colmeia-card atencao">
             <div class="card-top">
               <span>Apiario #8</span>
               <span class="status-label atencao">Atenção</span>
@@ -150,22 +147,18 @@
             <button class="btn-detalhes">Ver Detalhes</button>
           </div> 
           Molde de alerta apiario
-          -->
+          --></div>
+        </section>
 
+        <!-- Rodapé fixo ao final do conteúdo -->
+        <footer class="rodape">
+          <p>&copy; 2025 BeeAware - Todos os direitos reservados.</p>
+        </footer>
+      </main>
+    </div>
 
-        </div>
-      </section>
-
-      <!-- Rodapé fixo ao final do conteúdo -->
-      <footer class="rodape">
-        <p>&copy; 2025 BeeAware - Todos os direitos reservados.</p>
-      </footer>
-    </main>
-  </div>
-
-  <!-- Script do gráfico do Chart.js -->
-  <script src="js/dash-setor.js"></script>
-  <script src="js/dash-setor.js"> </script>
-</body>
-
+    <!-- Script do gráfico do Chart.js -->
+    <script src="js/dash-setor.js"></script>
+    <script src="js/dash-setor.js"></script>
+  </body>
 </html>

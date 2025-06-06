@@ -41,8 +41,23 @@ res.json(resultado);
 )
 }
 
+function carregarAlerta15dias(req, res){
+idUsuario = req.params.idUsuario
+    
+apiarioSetorModel.carregarAlertaSetor(idUsuario)
+
+.then(resultado => {
+res.json(resultado);
+
+})
+.catch(
+
+)
+}
+
 module.exports = {
     carregarApiario,
     carregarApiarioTemp,
-    carregarSetorAlerta
+    carregarSetorAlerta,
+    carregarAlerta15dias
 }

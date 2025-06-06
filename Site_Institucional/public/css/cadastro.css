@@ -1,9 +1,10 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-*{
+
+* {
     font-family: inter;
 }
-body{
+
+body {
     padding: 0px;
     margin: 0px;
     overflow-x: hidden;
@@ -14,16 +15,17 @@ body{
 #div_card {
     width: 70%;
     height: 100vh;
-    background-image:url(../img/abelha_cad.jpg) ;
+    background-image: url(../img/abelha_cad.jpg);
     background-repeat: no-repeat;
-    background-size: contain;  
+    background-size: contain;
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
-#div_formulario{
-    display: flex ;
+
+#div_formulario {
+    display: flex;
     flex-direction: column;
     overflow-y: scroll;
     height: 100%;
@@ -31,19 +33,21 @@ body{
     justify-content: flex-start;
     align-items: center;
 }
-.campo{
+
+.campo {
     display: flex;
     flex-direction: column;
     height: 60%;
     padding-bottom: 10px;
 }
-.campo span{
+
+.campo span {
     padding-bottom: 2px;
     color: white;
 }
-   
 
-#div_texto h1{
+
+#div_texto h1 {
     font-size: 40px;
     font-weight: 700;
     margin: 0px;
@@ -51,7 +55,7 @@ body{
     margin-top: 10px;
 }
 
-#div_texto h4{
+#div_texto h4 {
     font-size: 16px;
     font-weight: 500;
     margin: 0px;
@@ -59,7 +63,7 @@ body{
     margin-left: 10px;
 }
 
-#div_texto{
+#div_texto {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,21 +79,20 @@ body{
 
 #div_cadastro {
     width: 30%;
-padding: 5%;
-   background-color: black;
-   display: flex;
-   flex-direction: column;
-   justify-content: flex-start;
-   align-items: center;
-   height: 100vh;
-} 
-
+    padding: 5%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+}
 
 
 .campo input {
     border-radius: 6px;
     border: solid 1px white;
-    padding-left: 10px ;
+    padding-left: 10px;
     padding-top: 3px;
     padding-bottom: 3px;
     width: 90%;
@@ -99,15 +102,15 @@ padding: 5%;
     font-size: 4vh;
 }
 
-.campo input:focus{
+.campo input:focus {
     scale: 1.05;
 }
 
-#div_formulario span{
+#div_formulario span {
     font-weight: 700;
 }
 
-#div_titulo h3{
+#div_titulo h3 {
     font-size: 28px;
     margin: 0px;
     margin-bottom: 15px;
@@ -117,35 +120,35 @@ padding: 5%;
     justify-content: center;
 }
 
-#div_titulo img{
+#div_titulo img {
     margin-top: 10px;
     width: 200px;
     height: 70px;
 }
 
-#div_botao{
+#div_botao {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top:15px ;
+    margin-top: 15px;
 }
 
 /* Texto debaixo do botão cadastro */
-#div_botao span{
+#div_botao span {
     padding-top: 10px;
     font-size: 12px;
     color: white;
 }
 
-#div_botao span a{
+#div_botao span a {
     color: white;
     text-decoration-line: none;
 }
 
-#div_botao span a:hover{
+#div_botao span a:hover {
     transition: 0.3s;
     color: purple;
-    text-decoration-line:underline;
+    text-decoration-line: underline;
 }
 
 /* Botão da pagina */
@@ -154,7 +157,7 @@ padding: 5%;
     align-self: right;
     height: 50px;
     background-color: #FFA40B;
-    border: solid 1px black ;
+    border: solid 1px black;
     border-radius: 8px;
     border: none;
     text-align: center;
@@ -171,16 +174,17 @@ padding: 5%;
 
 #div_botao button:active {
     transition: 0.1s;
-    background-color:black;
+    background-color: black;
     color: #FFA40B;
 }
 
-#div_alerta{
+#div_alerta {
     text-align: center;
     font-size: 10px;
     color: #E98800;
 }
-.div_cadastro_geral{
-display: flex;
-flex-direction: row;
+
+.div_cadastro_geral {
+    display: flex;
+    flex-direction: row;
 }

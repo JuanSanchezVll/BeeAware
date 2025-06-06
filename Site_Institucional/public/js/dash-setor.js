@@ -64,7 +64,7 @@ function carregarApiario(){
               <p>Setor: <strong>${apiario[i].setor}</strong></p>
               <p id="card_temperatura_${apiario[i].idApiario}">Temperatura: <strong>${apiario[i].temperatura}ºC</strong></p>
               <p>Colônia: <strong>${apiario[i].identificador_colonia}</strong></p>
-              <p>Última leitura: <strong>Há 5 minutos</strong></p>
+              <p id="Ultima_leitura_${apiario[i].idApiario}">Última leitura: <strong>Há 5 minutos</strong></p>
             </div>
             <button class="btn-detalhes" onclick="verInformação(${apiario[i].idApiario})" id="btn_apiario_${apiario[i].idApiario}">Ver Detalhes</button>
           </div>
@@ -128,8 +128,12 @@ function carregarTemperatura(){
         }
 
         var div_mensagem = document.getElementById(`card_temperatura_${apiarioTemperatura[i].idApiario}`)
+        var leitura = document.getElementById(`Ultima_leitura_${apiarioTemperatura[i].idApiario}`)
 
-        console.log(`${Number(apiarioTemperatura[i].temperatura)}`)
+        leitura.innerHTML = `
+        Última leitura: <strong>${apiarioTemperatura[i].dataLeitura}</strong>
+        `
+
         div_mensagem.innerHTML = `
         
         Temperatura: <strong>${Number(apiarioTemperatura[i].temperatura)}ºC</strong>
@@ -185,6 +189,27 @@ fetch(`/apiarioSetor/carregarSetorAlerta/${idUsuario}`, {
   )
 
 
+}
+
+function graficoAlerta(){
+  idUsuario = sessionStorage.ID_USUARIO
+
+  fetch(`/apiarioSetor/carregarAlertas/${idUsuario}`, {
+    method: 'GET',
+  })
+  .then(res => { res.json() 
+    .then(json => {
+
+      var listaTotalAlerta = []
+      var dadosAlerta = json
+
+      for(var i = 0; i < dadosAlerta.length; i++){
+        listaTotalAlerta.push(dadosAlerta[i].TotalAlertas)
+      }
+
+      alertChart.data.datasets[0].data = listaTotalAlerta
+      alertChart.update()
+    })})
 }
 
 setInterval(carregarTemperatura,1000)
