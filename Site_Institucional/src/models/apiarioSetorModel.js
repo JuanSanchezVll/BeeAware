@@ -37,6 +37,17 @@ order by l.dtLeitura desc  limit 3 ;
     return database.executar(instrucaoSql);
 }
 
+function apiarioAtivos(idUsuario) {
+    var instrucaoSql = `
+select count(*) as total , (select count(*) from sensor join apiario on fkApiario = idApiario
+join setor on fkSetor =  idSetor where fkEmpresa = ${idUsuario} and statusSen = 'Ativo' ) as ativos from sensor join apiario on fkApiario = idApiario
+join setor on fkSetor =  idSetor where fkEmpresa = ${idUsuario};
+ ;
+    `; 
+
+    return database.executar(instrucaoSql);
+}
+
 function carregarApiarioEmpresaAlerta(idUsuario){
     var instrucaoSql = `
     SELECT 
@@ -140,5 +151,6 @@ module.exports = {
     carregarApiarioEmpresaTemperatura,
     carregarApiarioEmpresaAlerta,
     carregarAlertaSetor,
-    carregarAlertaMensal
+    carregarAlertaMensal,
+    apiarioAtivos
 };

@@ -23,6 +23,10 @@ router.get("/carregarKPIMensal/:idUsuario", function (req, res) {
     apiarioSetorController.carregarAlertaMensal(req, res);
 })
 
+router.get("/apiarioAtivos/:idUsuario", function (req, res) {
+    apiarioSetorController.apiarioAtivos(req, res);
+})
+
 
 
 module.exports = router;

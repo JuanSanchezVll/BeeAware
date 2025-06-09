@@ -132,12 +132,11 @@
             telVar == "" ||
             cepVar == "" ||
             numVar == "" ||
-            compVar == "" ||
             cnpjVar == "" ||
             senhaVar == "" ||
             confVar == ""
         ) {
-            alert("Todos os campos em branco");
+            alert("Todos os campos precisam estar preenchidos");
             return false;
         }
         else if (cepVar.length > 9) {

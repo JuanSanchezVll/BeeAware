@@ -1,6 +1,7 @@
 // Captura o elemento canvas pelo ID
 const ctx2 = document.getElementById('alertChart').getContext('2d');
 
+
 // Cria o gráfico de barras com dados simulados para os últimos 15 dias
 const alertChart = new Chart(ctx2, {
   type: 'bar', // tipo de gráfico
@@ -152,6 +153,29 @@ function carregarTemperatura(){
     err => console.error('Erro ao carregar temperatura:', err)
   )
 }
+function apiarioAtivos(){
+
+  idUsuario = sessionStorage.ID_USUARIO
+  
+  fetch(`/apiarioSetor/apiarioAtivos/${idUsuario}`, {
+    method: 'GET',
+  })
+  .then(res => { res.json() 
+    .then(resposta => {
+
+      var apiarioTotal = resposta[0].total
+      var apiarioAtivos = resposta[0].ativos
+
+                  document.getElementById(`div_sens_atv`).innerText = `${apiarioAtivos}/${apiarioTotal}`
+
+    }
+  )
+  .catch(
+    err => console.error('Erro ao carregar temperatura:', err)
+  )
+}
+)
+}
 
 function carregarTabelaAlerta(){
 
@@ -253,3 +277,5 @@ function atualizacaoKPI(){
 setInterval(atualizacaoKPI, 1000) // mudar para 10000
 
 setInterval(carregarTemperatura,1000)
+
+setInterval(apiarioAtivos,1000)

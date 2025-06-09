@@ -12,6 +12,18 @@ res.json(resultado);
 
         )
 }
+function apiarioAtivos(req, res) {
+    idUsuario = req.params.idUsuario
+    
+    apiarioSetorModel.apiarioAtivos(idUsuario)
+.then(resultado => {
+res.json(resultado);
+
+})
+.catch(
+
+        )
+}
             
 function carregarApiarioTemp(req, res){
 idUsuario = req.params.idUsuario
@@ -74,5 +86,6 @@ module.exports = {
     carregarApiarioTemp,
     carregarSetorAlerta,
     carregarAlerta15dias,
-    carregarAlertaMensal
+    carregarAlertaMensal,
+    apiarioAtivos
 }
