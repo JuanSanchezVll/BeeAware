@@ -4,12 +4,12 @@
 /*Impotando fonte  Montserrat*/
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-
 .body_simulador {
     background-image: url(../img/imagem_fundo_simulador.png);
     background-size: cover;
 }
-.div_geral_simulador{
+
+.div_geral_simulador {
     height: 100vh;
     width: 100%;
     display: flex;
@@ -17,16 +17,18 @@
     align-items: center;
     justify-content: flex-start;
 }
-.titulo_simulador{
+
+.titulo_simulador {
     margin-top: 2%;
     height: 10%;
-    width: 50% ;
-font-weight: 700;
-font-size: 300%;
-color: #E98800;
-text-align: center;
+    width: 50%;
+    font-weight: 700;
+    font-size: 300%;
+    color: #fd8b00;
+    text-align: center;
 }
-.tabela_simulador{
+
+.tabela_simulador {
     width: 35%;
     margin-top: 5%;
     display: flex;
@@ -36,7 +38,8 @@ text-align: center;
 
 
 }
-.div_tabelas_simulador{
+
+.div_tabelas_simulador {
     margin-top: -5%;
     width: 100%;
     height: 85%;
@@ -45,26 +48,29 @@ text-align: center;
     align-content: center;
     justify-content: space-around;
 }
-.tabela_simulador{
-display: flex;
-justify-content: flex-start;
-flex-direction: column;
-border-radius:10px;
-background-color: black;
-color: white;
+
+.tabela_simulador {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
 }
-.div_logo_simulador{
+
+.div_logo_simulador {
     margin-bottom: 0px;
     margin-top: 5%;
 }
-.div_pergunta_simulador{
+
+.div_pergunta_simulador {
     padding: 2%;
     overflow: auto;
     margin-top: -10%;
     width: 90%;
-    height:70%;
+    height: 70%;
     background-color: white;
-    border: #E98800 solid 5px;
+    border: #fd8b00 solid 5px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -72,61 +78,71 @@ color: white;
     align-items: center;
 }
 
-.div_resposta{
+.div_resposta {
     padding: 1%;
     overflow: auto;
     margin-top: -10%;
     width: 90%;
-    height:70%;
+    height: 70%;
     background-color: white;
-    border: #E98800 solid 5px;
+    border: #fd8b00 solid 5px;
     border-radius: 10px;
-    
+
 }
-.div_msg{
+
+.div_msg {
     color: black;
     width: 100%;
     height: 100%;
 }
-.txt{
+
+.txt {
     font-size: 150%;
 }
-.ipt{
+
+.ipt {
     align-items: center;
     width: 90%;
     height: 5%;
     font-size: 130%;
 }
-.bt_analisar{
+
+.bt_analisar {
     width: 40%;
     height: 10%;
-    background-color: #E98800;
+    background-color: #fd8b00;
     color: white;
     border-radius: 15px;
     border: black 2px solid;
     transition: 0.3s;
 }
-.bt_analisar:hover{
+
+.bt_analisar:hover {
     transform: scale(1.1);
 }
-.div_pt1_respostas{
+
+.div_pt1_respostas {
     height: 50%;
 }
-.div_pt2_respostas{
+
+.div_pt2_respostas {
     height: 50%;
     display: flex;
     flex-direction: row;
 }
-.div_dentro_pt2_respostas{
+
+.div_dentro_pt2_respostas {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-.preju_simulador{
-    border: 2px solid #E54F52; 
-    background-color:rgba(255, 0, 0, 0.30);;
+
+.preju_simulador {
+    border: 2px solid #E54F52;
+    background-color: rgba(255, 0, 0, 0.30);
+    ;
     border-radius: 10px;
     height: 80%;
     display: flex;
@@ -134,22 +150,28 @@ color: white;
     justify-content: center;
     align-items: center;
 
-}.ideal_simulador{
-    border: 2px solid #28a745; /* verde */
+}
+
+.ideal_simulador {
+    border: 2px solid #28a745;
+    /* verde */
     background-color: #e9fbe5;
     color: #1a3c1a;
     border-radius: 10px;
     height: 80%;
 }
-.positivo{
+
+.positivo {
     font-size: 150%;
     color: green;
 }
-.preju{
+
+.preju {
     font-size: 150%;
     color: red;
 }
-.alerta_40{
+
+.alerta_40 {
     width: 100%;
     height: 100%;
     display: flex;
@@ -160,10 +182,12 @@ color: white;
     color: red;
     font-weight: 700;
 }
-.img_alerta{
+
+.img_alerta {
     width: 70%;
     height: auto;
 }
-.txt_fild{
+
+.txt_fild {
     font-size: 150%;
 }
