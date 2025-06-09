@@ -132,12 +132,46 @@ foreign key (fkRecomendacao) references recomendacao(idRecomendacao)
 
 DESCRIBE recomendacaoLeitura;
 
-SELECT * FROM recomendacaoLeitura order by fkLeitura desc;
+select * from leitura;
+select * from apiario;
+select * from sensor;
+select * from setor;
+SELECT * FROM recomendacaoLeitura order by fkLeitura ;
 
-create table teste(
-idTeste int primary key auto_increment,
-campoNome varchar(100)
-);
+select 
+st.fkEmpresa as idEmpresa,
+count(rl.fkleitura) as TotalAlertas,
+date_format(rl.dtRecomendacao, '%Y-%m-%d') as dataRecomendação
+from recomendacaoLeitura rl join leitura l
+on rl.fkLeitura = l.idLeitura
+join sensor s
+on l.fkSensor = s.idSensor
+join apiario a
+on s.fkApiario = a.idApiario
+join setor st
+on a.fkSetor = st.idSetor
+where (rl.fkRecomendacao = 2 or rl.fkRecomendacao = 3)
+group by date_format(rl.dtRecomendacao, '%Y-%m-%d'), st.fkEmpresa 
+having st.fkEmpresa = 2
+order by st.fkEmpresa desc limit 15;
+
+select 
+st.fkEmpresa as idEmpresa,
+count(rl.fkleitura) as TotalAlertas,
+date_format(rl.dtRecomendacao, '%Y-%m-%d') as dataRecomendação
+from recomendacaoLeitura rl join leitura l
+on rl.fkLeitura = l.idLeitura
+join sensor s
+on l.fkSensor = s.idSensor
+join apiario a
+on s.fkApiario = a.idApiario
+join setor st
+on a.fkSetor = st.idSetor
+where (rl.fkRecomendacao = 2 or rl.fkRecomendacao = 3)
+group by date_format(rl.dtRecomendacao, '%Y-%m-%d'), st.fkEmpresa 
+having st.fkEmpresa = 2
+order by st.fkEmpresa desc limit 15;
+
 
 INSERT INTO empresa (nome, cnpj, telefone, email, cep, numero, complemento, senha) VALUES
 ('BeeTech', '12.345.678/0001-01', '(11)90000-0001', 'beetech@empresa.com', '01000-000', 10, 'Sala 1', 'senha1'),

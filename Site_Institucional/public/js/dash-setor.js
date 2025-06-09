@@ -212,4 +212,44 @@ function graficoAlerta(){
     })})
 }
 
+function atualizacaoKPI(){
+
+    idUsuario = sessionStorage.ID_USUARIO
+
+    fetch(`/apiarioSetor/carregarAlertas/${idUsuario}`, {
+    method: 'GET',
+  })
+  .then(res => { res.json() 
+    .then(json => {
+        var alertaDiario = json
+        var alerta_diario= document.getElementById(`alerta_diario`)
+
+        if(alertaDiario[0].TotalAlertas > 1){
+          alerta_diario.innerHTML = `${alertaDiario[0].TotalAlertas} alertas`
+        }else{
+          alerta_diario.innerHTML = `${alertaDiario[0].TotalAlertas} alerta`
+        }
+
+    })})
+
+    fetch(`/apiarioSetor/carregarKPIMensal/${idUsuario}`, {
+    method: 'GET',
+  })
+  .then(res => { res.json() 
+    .then(json => {
+      var alertaMesal = json
+      var alerta_mensal = document.getElementById(`alerta_mensal`)
+
+      if(alertaMesal[0].TotalAlertas > 1){
+          alerta_mensal.innerHTML = `${alertaMesal[0].TotalAlertas} alertas`
+        }else{
+          alerta_mensal.innerHTML = `${alertaMesal[0].TotalAlertas} alerta`
+        }
+
+    })})
+
+}
+
+setInterval(atualizacaoKPI, 1000) // mudar para 10000
+
 setInterval(carregarTemperatura,1000)

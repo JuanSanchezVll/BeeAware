@@ -40,7 +40,7 @@ order by l.dtLeitura desc  limit 3 ;
 function carregarApiarioEmpresaAlerta(idUsuario){
     var instrucaoSql = `
     SELECT 
-    DATE_FORMAT(l.dtLeitura, '%Y-%m-%d %H:%i') AS data_formatada,
+    DATE_FORMAT(l.dtLeitura, '%d-%m-%Y %H:%i') AS data_formatada,
     l.temperatura,
     r.recomendacao,
     a.identificador_colonia AS apiario
@@ -51,7 +51,7 @@ JOIN sensor s ON s.idSensor = l.fkSensor
 JOIN apiario a ON a.idApiario = s.fkApiario
 JOIN setor st ON st.idSetor = a.fkSetor
 JOIN empresa e ON e.idEmpresa = st.fkEmpresa
-WHERE e.idEmpresa = ${idUsuario}
+WHERE e.idEmpresa = ${idUsuario} and rl.fkRecomendacao = 2 or rl.fkRecomendacao = 3
 ORDER BY l.dtLeitura DESC
 limit 100;
 
@@ -65,7 +65,7 @@ function carregarAlertaSetor(idUsuario){
 select 
 st.fkEmpresa as idEmpresa,
 count(rl.fkleitura) as TotalAlertas,
-date_format(rl.dtRecomendacao, '%Y-%m-%d') 
+date_format(rl.dtRecomendacao, '%d-%m-%Y') as dtRecomendacao
 from recomendacaoLeitura rl join leitura l
 on rl.fkLeitura = l.idLeitura
 join sensor s
@@ -75,7 +75,55 @@ on s.fkApiario = a.idApiario
 join setor st
 on a.fkSetor = st.idSetor
 where (rl.fkRecomendacao = 2 or rl.fkRecomendacao = 3)
-group by date_format(rl.dtRecomendacao, '%Y-%m-%d'), st.fkEmpresa 
+group by date_format(rl.dtRecomendacao, '%d-%m-%Y'), st.fkEmpresa 
+having st.fkEmpresa = ${idUsuario}
+order by date_format(rl.dtRecomendacao, '%d-%m-%Y') desc limit 15;
+
+`; 
+
+return database.executar(instrucaoSql);
+}
+
+function carregarAlertaDiario(idUsuario){
+    var instrucaoSql = `
+select 
+st.fkEmpresa as idEmpresa,
+count(rl.fkleitura) as TotalAlertas,
+date_format(rl.dtRecomendacao, '%Y-%m') 
+from recomendacaoLeitura rl join leitura l
+on rl.fkLeitura = l.idLeitura
+join sensor s
+on l.fkSensor = s.idSensor
+join apiario a
+on s.fkApiario = a.idApiario
+join setor st
+on a.fkSetor = st.idSetor
+where (rl.fkRecomendacao = 2 or rl.fkRecomendacao = 3)
+group by date_format(rl.dtRecomendacao, '%Y-%m'), st.fkEmpresa 
+having st.fkEmpresa = ${idUsuario}
+order by st.fkEmpresa desc limit 15;
+
+`; 
+
+    return database.executar(instrucaoSql);
+}
+
+function carregarAlertaMensal(idUsuario){
+    var instrucaoSql = `
+select 
+st.fkEmpresa as idEmpresa,
+count(rl.fkleitura) as TotalAlertas,
+date_format(rl.dtRecomendacao, '%Y-%m') 
+from recomendacaoLeitura rl join leitura l
+on rl.fkLeitura = l.idLeitura
+join sensor s
+on l.fkSensor = s.idSensor
+join apiario a
+on s.fkApiario = a.idApiario
+join setor st
+on a.fkSetor = st.idSetor
+where (rl.fkRecomendacao = 2 or rl.fkRecomendacao = 3)
+group by date_format(rl.dtRecomendacao, '%Y-%m'), st.fkEmpresa 
 having st.fkEmpresa = ${idUsuario}
 order by st.fkEmpresa desc limit 15;
 
@@ -86,9 +134,11 @@ order by st.fkEmpresa desc limit 15;
 
 
 
+
 module.exports = {
     carregarApiarioEmpresa,
     carregarApiarioEmpresaTemperatura,
     carregarApiarioEmpresaAlerta,
-    carregarAlertaSetor
+    carregarAlertaSetor,
+    carregarAlertaMensal
 };

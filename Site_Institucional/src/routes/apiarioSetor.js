@@ -19,6 +19,10 @@ router.get("/carregarAlertas/:idUsuario", function (req, res) {
     apiarioSetorController.carregarAlerta15dias(req, res);
 })
 
+router.get("/carregarKPIMensal/:idUsuario", function (req, res) {
+    apiarioSetorController.carregarAlertaMensal(req, res);
+})
+
 
 
 module.exports = router;
