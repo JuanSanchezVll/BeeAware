@@ -138,40 +138,6 @@ select * from sensor;
 select * from setor;
 SELECT * FROM recomendacaoLeitura order by fkLeitura ;
 
-select 
-st.fkEmpresa as idEmpresa,
-count(rl.fkleitura) as TotalAlertas,
-date_format(rl.dtRecomendacao, '%Y-%m-%d') as dataRecomendação
-from recomendacaoLeitura rl join leitura l
-on rl.fkLeitura = l.idLeitura
-join sensor s
-on l.fkSensor = s.idSensor
-join apiario a
-on s.fkApiario = a.idApiario
-join setor st
-on a.fkSetor = st.idSetor
-where (rl.fkRecomendacao = 2 or rl.fkRecomendacao = 3)
-group by date_format(rl.dtRecomendacao, '%Y-%m-%d'), st.fkEmpresa 
-having st.fkEmpresa = 2
-order by st.fkEmpresa desc limit 15;
-
-select 
-st.fkEmpresa as idEmpresa,
-count(rl.fkleitura) as TotalAlertas,
-date_format(rl.dtRecomendacao, '%Y-%m-%d') as dataRecomendação
-from recomendacaoLeitura rl join leitura l
-on rl.fkLeitura = l.idLeitura
-join sensor s
-on l.fkSensor = s.idSensor
-join apiario a
-on s.fkApiario = a.idApiario
-join setor st
-on a.fkSetor = st.idSetor
-where (rl.fkRecomendacao = 2 or rl.fkRecomendacao = 3)
-group by date_format(rl.dtRecomendacao, '%Y-%m-%d'), st.fkEmpresa 
-having st.fkEmpresa = 2
-order by st.fkEmpresa desc limit 15;
-
 
 INSERT INTO empresa (nome, cnpj, telefone, email, cep, numero, complemento, senha) VALUES
 ('BeeTech', '12.345.678/0001-01', '(11)90000-0001', 'beetech@empresa.com', '01000-000', 10, 'Sala 1', 'senha1'),
@@ -199,112 +165,22 @@ INSERT INTO usuario (nome, senha, cpf, email, cargo, fkEmpresa) VALUES
 
 INSERT INTO setor (setor, fkEmpresa) VALUES
 ('Setor 1', 2),
-('Setor 2', 2),
-('Setor 3', 2),
-('Setor 4', 2),
-('Setor 5', 2),
-('Setor 6', 2),
-('Setor 7', 2),
-('Setor 8', 2),
-('Setor 9', 2),
-('Setor 10', 2);
+('Setor 2', 2);
 
 INSERT INTO apiario (identificador_colonia, fkSetor) VALUES
 ('Colônia A', 1),
 ('Colônia B', 1),
-('Colônia C', 2),
-('Colônia D', 2),
-('Colônia E', 3),
-('Colônia F', 3),
-('Colônia G', 4),
-('Colônia H', 4),
-('Colônia I', 5),
-('Colônia J', 5);
+('Colônia C', 2);
 
 select * from apiario;
-delete from apiario where idApiario = 10;
 
 INSERT INTO sensor (numSerie, codInterno, statusSen, fkApiario) VALUES
 ('SN-001', 'INT-001', 'Ativo', 1),
-('SN-002', 'INT-002', 'Manutenção', 2),
-('SN-003', 'INT-003', 'Inativo', 3),
-('SN-004', 'INT-004', 'Ativo', 4),
-('SN-005', 'INT-005', 'Com problema', 5),
-('SN-006', 'INT-006', 'Ativo', 6),
-('SN-007', 'INT-007', 'Manutenção', 7),
-('SN-008', 'INT-008', 'Ativo', 8),
-('SN-009', 'INT-009', 'Inativo', 9),
-('SN-010', 'INT-010', 'Ativo', 10);
-
-INSERT INTO leitura (temperatura, dtLeitura, fkSensor) VALUES
-(34.5, NOW(), 1),
-(35.0, NOW(), 2),
-(36.2, NOW(), 3),
-(33.8, NOW(), 4),
-(37.1, NOW(), 5),
-(35.5, NOW(), 6),
-(34.0, NOW(), 7),
-(36.7, NOW(), 8),
-(33.9, NOW(), 9),
-(35.8, NOW(), 10);
-
-INSERT INTO leitura (temperatura, dtLeitura, fkSensor) VALUES
-(42, NOW(), 1);
+('SN-002', 'INT-002', 'Ativo', 2),
+('SN-003', 'INT-003', 'Ativo', 3),
+('SN-005', 'INT-005', 'Inativo', 4);
 
 INSERT INTO recomendacao(recomendacao) values
 ('Nenhuma'),
 ('Atenção'),
 ('Cuidado');
-
-SELECT 
-    e.idEmpresa,
-    st.setor,
-    a.idApiario,
-    a.identificador_colonia,
-    se.numSerie
-FROM empresa e
-JOIN setor st ON st.fkEmpresa = e.idEmpresa
-JOIN apiario a ON a.fkSetor = st.idSetor
-JOIN sensor se ON se.fkApiario = a.idApiario
-where e.idEmpresa = 2;
-
-
-SELECT 
-    e.idEmpresa,
-	a.idApiario,
-    l.temperatura,
-    l.dtLeitura
-FROM empresa e
-JOIN setor st ON st.fkEmpresa = e.idEmpresa
-JOIN apiario a ON a.fkSetor = st.idSetor
-JOIN sensor se ON se.fkApiario = a.idApiario
-JOIN leitura l ON l.fkSensor = se.idSensor where e.idEmpresa = 2
-order by l.dtLeitura desc limit 3;
-
-
-SELECT 
-    e.idEmpresa,
-	a.idApiario,
-    l.temperatura,
-    l.dtLeitura
-FROM empresa e
-JOIN setor st ON st.fkEmpresa = e.idEmpresa
-JOIN apiario a ON a.fkSetor = st.idSetor
-JOIN sensor se ON se.fkApiario = a.idApiario
-JOIN leitura l ON l.fkSensor = se.idSensor where e.idEmpresa = 2
-order by l.dtLeitura desc  limit 3 ;
-
-SELECT 
-    DATE_FORMAT(l.dtLeitura, '%Y-%m-%d %H:%i:%s') AS data_formatada,
-    l.temperatura,
-    r.recomendacao,
-    a.identificador_colonia AS apiario
-FROM leitura l
-JOIN recomendacaoLeitura rl ON rl.fkLeitura = l.idLeitura AND rl.fkSensor = l.fkSensor
-JOIN recomendacao r ON r.idRecomendacao = rl.fkRecomendacao
-JOIN sensor s ON s.idSensor = l.fkSensor
-JOIN apiario a ON a.idApiario = s.fkApiario
-JOIN setor st ON st.idSetor = a.fkSetor
-JOIN empresa e ON e.idEmpresa = st.fkEmpresa
-WHERE e.idEmpresa = 2
-ORDER BY l.dtLeitura DESC;

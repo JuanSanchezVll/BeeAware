@@ -22,6 +22,9 @@ router.get("/carregarAlertas/:idUsuario", function (req, res) {
 router.get("/carregarKPIMensal/:idUsuario", function (req, res) {
     apiarioSetorController.carregarAlertaMensal(req, res);
 })
+router.get("/puxarHistorico/:apiario", function (req, res) {
+    apiarioSetorController.puxarHistorico(req, res);
+})
 
 router.get("/apiarioAtivos/:idUsuario", function (req, res) {
     apiarioSetorController.apiarioAtivos(req, res);

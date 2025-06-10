@@ -80,6 +80,32 @@ res.json(resultado);
 
 )
 }
+function carregarAlertaMensal(req, res){
+idUsuario = req.params.idUsuario
+    
+apiarioSetorModel.carregarAlertaMensal(idUsuario)
+
+.then(resultado => {
+res.json(resultado);
+
+})
+.catch(
+
+)
+}
+function puxarHistorico(req, res){
+apiario = req.params.apiario
+    
+apiarioSetorModel.puxarHistorico(apiario)
+
+.then(resultado => {
+res.json(resultado);
+
+})
+.catch(
+
+)
+}
 
 module.exports = {
     carregarApiario,
@@ -87,5 +113,6 @@ module.exports = {
     carregarSetorAlerta,
     carregarAlerta15dias,
     carregarAlertaMensal,
-    apiarioAtivos
+    apiarioAtivos,
+    puxarHistorico
 }

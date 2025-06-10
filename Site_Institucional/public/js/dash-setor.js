@@ -171,7 +171,7 @@ function apiarioAtivos(){
     }
   )
   .catch(
-    err => console.error('Erro ao carregar temperatura:', err)
+    err => console.error('Erro ao carregar sensores ativos:', err)
   )
 }
 )

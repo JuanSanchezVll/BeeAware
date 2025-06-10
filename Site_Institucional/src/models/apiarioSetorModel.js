@@ -47,6 +47,22 @@ join setor on fkSetor =  idSetor where fkEmpresa = ${idUsuario};
 
     return database.executar(instrucaoSql);
 }
+function puxarHistorico(apiario) {
+    var instrucaoSql = `
+    SELECT
+    temperatura,
+    date_format(dtleitura, "%d/%m/%Y") as dataAlerta,
+    CASE
+        WHEN temperatura > 36 THEN 'Temperatura elevada'
+        when temperatura < 32 then 'Temperatura abaixo do ideal'
+    END   as resultado 
+FROM leitura
+WHERE (temperatura > 36 OR temperatura < 32) AND fkSensor = ${apiario} order by  dtleitura desc limit 10;
+    ;
+    `; 
+
+    return database.executar(instrucaoSql);
+}
 
 function carregarApiarioEmpresaAlerta(idUsuario){
     var instrucaoSql = `
@@ -152,5 +168,6 @@ module.exports = {
     carregarApiarioEmpresaAlerta,
     carregarAlertaSetor,
     carregarAlertaMensal,
-    apiarioAtivos
+    apiarioAtivos,
+    puxarHistorico
 };
