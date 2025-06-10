@@ -1,15 +1,19 @@
-/* Reset básico */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Corpo da página */
 body {
-    background-color: #ffffff; /* fundo branco */
-    color: #4B3A2F; /* marrom escuro */
-    min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f7f9;
+  color: #2c3e50;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 /* Container geral - layout flex */
@@ -20,62 +24,84 @@ body {
 
 /* Sidebar */
 .sidebar {
-    background-color: #fd9c52; /* branco puro */
-    width: 220px;
-    border-right: 1px solid #f1a66a; /* borda laranja clara suave */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 10px;
-    box-shadow: 2px 0 5px rgba(241, 166, 106, 0.15); /* sombra suave laranja */
+  width: 240px;
+  background-color: #fd8b00;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sidebar .logo {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
 }
 
 .sidebar .logo img {
-    width: 40px;
-    height: 40px;
+    width: 80px;
     object-fit: contain;
 }
 
 .sidebar .logo h2 {
     font-weight: 700;
     font-size: 1.5rem;
-    color: #4B3A2F;
+    color: white;
 }
 
 .sidebar .logo span {
     color: #ffffff; /* laranja suave */
 }
 
-.sidebar nav {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
+/* Botões de navegação lateral */
+.nav-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
 }
 
-.sidebar nav button {
-    background: none;
-    border: none;
-    padding: 12px 10px;
-    font-size: 1rem;
-    color: #4B3A2F;
-    text-align: left;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.nav-btn {
+  background-color: white;
+  color: #f39c12;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  width: 90%;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.sidebar nav button:hover {
-    background-color: #F1A66A; /* laranja claro */
-    color: #ffffff;
-    font-weight: 700;
+.nav-btn:hover {
+  background-color: #fef5e7;
+}
+
+/* Botão Jira no final da sidebar */
+.jira-section {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.jira-btn {
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.jira-btn:hover {
+  background-color: #1a242f;
 }
 
 /* Dashboard principal */
@@ -83,10 +109,9 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 25px 30px;
+    padding: 2rem;
     overflow-y: auto;
-    background-color: #ffffff; /* branco */
-    color: #4B3A2F;
+    color: #2c3e50;
 }
 
 /* Topbar */
@@ -94,20 +119,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
-}
-
-.topbar h1 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #4B3A2F;
+    margin-bottom: 2rem;
 }
 
 .topbar nav a {
-    margin-left: 20px;
-    color: #6b5e46; /* marrom suave */
+    margin-left: 1rem;
+    color: #2c3e50;
+    font-weight: bold;
     text-decoration: none;
-    font-weight: 600;
     transition: color 0.3s ease;
 }
 
@@ -129,7 +148,7 @@ body {
     border-radius: 8px;
     padding: 20px 15px;
     box-shadow: 0 2px 6px rgba(75, 58, 47, 0.12);
-    color: #4B3A2F;
+    color: #2c3e50;
     font-weight: 600;
     font-size: 1.1rem;
     text-align: center;
@@ -142,14 +161,12 @@ body {
 }
 
 .card.destaque {
-    background-color: #FAF3EB; /* creme um pouco mais escuro */
-    border-left: 5px solid #F1A66A;
+    background-color: white; /* creme um pouco mais escuro */
 }
 
 .card.alerta {
-    background-color: #FDE7E0; /* vermelho clarinho */
-    border-left: 5px solid #E05454;
-    color: #a43535;
+  border: 2px solid #e74c3c;
+  background-color: #fff0f0;
 }
 
 .card.online {
@@ -170,12 +187,12 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(241, 166, 106, 0.1);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .grafico h2 {
     margin-bottom: 15px;
-    color: #4B3A2F;
+    color: #2c3e50;
     font-weight: 700;
 }
 
@@ -190,7 +207,7 @@ body {
 
 /* Colmeias */
 .colmeias h2 {
-    color: #4B3A2F;
+    color: #2c3e50;
     font-weight: 700;
     margin-bottom: 15px;
 }

@@ -43,12 +43,12 @@ body {
 }
 
 .logo h2 {
-  font-size: 20px;
+  font-size: 25px;
   color: white;
 }
 
 .logo span {
-  color: #000000;
+  color: white;
   /* Parte "Aware" em cor escura */
 }
 
@@ -116,7 +116,7 @@ body {
 }
 
 .topbar nav a {
-  margin-left: 15px;
+  margin-left: 1rem;
   text-decoration: none;
   color: #2c3e50;
   font-weight: bold;
@@ -326,7 +326,6 @@ body {
   background-color: #e74c3c;
   color: white;
   margin-bottom: 12px;
-
 }
 
 .card-top-3 {
@@ -338,7 +337,6 @@ body {
   background-color: #e74c3c;
   color: white;
   margin-bottom: 12px;
-
 }
 
 .card-top-4 {
@@ -376,8 +374,6 @@ body {
   margin-bottom: 12px;
 
 }
-
-
 
 .status-label {
   font-size: 12px;
@@ -419,7 +415,6 @@ body {
   transition: background 0.3s;
 }
 
-
 .btn-detalhes.alerta {
   background-color: #e74c3c;
 }
@@ -439,8 +434,6 @@ body {
   cursor: pointer;
   transition: background 0.3s;
 }
-
-
 
 /* Container do botão centralizado abaixo da grade de colmeias */
 .btn-carregar-apiarios {

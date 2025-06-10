@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BeeAware Dashboard</title>
+    <title>Dashboard - BeeAware</title>
+    <link rel="shortcut icon" href="../public/img/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="./css/style-apiario.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -14,22 +15,29 @@
     <div class="container">
         <aside class="sidebar">
             <div class="logo">
-                <img src="public/img/Icone BeeAware (2).png" alt="Logo BeeAware" />
+                <img src="img/Icone BeeAware (2).png" alt="Logo BeeAware" />
                 <h2>Bee<span>Aware</span></h2>
             </div>
-            <nav>
-                <button>Início</button>
-                <button>Voltar</button>
-                <a href="dash-setor.html"><button>Sair</button></a>
-                <br><br><br><br>
-                <button>Jira</button>
+            <!-- Menu de navegação -->
+            <nav class="nav-sidebar">
+                <button class="nav-btn">Início</button>
+                <button class="nav-btn">Voltar</button>
+                <button class="nav-btn">Sair</button>
             </nav>
+
+            <!-- Botão de acesso ao Jira, posicionado na parte inferior da sidebar -->
+            <div class="jira-section">
+                <button class="jira-btn">Jira</button>
+            </div>
         </aside>
 
         <main class="dashboard">
-            <header class="topbar" id="header_apiario">
-                <h1>Dashboard - Apiário X</h1>
+            <header class="topbar">
+                <h1>Dashboard</h1>
                 <nav>
+                    <a href="#">Dashboard</a>
+                    <a href="#">Relatórios</a>
+                    <a href="#">Configurações</a>
                     <a href="#">Ajuda</a>
                 </nav>
             </header>
@@ -39,16 +47,17 @@
                 <div class="card destaque">Temperatura Atual<br><strong>45°C</strong></div>
                 <div class="card alerta">Alertas totais 24h<br><strong>20</strong></div>
                 <div class="card online" id="card_online">Sistema<br><strong>Online</strong></div>
-                <div class="card alerta" style="display: none;" id="card_offline">Sistema<br><strong>Offline</strong></div>
+                <div class="card alerta" style="display: none;" id="card_offline">Sistema<br><strong>Offline</strong>
+                </div>
             </section>
 
             <section class="grafico back">
                 <div class="titulo">
                     <h2 id="monitoramento_temperatura">Monitoramento do apiário</h2>
                     <h2 id="historico_temperatura" style="display: none;">Histórico de temperatura</h2>
-                     <select name="" id="dashboard_fitro" class="option_temperatura" onchange="trocar()"> 
-                        <option value="1" >Monitoramento de temperatura</option> 
-                        <option value="2" >Histórico de temperatura</option>
+                    <select name="" id="dashboard_fitro" class="option_temperatura" onchange="trocar()">
+                        <option value="1">Monitoramento de temperatura</option>
+                        <option value="2">Histórico de temperatura</option>
                     </select>
                 </div>
                 <div class="chart canvas_grafico" id="dashboard_temperatura">
@@ -167,7 +176,7 @@
                         display: true,
                         text: 'Histórico de Temperatura',
                         color: '#4B3A2F',
-    
+
                         font: {
                             size: 18
                         }
@@ -190,35 +199,36 @@
         });
     </script>
 </body>
+
 </html>
 
 <script>
 
-function carregar(){
-    idEmpresa = sessionStorage.ID_EMPRESA
+    function carregar() {
+        idEmpresa = sessionStorage.ID_EMPRESA
 
-}
-
-function trocar(){
-    var status = dashboard_fitro.value
-
-    var moni_temp = document.getElementById("monitoramento_temperatura")
-    var hist_temp = document.getElementById("historico_temperatura")
-    var dash_temp = document.getElementById("dashboard_temperatura")
-    var dash_hist = document.getElementById("dashboard_historico")
-
-
-    if(status == 1){
-        moni_temp.style.display = 'block'
-        hist_temp.style.display = 'none'
-        dash_temp.style.display = 'block'
-        dash_hist.style.display = 'none'
-
-    }else{
-        moni_temp.style.display = 'none'
-        hist_temp.style.display = 'block'
-        dash_temp.style.display = 'none'
-        dash_hist.style.display = 'block'
     }
-}
+
+    function trocar() {
+        var status = dashboard_fitro.value
+
+        var moni_temp = document.getElementById("monitoramento_temperatura")
+        var hist_temp = document.getElementById("historico_temperatura")
+        var dash_temp = document.getElementById("dashboard_temperatura")
+        var dash_hist = document.getElementById("dashboard_historico")
+
+
+        if (status == 1) {
+            moni_temp.style.display = 'block'
+            hist_temp.style.display = 'none'
+            dash_temp.style.display = 'block'
+            dash_hist.style.display = 'none'
+
+        } else {
+            moni_temp.style.display = 'none'
+            hist_temp.style.display = 'block'
+            dash_temp.style.display = 'none'
+            dash_hist.style.display = 'block'
+        }
+    }
 </script>
