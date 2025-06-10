@@ -182,7 +182,7 @@ body {
 
 /* Seção gráfico */
 .grafico {
-    background-color: #FFF7F0;
+    background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(241, 166, 106, 0.1);
