@@ -294,6 +294,9 @@ body {
 .card-top.alerta{
   background-color: #e74c3c;
 }
+.card-top.atencao{
+  background-color: #f39c12;
+}
 
 .card-top {
   display: flex;
@@ -378,8 +381,6 @@ body {
 
 }
 
-
-
 .status-label {
   font-size: 12px;
   padding: 3px 10px;
@@ -419,6 +420,9 @@ body {
 
 .btn-detalhes.alerta {
   background-color: #e74c3c;
+}
+.btn-detalhes.atencao {
+  background-color:#f39c12;
 }
 
 .btn-detalhes:hover {

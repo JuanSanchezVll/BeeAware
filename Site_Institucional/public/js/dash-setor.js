@@ -106,7 +106,7 @@ function carregarTemperatura(){
     
       for(var i = 0; i < apiarioTemperatura.length; i++){
 
-        if(Number(apiarioTemperatura[i].temperatura) > 36 || Number(apiarioTemperatura[i].temperatura) < 32){
+        if(Number(apiarioTemperatura[i].temperatura) > 39 || Number(apiarioTemperatura[i].temperatura) < 20){
            var status_apiario = document.getElementById(`status_apiario_${apiarioTemperatura[i].idApiario}`)
            var btn_apiario = document.getElementById(`btn_apiario_${apiarioTemperatura[i].idApiario}`)
            var card_apiario = document.getElementById(`card_apiario_${apiarioTemperatura[i].idApiario}`)
@@ -116,6 +116,17 @@ function carregarTemperatura(){
           status_apiario.classList.add("alerta")
           btn_apiario.classList.add("alerta")
           card_apiario.classList.add("alerta")
+        }else if(Number(apiarioTemperatura[i].temperatura) > 36 || Number(apiarioTemperatura[i].temperatura) < 32){
+           var status_apiario = document.getElementById(`status_apiario_${apiarioTemperatura[i].idApiario}`)
+           var btn_apiario = document.getElementById(`btn_apiario_${apiarioTemperatura[i].idApiario}`)
+           var card_apiario = document.getElementById(`card_apiario_${apiarioTemperatura[i].idApiario}`)
+
+          status_apiario.innerHTML = `Atenção`
+
+          status_apiario.classList.add("atencao")
+          btn_apiario.classList.add("atencao")
+          card_apiario.classList.add("atencao")
+
         }else{
           var status_apiario = document.getElementById(`status_apiario_${apiarioTemperatura[i].idApiario}`)
           var btn_apiario = document.getElementById(`btn_apiario_${apiarioTemperatura[i].idApiario}`)
@@ -126,6 +137,10 @@ function carregarTemperatura(){
           status_apiario.classList.remove("alerta")
           btn_apiario.classList.remove("alerta")
           card_apiario.classList.remove("alerta")
+
+          status_apiario.classList.remove("atencao")
+          btn_apiario.classList.remove("atencao")
+          card_apiario.classList.remove("atencao")
         }
 
         var div_mensagem = document.getElementById(`card_temperatura_${apiarioTemperatura[i].idApiario}`)
