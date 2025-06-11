@@ -27,10 +27,7 @@ body {
     justify-content: center;
     margin-left: 3%;
     border-radius: 12px;
-}
-
-.div_caixa div {
-    padding: 1;
+    gap: 1rem;
 }
 
 .div_titulo {
@@ -43,6 +40,7 @@ body {
     width: 90%;
     height: 4vh;
     border-radius: 5px;
+    gap: 1rem;
 }
 
 .div_input i {
