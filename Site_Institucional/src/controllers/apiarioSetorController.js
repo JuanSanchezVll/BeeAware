@@ -2,109 +2,123 @@ var apiarioSetorModel = require("../models/apiarioSetorModel");
 
 function carregarApiario(req, res) {
     idUsuario = req.params.idUsuario
-    
+
     apiarioSetorModel.carregarApiarioEmpresa(idUsuario)
-.then(resultado => {
-res.json(resultado);
+        .then(resultado => {
+            res.json(resultado);
 
-})
-.catch(
+        })
+        .catch(
 
-        )
+    )
 }
 function apiarioAtivos(req, res) {
     idUsuario = req.params.idUsuario
-    
+
     apiarioSetorModel.apiarioAtivos(idUsuario)
-.then(resultado => {
-res.json(resultado);
+        .then(resultado => {
+            res.json(resultado);
 
-})
-.catch(
+        })
+        .catch(
 
-        )
-}
-            
-function carregarApiarioTemp(req, res){
-idUsuario = req.params.idUsuario
-    
-apiarioSetorModel.carregarApiarioEmpresaTemperatura(idUsuario)
-
-.then(resultado => {
-res.json(resultado);
-
-})
-.catch(
-
-)
+    )
 }
 
-function carregarSetorAlerta(req, res){
-idUsuario = req.params.idUsuario
-    
-apiarioSetorModel.carregarApiarioEmpresaAlerta(idUsuario)
+function carregarApiarioTemp(req, res) {
+    idUsuario = req.params.idUsuario
 
-.then(resultado => {
-res.json(resultado);
+    apiarioSetorModel.carregarApiarioEmpresaTemperatura(idUsuario)
 
-})
-.catch(
+        .then(resultado => {
+            res.json(resultado);
 
-)
+        })
+        .catch(
+
+    )
 }
 
-function carregarAlerta15dias(req, res){
-idUsuario = req.params.idUsuario
-    
-apiarioSetorModel.carregarAlertaSetor(idUsuario)
+function carregarSetorAlerta(req, res) {
+    idUsuario = req.params.idUsuario
 
-.then(resultado => {
-res.json(resultado);
+    apiarioSetorModel.carregarApiarioEmpresaAlerta(idUsuario)
 
-})
-.catch(
+        .then(resultado => {
+            res.json(resultado);
 
-)
+        })
+        .catch(
+
+    )
 }
 
-function carregarAlertaMensal(req, res){
-idUsuario = req.params.idUsuario
-    
-apiarioSetorModel.carregarAlertaMensal(idUsuario)
+function carregarAlerta15dias(req, res) {
+    idUsuario = req.params.idUsuario
 
-.then(resultado => {
-res.json(resultado);
+    apiarioSetorModel.carregarAlertaSetor(idUsuario)
 
-})
-.catch(
+        .then(resultado => {
+            res.json(resultado);
 
-)
+        })
+        .catch(
+
+    )
 }
-function carregarAlertaMensal(req, res){
-idUsuario = req.params.idUsuario
-    
-apiarioSetorModel.carregarAlertaMensal(idUsuario)
 
-.then(resultado => {
-res.json(resultado);
+function carregarAlertaMensal(req, res) {
+    idUsuario = req.params.idUsuario
 
-})
-.catch(
+    apiarioSetorModel.carregarAlertaMensal(idUsuario)
 
-)
+        .then(resultado => {
+            res.json(resultado);
+
+        })
+        .catch(
+
+    )
 }
-function puxarHistorico(req, res){
-apiario = req.params.apiario
-    
-apiarioSetorModel.puxarHistorico(apiario)
+function carregarAlertaMensal(req, res) {
+    idUsuario = req.params.idUsuario
 
-.then(resultado => {
-res.json(resultado);
+    apiarioSetorModel.carregarAlertaMensal(idUsuario)
 
-})
-.catch(
+        .then(resultado => {
+            res.json(resultado);
 
-)
+        })
+        .catch(
+
+    )
+}
+function puxarHistorico(req, res) {
+    apiario = req.params.apiario
+
+    apiarioSetorModel.puxarHistorico(apiario)
+
+        .then(resultado => {
+            res.json(resultado);
+
+        })
+        .catch(
+
+    )
+}
+
+function TemperturaAtualApiario(req, res) {
+    idUsuario = req.params.idUsuario
+
+    apiarioSetorModel.TemperturaAtualApiario(idUsuario)
+
+        .then(resultado => {
+            res.json(resultado);
+
+        })
+        .catch(
+
+    )
 }
 
 module.exports = {
@@ -114,5 +128,6 @@ module.exports = {
     carregarAlerta15dias,
     carregarAlertaMensal,
     apiarioAtivos,
-    puxarHistorico
+    puxarHistorico,
+    TemperturaAtualApiario
 }

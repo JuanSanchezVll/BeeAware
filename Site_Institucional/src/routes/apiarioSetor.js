@@ -30,6 +30,10 @@ router.get("/apiarioAtivos/:idUsuario", function (req, res) {
     apiarioSetorController.apiarioAtivos(req, res);
 })
 
+router.get("/TemperturaAtualApiario/:idUsuario", function (req, res) {
+    apiarioSetorController.TemperturaAtualApiario(req, res);
+})
+
 
 
 module.exports = router;

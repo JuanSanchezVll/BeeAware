@@ -161,6 +161,26 @@ order by st.fkEmpresa desc limit 15;
 
 
 
+function TemperturaAtualApiario(idUsuario) {
+    var instrucaoSql = `
+SELECT l.temperatura
+        FROM leitura l
+        JOIN sensor s ON l.fkSensor = s.idSensor
+        JOIN apiario a ON s.fkApiario = a.idApiario
+        JOIN setor st ON a.fkSetor = st.idSetor
+        JOIN empresa e ON st.fkEmpresa = e.idEmpresa
+        JOIN usuario u ON e.idEmpresa = u.fkEmpresa
+        WHERE u.idUsuario = ${idUsuario}
+        ORDER BY l.dtLeitura DESC
+        LIMIT 1;
+    `;
+
+    return database.executar(instrucaoSql);
+}
+
+
+
+
 
 module.exports = {
     carregarApiarioEmpresa,
@@ -169,5 +189,6 @@ module.exports = {
     carregarAlertaSetor,
     carregarAlertaMensal,
     apiarioAtivos,
-    puxarHistorico
+    puxarHistorico,
+    TemperturaAtualApiario
 };
