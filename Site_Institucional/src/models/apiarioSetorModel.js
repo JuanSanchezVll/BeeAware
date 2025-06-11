@@ -14,7 +14,7 @@ JOIN setor st ON st.fkEmpresa = e.idEmpresa
 JOIN apiario a ON a.fkSetor = st.idSetor
 JOIN sensor se ON se.fkApiario = a.idApiario
 where e.idEmpresa = ${idUsuario};
-    `; 
+    `;
 
     return database.executar(instrucaoSql);
 }
@@ -32,7 +32,7 @@ JOIN apiario a ON a.fkSetor = st.idSetor
 JOIN sensor se ON se.fkApiario = a.idApiario
 JOIN leitura l ON l.fkSensor = se.idSensor where e.idEmpresa = ${idUsuario}
 order by l.dtLeitura desc  limit 3 ;
-    `; 
+    `;
 
     return database.executar(instrucaoSql);
 }
@@ -43,7 +43,7 @@ select count(*) as total , (select count(*) from sensor join apiario on fkApiari
 join setor on fkSetor =  idSetor where fkEmpresa = ${idUsuario} and statusSen = 'Ativo' ) as ativos from sensor join apiario on fkApiario = idApiario
 join setor on fkSetor =  idSetor where fkEmpresa = ${idUsuario};
  ;
-    `; 
+    `;
 
     return database.executar(instrucaoSql);
 }
@@ -59,12 +59,12 @@ function puxarHistorico(apiario) {
 FROM leitura
 WHERE (temperatura > 36 OR temperatura < 32) AND fkSensor = ${apiario} order by  dtleitura desc limit 10;
     ;
-    `; 
+    `;
 
     return database.executar(instrucaoSql);
 }
 
-function carregarApiarioEmpresaAlerta(idUsuario){
+function carregarApiarioEmpresaAlerta(idUsuario) {
     var instrucaoSql = `
     SELECT 
     DATE_FORMAT(l.dtLeitura, '%d-%m-%Y %H:%i') AS data_formatada,
@@ -82,12 +82,12 @@ WHERE e.idEmpresa = ${idUsuario} and rl.fkRecomendacao = 2 or rl.fkRecomendacao 
 ORDER BY l.dtLeitura DESC
 limit 100;
 
-`; 
+`;
 
     return database.executar(instrucaoSql);
 }
 
-function carregarAlertaSetor(idUsuario){
+function carregarAlertaSetor(idUsuario) {
     var instrucaoSql = `
 select 
 st.fkEmpresa as idEmpresa,
@@ -106,36 +106,12 @@ group by date_format(rl.dtRecomendacao, '%d-%m-%Y'), st.fkEmpresa
 having st.fkEmpresa = ${idUsuario}
 order by date_format(rl.dtRecomendacao, '%d-%m-%Y') desc limit 15;
 
-`; 
-
-return database.executar(instrucaoSql);
-}
-
-function carregarAlertaDiario(idUsuario){
-    var instrucaoSql = `
-select 
-st.fkEmpresa as idEmpresa,
-count(rl.fkleitura) as TotalAlertas,
-date_format(rl.dtRecomendacao, '%Y-%m') 
-from recomendacaoLeitura rl join leitura l
-on rl.fkLeitura = l.idLeitura
-join sensor s
-on l.fkSensor = s.idSensor
-join apiario a
-on s.fkApiario = a.idApiario
-join setor st
-on a.fkSetor = st.idSetor
-where (rl.fkRecomendacao = 2 or rl.fkRecomendacao = 3)
-group by date_format(rl.dtRecomendacao, '%Y-%m'), st.fkEmpresa 
-having st.fkEmpresa = ${idUsuario}
-order by st.fkEmpresa desc limit 15;
-
-`; 
+`;
 
     return database.executar(instrucaoSql);
 }
 
-function carregarAlertaMensal(idUsuario){
+function carregarAlertaDiario(idUsuario) {
     var instrucaoSql = `
 select 
 st.fkEmpresa as idEmpresa,
@@ -154,7 +130,31 @@ group by date_format(rl.dtRecomendacao, '%Y-%m'), st.fkEmpresa
 having st.fkEmpresa = ${idUsuario}
 order by st.fkEmpresa desc limit 15;
 
-`; 
+`;
+
+    return database.executar(instrucaoSql);
+}
+
+function carregarAlertaMensal(idUsuario) {
+    var instrucaoSql = `
+select 
+st.fkEmpresa as idEmpresa,
+count(rl.fkleitura) as TotalAlertas,
+date_format(rl.dtRecomendacao, '%Y-%m') 
+from recomendacaoLeitura rl join leitura l
+on rl.fkLeitura = l.idLeitura
+join sensor s
+on l.fkSensor = s.idSensor
+join apiario a
+on s.fkApiario = a.idApiario
+join setor st
+on a.fkSetor = st.idSetor
+where (rl.fkRecomendacao = 2 or rl.fkRecomendacao = 3)
+group by date_format(rl.dtRecomendacao, '%Y-%m'), st.fkEmpresa 
+having st.fkEmpresa = ${idUsuario}
+order by st.fkEmpresa desc limit 15;
+
+`;
 
     return database.executar(instrucaoSql);
 }
