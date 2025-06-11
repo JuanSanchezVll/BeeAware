@@ -2,11 +2,22 @@
     height: 100vh;
     width: 100%;
     background-color: black;
-    color: white;
-    font-size: 400%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    /* centraliza verticalmente */
+    justify-content: center;
+    /* centraliza horizontalmente */
+}
+
+.imagem_equipe {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem_equipe img {
+    width: 60vw;
+    height: auto;
 
 }
