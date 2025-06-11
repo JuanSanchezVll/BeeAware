@@ -166,7 +166,7 @@ function apiarioAtivos(){
       var apiarioTotal = resposta[0].total
       var apiarioAtivos = resposta[0].ativos
 
-                  document.getElementById(`div_sens_atv`).innerText = `${apiarioAtivos}/${apiarioTotal}`
+                  document.getElementById(`div_sens_atv`).innerText = ` Apiarios ativos : ${apiarioAtivos}/${apiarioTotal}`
 
     }
   )
