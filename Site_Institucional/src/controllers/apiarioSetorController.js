@@ -109,9 +109,9 @@ function puxarHistorico(req, res) {
 
 function TemperturaAtualApiario(req, res) {
     idUsuario = req.params.idUsuario
-    apiario = req.params.apiario
+    idApiario = req.params.idApiario
 
-    apiarioSetorModel.TemperturaAtualApiario(idUsuario, apiario)
+    apiarioSetorModel.TemperturaAtualApiario(idUsuario, idApiario)
 
         .then(resultado => {
             res.json(resultado);
@@ -124,9 +124,9 @@ function TemperturaAtualApiario(req, res) {
 
 function TemperturaMediaApiario(req, res) {
     idUsuario = req.params.idUsuario
-    apiario = req.params.apiario
+    idApiario = req.params.idApiario
 
-    apiarioSetorModel.TemperturaMediaApiario(idUsuario, apiario)
+    apiarioSetorModel.TemperturaMediaApiario(idUsuario, idApiario)
 
         .then(resultado => {
             res.json(resultado);
@@ -139,8 +139,7 @@ function TemperturaMediaApiario(req, res) {
 
 
 function TotalAlertas(req, res) {
-    idApiario = req.params.apiario
-
+    idApiario = req.params.idApiario
     apiarioSetorModel.TotalAlertas(idApiario)
 
         .then(resultado => {
@@ -154,9 +153,9 @@ function TotalAlertas(req, res) {
 
 function HistoricoTemperatura(req, res) {
     idUsuario = req.params.idUsuario
-    apiario = req.params.apiario
+    idApiario = req.params.idApiario
 
-    apiarioSetorModel.HistoricoTemperatura(idUsuario, apiario)
+    apiarioSetorModel.HistoricoTemperatura(idUsuario, idApiario)
 
         .then(resultado => {
             res.json(resultado);

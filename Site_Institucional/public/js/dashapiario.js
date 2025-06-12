@@ -38,17 +38,24 @@ function puxarHistorico() {
 }
 
 function TemperturaAtualApiario() {
-  apiario = sessionStorage.ID_APIARIO
+  idApiario = sessionStorage.ID_APIARIO
   idUsuario = sessionStorage.ID_USUARIO
 
-  fetch(`/apiarioSetor/TemperturaAtualApiario/${apiario}/${idUsuario}`, {
+  fetch(`/apiarioSetor/TemperturaAtualApiario/${idApiario}/${idUsuario}`, {
     method: 'GET',
   })
     .then(res => {
       res.json()
         .then(resposta => {
-          console.log(resposta)
+          console.log()
+          let temperaturaAtual = resposta[0].temperatura
+          const temperatura_atual = document.getElementById(`temperatura_atual`)
 
+          temperatura_atual.innerHTML = `Temperatura Atual<br><strong>${resposta[0].temperatura}°C</strong>`
+
+          temperatureChart.data.datasets[0].data = [temperaturaAtual]
+          temperatureChart.data.labels = [resposta[0].dtLeitura]
+          temperatureChart.update()
         }
         )
         .catch(
@@ -59,22 +66,31 @@ function TemperturaAtualApiario() {
 }
 
 function TemperturaMediaApiario() {
-  apiario = sessionStorage.ID_APIARIO
+  idApiario = sessionStorage.ID_APIARIO
   idUsuario = sessionStorage.ID_USUARIO
 
-  fetch(`/apiarioSetor/TemperturaMediaApiario/${apiario}/${idUsuario}`, {
+  fetch(`/apiarioSetor/TemperturaMediaApiario/${idApiario}/${idUsuario}`, {
     method: 'GET',
   })
     .then(res => {
       res.json()
         .then(resposta => {
           console.log(resposta)
+          const temperatura_media = document.getElementById(`temperatura_media`)
+
+          temperatura_media.innerHTML = `Temperatura Média 24h<br><strong>${resposta[0].mediaTemperatura}°C</strong>`
 
         }
+
+
+
+
         )
         .catch(
           err => console.error('Erro ao carregar temperatura:', err)
         )
+
+        
     }
     )
 }
@@ -100,20 +116,22 @@ function TemperturaMediaApiario() {
 //     }
 //     )
 // }
-function TotalAlertas() {
-  const apiario = sessionStorage.ID_APIARIO;
 
-  fetch(`/apiarioSetor/TotalAlertas/${apiario}`, {
+function TotalAlertas() {
+  const idApiario = sessionStorage.ID_APIARIO;
+
+  fetch(`/apiarioSetor/TotalAlertas/${idApiario}`, {
     method: 'GET',
   })
     .then(res => res.json()) // <- retornando o res.json() aqui
     .then(resposta => {
       console.log(resposta);
-      div_alertas_totais.innerHTML = `${resposta[0].dtLeitura}`
+      const alertas_totais = document.getElementById("alertas_totais");
+      // div_alertas_totais.innerHTML = `${resposta[0].dtLeitura}`
       
       // Exemplo de como exibir o dado na página (descomente e adapte conforme necessário):
-      // const alertas_totais = document.getElementById("alertas_totais");
-      // alertas_totais.innerHTML = `Alertas totais 24h<br><strong>${resposta.total}</strong>`;
+      
+      alertas_totais.innerHTML = `Alertas totais 24h<br><strong>${resposta[0].dtLeitura}</strong>`;
     })
     .catch(err => {
       console.error('Erro ao carregar temperatura:', err);
@@ -122,16 +140,26 @@ function TotalAlertas() {
 
 
 function HistoricoTemperatura() {
-  apiario = sessionStorage.ID_APIARIO
+  idApiario = sessionStorage.ID_APIARIO
   idUsuario = sessionStorage.ID_USUARIO
 
-  fetch(`/apiarioSetor/HistoricoTemperatura/${apiario}/${idUsuario}`, {
+  fetch(`/apiarioSetor/HistoricoTemperatura/${idApiario}/${idUsuario}`, {
     method: 'GET',
   })
     .then(res => {
       res.json()
         .then(resposta => {
           console.log(resposta)
+          let temperaturaMedia = []
+          let HoratemperaturaMedia = []
+          for(let i = resposta.length ; i > 0; i--){
+            temperaturaMedia.push(resposta[i - 1].temperaturaMedia)
+            HoratemperaturaMedia.push(resposta[i - 1].hora)
+          }
+
+          temperatureChart2.data.datasets[0].data = temperaturaMedia
+          temperatureChart2.data.labels = HoratemperaturaMedia
+          temperatureChart2.update()
 
         }
         )
@@ -153,6 +181,10 @@ function carregarApiario(){
 function atualizarDashboard() {
   puxarHistorico();
   TotalAlertas();
+  TemperturaAtualApiario();
+  TemperturaMediaApiario();
+  HistoricoTemperatura();
 }
 
-setInterval(atualizarDashboard, 1000);
+setInterval(atualizarDashboard, 5000);
+

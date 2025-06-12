@@ -105,11 +105,12 @@ function carregarTemperatura(){
 
     
       for(var i = 0; i < apiarioTemperatura.length; i++){
+        var status_apiario = document.getElementById(`status_apiario_${apiarioTemperatura[i].idApiario}`)
+        var btn_apiario = document.getElementById(`btn_apiario_${apiarioTemperatura[i].idApiario}`)
+        var card_apiario = document.getElementById(`card_apiario_${apiarioTemperatura[i].idApiario}`)
+
 
         if(Number(apiarioTemperatura[i].temperatura) > 39 || Number(apiarioTemperatura[i].temperatura) < 20){
-           var status_apiario = document.getElementById(`status_apiario_${apiarioTemperatura[i].idApiario}`)
-           var btn_apiario = document.getElementById(`btn_apiario_${apiarioTemperatura[i].idApiario}`)
-           var card_apiario = document.getElementById(`card_apiario_${apiarioTemperatura[i].idApiario}`)
 
           status_apiario.innerHTML = `Alerta`
 
@@ -117,10 +118,6 @@ function carregarTemperatura(){
           btn_apiario.classList.add("alerta")
           card_apiario.classList.add("alerta")
         }else if(Number(apiarioTemperatura[i].temperatura) > 36 || Number(apiarioTemperatura[i].temperatura) < 32){
-           var status_apiario = document.getElementById(`status_apiario_${apiarioTemperatura[i].idApiario}`)
-           var btn_apiario = document.getElementById(`btn_apiario_${apiarioTemperatura[i].idApiario}`)
-           var card_apiario = document.getElementById(`card_apiario_${apiarioTemperatura[i].idApiario}`)
-
           status_apiario.innerHTML = `Atenção`
 
           status_apiario.classList.add("atencao")
@@ -128,10 +125,6 @@ function carregarTemperatura(){
           card_apiario.classList.add("atencao")
 
         }else{
-          var status_apiario = document.getElementById(`status_apiario_${apiarioTemperatura[i].idApiario}`)
-          var btn_apiario = document.getElementById(`btn_apiario_${apiarioTemperatura[i].idApiario}`)
-          var card_apiario = document.getElementById(`card_apiario_${apiarioTemperatura[i].idApiario}`)
-
           status_apiario.innerHTML = `Normal`
 
           status_apiario.classList.remove("alerta")
@@ -289,10 +282,14 @@ function atualizacaoKPI(){
 
 }
 
+
+
 setInterval(atualizacaoKPI, 10000)
 
-setInterval(carregarTemperatura,1000)
+setInterval(manipuladorFuncao,5000)
 
-setInterval(apiarioAtivos,1000)
-
-setInterval(carregarTabelaAlerta,1000)
+function manipuladorFuncao(){
+carregarTemperatura()
+apiarioAtivos()
+carregarTabelaAlerta()
+}
