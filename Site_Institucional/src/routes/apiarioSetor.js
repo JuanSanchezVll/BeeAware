@@ -38,6 +38,10 @@ router.get("/TemperturaMediaApiario/:idUsuario", function (req, res) {
     apiarioSetorController.TemperturaMediaApiario(req, res);
 })
 
+router.get("/TotalAlertas/:idUsuario", function (req, res) {
+    apiarioSetorController.TotalAlertas(req, res);
+})
+
 
 
 module.exports = router;

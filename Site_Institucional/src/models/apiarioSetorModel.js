@@ -195,6 +195,23 @@ function TemperturaMediaApiario(idUsuario) {
 }
 
 
+function TotalAlertas(idUsuario) {
+    var instrucaoSql = `
+        SELECT COUNT(*) AS totalAlertas24h
+        FROM alerta al
+        JOIN apiario a ON al.fkApiario = a.idApiario
+        JOIN setor st ON a.fkSetor = st.idSetor
+        JOIN empresa e ON st.fkEmpresa = e.idEmpresa
+        JOIN usuario u ON e.idEmpresa = u.fkEmpresa
+        WHERE u.idUsuario = ${idUsuario}
+        AND al.dtAlerta >= NOW() - INTERVAL 1 DAY;
+    `;
+
+    return database.executar(instrucaoSql);
+}
+
+
+
 
 
 
@@ -208,5 +225,6 @@ module.exports = {
     apiarioAtivos,
     puxarHistorico,
     TemperturaAtualApiario,
-    TemperturaMediaApiario
+    TemperturaMediaApiario,
+    TotalAlertas
 };
