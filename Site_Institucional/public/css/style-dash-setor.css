@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 /* Corpo da página */
 body {
   font-family: 'Segoe UI', sans-serif;
