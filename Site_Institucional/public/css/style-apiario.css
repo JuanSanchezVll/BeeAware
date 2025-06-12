@@ -244,7 +244,9 @@ body {
     border-left: 5px solid #F1A66A;
     color: #7a6615;
 }
-
+#div_alertas_totais{
+    font-size: 4vh;
+}
 /* Rodapé */
 .rodape {
     margin-top: auto;

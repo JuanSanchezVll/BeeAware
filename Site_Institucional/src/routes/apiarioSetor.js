@@ -31,18 +31,18 @@ router.get("/apiarioAtivos/:idUsuario", function (req, res) {
     apiarioSetorController.apiarioAtivos(req, res);
 })
 
-router.get("/TemperturaAtualApiario/:idUsuario", function (req, res) {
+router.get("/TemperturaAtualApiario/:apiario/:idUsuario", function (req, res) {
     apiarioSetorController.TemperturaAtualApiario(req, res);
 })
 
-router.get("/TemperturaMediaApiario/:idUsuario", function (req, res) {
+router.get("/TemperturaMediaApiario/:apiario/:idUsuario", function (req, res) {
     apiarioSetorController.TemperturaMediaApiario(req, res);
 })
 
 router.get("/TotalAlertas/:idUsuario", function (req, res) {
     apiarioSetorController.TotalAlertas(req, res);
 })
-router.get("/HistoricoTemperatura/:idUsuario", function (req, res) {
+router.get("/HistoricoTemperatura/:apiario/:idUsuario", function (req, res) {
     apiarioSetorController.HistoricoTemperatura(req, res);
 })
 

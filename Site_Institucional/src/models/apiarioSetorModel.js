@@ -161,7 +161,7 @@ order by st.fkEmpresa desc limit 15;
 
 
 
-function TemperturaAtualApiario(idUsuario) {
+function TemperturaAtualApiario(idUsuario, apiario) {
     var instrucaoSql = `
 SELECT l.temperatura
         FROM leitura l
@@ -170,7 +170,7 @@ SELECT l.temperatura
         JOIN setor st ON a.fkSetor = st.idSetor
         JOIN empresa e ON st.fkEmpresa = e.idEmpresa
         JOIN usuario u ON e.idEmpresa = u.fkEmpresa
-        WHERE u.idUsuario = ${idUsuario}
+        where e.idEmpresa = ${idUsuario} AND s.fkApiario = ${apiario}
         ORDER BY l.dtLeitura DESC
         LIMIT 1;
     `;
@@ -178,16 +178,16 @@ SELECT l.temperatura
     return database.executar(instrucaoSql);
 }
 
-function TemperturaMediaApiario(idUsuario) {
+function TemperturaMediaApiario(idUsuario, apiario) {
     var instrucaoSql = `
-        SELECT ROUND(AVG(l.temperatura), 1) AS temperaturaMedia24h
-        FROM leitura l
+        select ROUND(AVG(l.temperatura), 2) AS 'Media Temperatura'
+FROM leitura l
         JOIN sensor s ON l.fkSensor = s.idSensor
         JOIN apiario a ON s.fkApiario = a.idApiario
         JOIN setor st ON a.fkSetor = st.idSetor
         JOIN empresa e ON st.fkEmpresa = e.idEmpresa
         JOIN usuario u ON e.idEmpresa = u.fkEmpresa
-        WHERE u.idUsuario = ${idUsuario}
+        where e.idEmpresa = ${idUsuario} AND s.fkApiario = ${apiario}
         AND l.dtLeitura >= NOW() - INTERVAL 1 DAY;
     `;
 
@@ -195,33 +195,33 @@ function TemperturaMediaApiario(idUsuario) {
 }
 
 
-function TotalAlertas(idUsuario) {
+function TotalAlertas(idApiario) {
     var instrucaoSql = `
 SELECT
 count(*) as dtLeitura
 FROM leitura
-WHERE (temperatura > 36 OR temperatura < 32) AND fkSensor = ${idUsuario} and  dtLeitura >= now()- INTERVAL 1 DAY;
+WHERE (temperatura > 36 OR temperatura < 32) AND fkSensor = ${idApiario} and  dtLeitura >= now()- INTERVAL 1 DAY;
     `;
 
     return database.executar(instrucaoSql);
 }
 
 
-function HistoricoTemperatura(idUsuario) {
+function HistoricoTemperatura(idUsuario, apiario) {
     var instrucaoSql = `
         SELECT 
-            DATE_FORMAT(l.dtLeitura, '%H:00') AS hora,
-            ROUND(AVG(l.temperatura), 1) AS temperaturaMedia
-        FROM leitura l
+	DATE_FORMAT(l.dtLeitura, '%H:00') AS hora,
+	ROUND(AVG(l.temperatura), 2) AS temperaturaMedia
+FROM leitura l
         JOIN sensor s ON l.fkSensor = s.idSensor
         JOIN apiario a ON s.fkApiario = a.idApiario
         JOIN setor st ON a.fkSetor = st.idSetor
         JOIN empresa e ON st.fkEmpresa = e.idEmpresa
         JOIN usuario u ON e.idEmpresa = u.fkEmpresa
-        WHERE u.idUsuario = ${idUsuario}
+        where e.idEmpresa = ${idUsuario} AND s.fkApiario = ${apiario}
           AND l.dtLeitura >= NOW() - INTERVAL 1 DAY
-        GROUP BY HOUR(l.dtLeitura)
-        ORDER BY HOUR(l.dtLeitura);
+        GROUP BY hora
+        ORDER BY hora DESC;
     `;
 
     return database.executar(instrucaoSql);

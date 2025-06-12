@@ -27,7 +27,8 @@
 
             <!-- Botão de acesso ao Jira, posicionado na parte inferior da sidebar -->
             <div class="jira-section">
-                <button class="jira-btn"><a href="https://beeaware.atlassian.net/servicedesk/customer/portal/34">Porta BeeHelp</a></button>
+                <button class="jira-btn"><a href="https://beeaware.atlassian.net/servicedesk/customer/portal/34">Porta
+                        BeeHelp</a></button>
             </div>
         </aside>
 
@@ -39,7 +40,7 @@
             <section class="overview">
                 <div class="card destaque" id="temperatura_media">Temperatura Média 24h<br><strong>32.5°C</strong></div>
                 <div class="card destaque" id="temperatura_atual">Temperatura Atual<br><strong>45°C</strong></div>
-                <div class="card alerta" id="alertas_totais">Alertas totais 24h<br><strong>-</strong></div>
+                <div class="card alerta" id="alertas_totais">Alertas totais 24h<br><div id="div_alertas_totais">-</div></div>
                 <div class="card online" id="card_online">Sistema<br><strong>Online</strong></div>
                 <div class="card alerta" style="display: none;" id="card_offline">Sistema<br><strong>Offline</strong>
                 </div>
@@ -233,5 +234,6 @@
 
 
 
+setInterval(atualizarDashboard, 1000);
 
 </script>
