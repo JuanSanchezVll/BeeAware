@@ -178,6 +178,23 @@ SELECT l.temperatura
     return database.executar(instrucaoSql);
 }
 
+function TemperturaMediaApiario(idUsuario) {
+    var instrucaoSql = `
+        SELECT ROUND(AVG(l.temperatura), 1) AS temperaturaMedia24h
+        FROM leitura l
+        JOIN sensor s ON l.fkSensor = s.idSensor
+        JOIN apiario a ON s.fkApiario = a.idApiario
+        JOIN setor st ON a.fkSetor = st.idSetor
+        JOIN empresa e ON st.fkEmpresa = e.idEmpresa
+        JOIN usuario u ON e.idEmpresa = u.fkEmpresa
+        WHERE u.idUsuario = ${idUsuario}
+        AND l.dtLeitura >= NOW() - INTERVAL 1 DAY;
+    `;
+
+    return database.executar(instrucaoSql);
+}
+
+
 
 
 
@@ -190,5 +207,6 @@ module.exports = {
     carregarAlertaMensal,
     apiarioAtivos,
     puxarHistorico,
-    TemperturaAtualApiario
+    TemperturaAtualApiario,
+    TemperturaMediaApiario
 };

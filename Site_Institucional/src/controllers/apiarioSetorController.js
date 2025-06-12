@@ -121,6 +121,20 @@ function TemperturaAtualApiario(req, res) {
     )
 }
 
+function TemperturaMediaApiario(req, res) {
+    idUsuario = req.params.idUsuario
+
+    apiarioSetorModel.TemperturaMediaApiario(idUsuario)
+
+        .then(resultado => {
+            res.json(resultado);
+
+        })
+        .catch(
+
+    )
+}
+
 module.exports = {
     carregarApiario,
     carregarApiarioTemp,
@@ -129,5 +143,6 @@ module.exports = {
     carregarAlertaMensal,
     apiarioAtivos,
     puxarHistorico,
-    TemperturaAtualApiario
+    TemperturaAtualApiario,
+    TemperturaMediaApiario
 }

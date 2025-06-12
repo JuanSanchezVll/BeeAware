@@ -161,3 +161,47 @@ function puxarHistorico() {
 }
 )
 }
+
+function TemperturaAtualApiario() {
+  apiario = sessionStorage.ID_APIARIO
+
+  fetch(`/apiarioSetor/TemperturaAtualApiario/${apiario}`, {
+    method: 'GET',
+  })
+    .then(res => {
+      res.json()
+        .then(resposta => {
+          console.log(resposta)
+
+        }
+        )
+        .catch(
+          err => console.error('Erro ao carregar temperatura:', err)
+        )
+    }
+    )
+}
+
+
+function TemperturaMediaApiario() {
+  apiario = sessionStorage.ID_APIARIO
+
+  fetch(`/apiarioSetor/TemperturaMediaApiario/${apiario}`, {
+    method: 'GET',
+  })
+    .then(res => {
+      res.json()
+        .then(resposta => {
+          console.log(resposta)
+
+        }
+        )
+        .catch(
+          err => console.error('Erro ao carregar temperatura:', err)
+        )
+    }
+    )
+}
+
+
+
