@@ -139,9 +139,9 @@ function TemperturaMediaApiario(req, res) {
 
 
 function TotalAlertas(req, res) {
-    idUsuario = req.params.idUsuario
+    idApiario = req.params.apiario
 
-    apiarioSetorModel.TotalAlertas(idUsuario)
+    apiarioSetorModel.TotalAlertas(idApiario)
 
         .then(resultado => {
             res.json(resultado);

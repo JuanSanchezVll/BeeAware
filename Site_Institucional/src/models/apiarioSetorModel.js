@@ -195,12 +195,12 @@ FROM leitura l
 }
 
 
-function TotalAlertas(idUsuario) {
+function TotalAlertas(idApiario) {
     var instrucaoSql = `
 SELECT
 count(*) as dtLeitura
 FROM leitura
-WHERE (temperatura > 36 OR temperatura < 32) AND fkSensor = ${idUsuario} and  dtLeitura >= now()- INTERVAL 1 DAY;
+WHERE (temperatura > 36 OR temperatura < 32) AND fkSensor = ${idApiario} and  dtLeitura >= now()- INTERVAL 1 DAY;
     `;
 
     return database.executar(instrucaoSql);
