@@ -150,6 +150,20 @@ function TotalAlertas(req, res) {
     )
 }
 
+function HistoricoTemperatura(req, res) {
+    idUsuario = req.params.idUsuario
+
+    apiarioSetorModel.HistoricoTemperatura(idUsuario)
+
+        .then(resultado => {
+            res.json(resultado);
+
+        })
+        .catch(
+
+    )
+}
+
 module.exports = {
     carregarApiario,
     carregarApiarioTemp,
@@ -160,5 +174,6 @@ module.exports = {
     puxarHistorico,
     TemperturaAtualApiario,
     TemperturaMediaApiario,
-    TotalAlertas
+    TotalAlertas,
+    HistoricoTemperatura
 }

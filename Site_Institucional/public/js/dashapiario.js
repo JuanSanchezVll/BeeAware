@@ -224,5 +224,25 @@ function TotalAlertas() {
     )
 }
 
+function HistoricoTemperatura() {
+  apiario = sessionStorage.ID_APIARIO
+
+  fetch(`/apiarioSetor/HistoricoTemperatura/${apiario}`, {
+    method: 'GET',
+  })
+    .then(res => {
+      res.json()
+        .then(resposta => {
+          console.log(resposta)
+
+        }
+        )
+        .catch(
+          err => console.error('Erro ao carregar temperatura:', err)
+        )
+    }
+    )
+}
+
 
 

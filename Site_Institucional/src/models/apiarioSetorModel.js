@@ -211,6 +211,29 @@ function TotalAlertas(idUsuario) {
 }
 
 
+function HistoricoTemperatura(idUsuario) {
+    var instrucaoSql = `
+        SELECT 
+            DATE_FORMAT(l.dtLeitura, '%H:00') AS hora,
+            ROUND(AVG(l.temperatura), 1) AS temperaturaMedia
+        FROM leitura l
+        JOIN sensor s ON l.fkSensor = s.idSensor
+        JOIN apiario a ON s.fkApiario = a.idApiario
+        JOIN setor st ON a.fkSetor = st.idSetor
+        JOIN empresa e ON st.fkEmpresa = e.idEmpresa
+        JOIN usuario u ON e.idEmpresa = u.fkEmpresa
+        WHERE u.idUsuario = ${idUsuario}
+          AND l.dtLeitura >= NOW() - INTERVAL 1 DAY
+        GROUP BY HOUR(l.dtLeitura)
+        ORDER BY HOUR(l.dtLeitura);
+    `;
+
+    return database.executar(instrucaoSql);
+}
+
+
+
+
 
 
 
@@ -226,5 +249,6 @@ module.exports = {
     puxarHistorico,
     TemperturaAtualApiario,
     TemperturaMediaApiario,
-    TotalAlertas
+    TotalAlertas,
+    HistoricoTemperatura
 };

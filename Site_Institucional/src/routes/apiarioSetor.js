@@ -4,6 +4,7 @@ var router = express.Router();
 var apiarioSetorController = require("../controllers/apiarioSetorController");
 
 router.get("/carregarApiarioSetor/:idUsuario", function (req, res) {
+
     apiarioSetorController.carregarApiario(req, res);
 })
 
@@ -40,6 +41,9 @@ router.get("/TemperturaMediaApiario/:idUsuario", function (req, res) {
 
 router.get("/TotalAlertas/:idUsuario", function (req, res) {
     apiarioSetorController.TotalAlertas(req, res);
+})
+router.get("/HistoricoTemperatura/:idUsuario", function (req, res) {
+    apiarioSetorController.HistoricoTemperatura(req, res);
 })
 
 
