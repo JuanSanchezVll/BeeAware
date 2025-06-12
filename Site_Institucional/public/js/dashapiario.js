@@ -1,3 +1,5 @@
+const { json } = require("express")
+
 function puxarHistorico() {
   apiario = sessionStorage.ID_APIARIO
   
@@ -7,15 +9,21 @@ function puxarHistorico() {
   .then(res => { res.json() 
     .then(resposta => {
       console.log(resposta)
+      scroll_alertas.innerHTML = ``
+      scroll_alertas = document.getElementById("scroll_alertas")
 
       for (var i = 0; i < resposta.length; i++){
 
-          var temperatura = resposta[i].temperatura
-          var dataAlerta = resposta[i].dataAlerta
-          var resultado = resposta[i].resultado
+          let temperatura = resposta[i].temperatura
+          let dataAlerta = resposta[i].dataAlerta
+          let resultado = resposta[i].resultado
           
+          console.log(temperatura, dataAlerta, resultado)
+            
            scroll_alertas.innerHTML +=
-    `<div class="colmeia alerta medio"> Alerta dia ${dataAlerta} - ${resultado} ${temperatura}°C</div>`;
+    
+    
+           `<div class="colmeia alerta medio"> Alerta dia ${dataAlerta} - ${resultado} ${temperatura}°C</div>`;
 
 
         }
@@ -48,7 +56,6 @@ function TemperturaAtualApiario() {
     )
 }
 
-
 function TemperturaMediaApiario() {
   apiario = sessionStorage.ID_APIARIO
 
@@ -69,26 +76,46 @@ function TemperturaMediaApiario() {
     )
 }
 
+// function TotalAlertas() {
+//   apiario = sessionStorage.ID_APIARIO
 
+//   fetch(`/apiarioSetor/TotalAlertas/${apiario}`, {
+//     method: 'GET',
+//   })
+//     .then(res => { res.json()
+//         .then(resposta => {
+//           // resposta = json
+//           console.log(resposta)
+//           const alertas_totais = document.getElementById("alertas_totais")
+          
+//           alertas_totais.innerHTML = `Alertas totais 24h<br><strong>${resposta.dtLeitura}</strong>`
+//         }
+//         )
+//         .catch(
+//           err => console.error('Erro ao carregar temperatura:', err)
+//         )
+//     }
+//     )
+// }
 function TotalAlertas() {
-  apiario = sessionStorage.ID_APIARIO
+  const apiario = sessionStorage.ID_APIARIO;
 
   fetch(`/apiarioSetor/TotalAlertas/${apiario}`, {
     method: 'GET',
   })
-    .then(res => {
-      res.json()
-        .then(resposta => {
-          console.log(resposta)
-
-        }
-        )
-        .catch(
-          err => console.error('Erro ao carregar temperatura:', err)
-        )
-    }
-    )
+    .then(res => res.json()) // <- retornando o res.json() aqui
+    .then(resposta => {
+      console.log(resposta);
+      
+      // Exemplo de como exibir o dado na página (descomente e adapte conforme necessário):
+      // const alertas_totais = document.getElementById("alertas_totais");
+      // alertas_totais.innerHTML = `Alertas totais 24h<br><strong>${resposta.total}</strong>`;
+    })
+    .catch(err => {
+      console.error('Erro ao carregar temperatura:', err);
+    });
 }
+
 
 function HistoricoTemperatura() {
   apiario = sessionStorage.ID_APIARIO
@@ -110,5 +137,13 @@ function HistoricoTemperatura() {
     )
 }
 
+function carregarApiario(){
+  const titulo_dashboard = document.getElementById("titulo_dashboard")
+  idApiario = sessionStorage.ID_APIARIO
 
+  titulo_dashboard.innerHTML = `Dashboard - Apiário ${idApiario}`
 
+}
+
+setInterval(puxarHistorico, 10000)
+setInterval(TotalAlertas, 1000)

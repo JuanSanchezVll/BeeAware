@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="puxarHistorico(), carregarApiario()">
     <div class="container">
         <aside class="sidebar">
             <div class="logo">
@@ -33,19 +33,13 @@
 
         <main class="dashboard">
             <header class="topbar">
-                <h1>Dashboard</h1>
-                <nav>
-                    <a href="#">Dashboard</a>
-                    <a href="#">Relatórios</a>
-                    <a href="#">Configurações</a>
-                    <a href="#">Ajuda</a>
-                </nav>
+                <h1 id="titulo_dashboard">Dashboard</h1>
             </header>
 
             <section class="overview">
-                <div class="card destaque">Temperatura Média 24h<br><strong>32.5°C</strong></div>
-                <div class="card destaque">Temperatura Atual<br><strong>45°C</strong></div>
-                <div class="card alerta">Alertas totais 24h<br><strong>20</strong></div>
+                <div class="card destaque" id="temperatura_media">Temperatura Média 24h<br><strong>32.5°C</strong></div>
+                <div class="card destaque" id="temperatura_atual">Temperatura Atual<br><strong>45°C</strong></div>
+                <div class="card alerta" id="alertas_totais">Alertas totais 24h<br><strong>-</strong></div>
                 <div class="card online" id="card_online">Sistema<br><strong>Online</strong></div>
                 <div class="card alerta" style="display: none;" id="card_offline">Sistema<br><strong>Offline</strong>
                 </div>

@@ -289,8 +289,10 @@ function atualizacaoKPI(){
 
 }
 
-setInterval(atualizacaoKPI, 1000) // mudar para 10000
+setInterval(atualizacaoKPI, 10000)
 
 setInterval(carregarTemperatura,1000)
 
 setInterval(apiarioAtivos,1000)
+
+setInterval(carregarTabelaAlerta,1000)

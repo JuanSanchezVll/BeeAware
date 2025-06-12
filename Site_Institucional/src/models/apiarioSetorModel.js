@@ -51,13 +51,13 @@ function puxarHistorico(apiario) {
     var instrucaoSql = `
     SELECT
     temperatura,
-    date_format(dtleitura, "%d/%m/%Y") as dataAlerta,
+    date_format(dtleitura, "%d/%m/%Y - %h:%i") as dataAlerta,
     CASE
         WHEN temperatura > 36 THEN 'Temperatura elevada'
         when temperatura < 32 then 'Temperatura abaixo do ideal'
     END   as resultado 
 FROM leitura
-WHERE (temperatura > 36 OR temperatura < 32) AND fkSensor = ${apiario} order by  dtleitura desc limit 10;
+WHERE (temperatura > 36 OR temperatura < 32) AND fkSensor = ${apiario} order by  dtleitura desc limit 20;
     ;
     `;
 
@@ -197,14 +197,10 @@ function TemperturaMediaApiario(idUsuario) {
 
 function TotalAlertas(idUsuario) {
     var instrucaoSql = `
-        SELECT COUNT(*) AS totalAlertas24h
-        FROM alerta al
-        JOIN apiario a ON al.fkApiario = a.idApiario
-        JOIN setor st ON a.fkSetor = st.idSetor
-        JOIN empresa e ON st.fkEmpresa = e.idEmpresa
-        JOIN usuario u ON e.idEmpresa = u.fkEmpresa
-        WHERE u.idUsuario = ${idUsuario}
-        AND al.dtAlerta >= NOW() - INTERVAL 1 DAY;
+SELECT
+count(*) as dtLeitura
+FROM leitura
+WHERE (temperatura > 36 OR temperatura < 32) AND fkSensor = ${idUsuario} and  dtLeitura >= now()- INTERVAL 1 DAY;
     `;
 
     return database.executar(instrucaoSql);
@@ -243,6 +239,7 @@ module.exports = {
     carregarApiarioEmpresa,
     carregarApiarioEmpresaTemperatura,
     carregarApiarioEmpresaAlerta,
+    carregarAlertaDiario,
     carregarAlertaSetor,
     carregarAlertaMensal,
     apiarioAtivos,
