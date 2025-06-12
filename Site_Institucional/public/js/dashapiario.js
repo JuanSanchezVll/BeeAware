@@ -1,5 +1,6 @@
 const { json } = require("express")
 
+
 function puxarHistorico() {
   apiario = sessionStorage.ID_APIARIO
   
@@ -108,6 +109,7 @@ function TotalAlertas() {
     .then(res => res.json()) // <- retornando o res.json() aqui
     .then(resposta => {
       console.log(resposta);
+      div_alertas_totais.innerHTML = `${resposta[0].dtLeitura}`
       
       // Exemplo de como exibir o dado na página (descomente e adapte conforme necessário):
       // const alertas_totais = document.getElementById("alertas_totais");
@@ -148,5 +150,9 @@ function carregarApiario(){
 
 }
 
-setInterval(puxarHistorico, 10000)
-setInterval(TotalAlertas, 1000)
+function atualizarDashboard() {
+  puxarHistorico();
+  TotalAlertas();
+}
+
+setInterval(atualizarDashboard, 1000);
