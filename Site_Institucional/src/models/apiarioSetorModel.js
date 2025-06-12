@@ -170,7 +170,7 @@ SELECT l.temperatura
         JOIN setor st ON a.fkSetor = st.idSetor
         JOIN empresa e ON st.fkEmpresa = e.idEmpresa
         JOIN usuario u ON e.idEmpresa = u.fkEmpresa
-        WHERE u.idUsuario = ${idUsuario}
+        where e.idEmpresa = ${idUsuario} AND s.fkApiario = ${apiario}
         ORDER BY l.dtLeitura DESC
         LIMIT 1;
     `;
@@ -180,14 +180,14 @@ SELECT l.temperatura
 
 function TemperturaMediaApiario(idUsuario) {
     var instrucaoSql = `
-        SELECT ROUND(AVG(l.temperatura), 1) AS temperaturaMedia24h
-        FROM leitura l
+        select ROUND(AVG(l.temperatura), 2) AS 'Media Temperatura'
+FROM leitura l
         JOIN sensor s ON l.fkSensor = s.idSensor
         JOIN apiario a ON s.fkApiario = a.idApiario
         JOIN setor st ON a.fkSetor = st.idSetor
         JOIN empresa e ON st.fkEmpresa = e.idEmpresa
         JOIN usuario u ON e.idEmpresa = u.fkEmpresa
-        WHERE u.idUsuario = ${idUsuario}
+        where e.idEmpresa = ${idUsuario} AND s.fkApiario = ${apiario}
         AND l.dtLeitura >= NOW() - INTERVAL 1 DAY;
     `;
 
@@ -210,18 +210,18 @@ WHERE (temperatura > 36 OR temperatura < 32) AND fkSensor = ${idUsuario} and  dt
 function HistoricoTemperatura(idUsuario) {
     var instrucaoSql = `
         SELECT 
-            DATE_FORMAT(l.dtLeitura, '%H:00') AS hora,
-            ROUND(AVG(l.temperatura), 1) AS temperaturaMedia
-        FROM leitura l
+	DATE_FORMAT(l.dtLeitura, '%H:00') AS hora,
+	ROUND(AVG(l.temperatura), 2) AS temperaturaMedia
+FROM leitura l
         JOIN sensor s ON l.fkSensor = s.idSensor
         JOIN apiario a ON s.fkApiario = a.idApiario
         JOIN setor st ON a.fkSetor = st.idSetor
         JOIN empresa e ON st.fkEmpresa = e.idEmpresa
         JOIN usuario u ON e.idEmpresa = u.fkEmpresa
-        WHERE u.idUsuario = ${idUsuario}
+        where e.idEmpresa = ${idUsuario} AND s.fkApiario = ${apiario}
           AND l.dtLeitura >= NOW() - INTERVAL 1 DAY
-        GROUP BY HOUR(l.dtLeitura)
-        ORDER BY HOUR(l.dtLeitura);
+        GROUP BY hora
+        ORDER BY hora DESC;
     `;
 
     return database.executar(instrucaoSql);

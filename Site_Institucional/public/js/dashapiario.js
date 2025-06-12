@@ -38,8 +38,9 @@ function puxarHistorico() {
 
 function TemperturaAtualApiario() {
   apiario = sessionStorage.ID_APIARIO
+  idUsuario = sessionStorage.ID_USUARIO
 
-  fetch(`/apiarioSetor/TemperturaAtualApiario/${apiario}`, {
+  fetch(`/apiarioSetor/TemperturaAtualApiario/${apiario}/${idUsuario}`, {
     method: 'GET',
   })
     .then(res => {
@@ -58,8 +59,9 @@ function TemperturaAtualApiario() {
 
 function TemperturaMediaApiario() {
   apiario = sessionStorage.ID_APIARIO
+  idUsuario = sessionStorage.ID_USUARIO
 
-  fetch(`/apiarioSetor/TemperturaMediaApiario/${apiario}`, {
+  fetch(`/apiarioSetor/TemperturaMediaApiario/${apiario}/${idUsuario}`, {
     method: 'GET',
   })
     .then(res => {
@@ -119,8 +121,9 @@ function TotalAlertas() {
 
 function HistoricoTemperatura() {
   apiario = sessionStorage.ID_APIARIO
+  idUsuario = sessionStorage.ID_USUARIO
 
-  fetch(`/apiarioSetor/HistoricoTemperatura/${apiario}`, {
+  fetch(`/apiarioSetor/HistoricoTemperatura/${apiario}/${idUsuario}`, {
     method: 'GET',
   })
     .then(res => {
