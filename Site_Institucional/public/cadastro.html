@@ -12,104 +12,108 @@
 </head>
 
 <body style="margin:0px;background: #FFFAF0; overflow-x: hidden;">
-    <header>
-        <div style="justify-content: center; color: white;"><img src="img/Icone BeeAware (2).png"
-                class="img_logoHeader"> <span style="font-size: 25px; margin-left: 15px;"><span
+
+    <body style="margin:0px;background: #FFFAF0; overflow-x: hidden;">
+        <header>
+            <div style="justify-content: center; color: white;"><img src="img/icone.png" alt="" style="height: 100%;
+    width: auto;"></div> <span style="font-size: 5vh; margin-left: 5px;color: white;"><span
                     style="color: #E98800;">Bee</span>Aware</span></div>
-        <div class="div_header_central">
-            <a href="equipe.html">
-                <div><span class="transição_header">Nossa Equipe </span></div>
-            </a>
-            <a href="index.html">
-                <div><span class="transição_header">Home</span></div>
-            </a>
-            <a href="simulador.html">
-                <div><span class="transição_header">Simulador Financeiro</span></div>
-            </a>
-        </div>
-        <div class="bt_header">
-            <div><a href="cadastro.html"><button class="bt_Cad">Cadastre-se</button></a></div>
-            <div> <a href="login.html"><button class="bt_Log">Login</button></a></div>
-        </div>
-    </header>
-
-
-    <div class="div_cadastro_geral">
-        <div id="div_card">
-            <div id="div_texto">
-                <h1>EQUILÍBRIO IDEAL, PARA COLMEIAS QUE PROSPERAM.</h1>
-                <br>
-                <h4>Com o BeeAware, você acompanha em tempo real as condições da sua colmeia e recebe alertas quando há
-                    risco para suas abelhas.</h4>
+            <div class="div_header_central">
+                <a href="equipe.html">
+                    <div><span class="transição_header">Nossa Equipe </span></div>
+                </a>
+                <a href="index.html">
+                    <div><span class="transição_header">Home</span></div>
+                </a>
+                <a href="simulador.html">
+                    <div><span class="transição_header">Simulador Financeiro</span></div>
+                </a>
             </div>
-        </div>
-
-
-        <div id="div_cadastro">
-
-            <img src="img/logo_branca.png" style="width: 40%; height: auto;">
-            <div id="div_titulo">
-                <h3>Cadastro Empresas</h3>
+            <div class="bt_header">
+                <div><a href="cadastro.html"><button class="bt_Cad">Cadastre-se</button></a></div>
+                <div> <a href="login.html"><button class="bt_Log">Login</button></a></div>
             </div>
-            <div style="height: 60%; width: 100%;">
-                <div id="div_formulario">
-                    
-                    <div class="campo nome">
-                        <span>Nome Empresa</span>
-                        <input type="text" id="input_nome" placeholder="Digite o nome da Empresa">
-                    </div>
+        </header>
 
-                    <div class="campo email">
-                        <span>Email</span>
-                        <input type="email" id="input_email" placeholder="Digite o Email da Empresa">
-                    </div>
 
-                    <div class="campo telefone">
-                        <span>tel</span>
-                        <input type="text" id="input_tel" placeholder="5511012345678">
-                    </div>
-
-                    <div class="campo cep">
-                        <span>CEP</span>
-                        <input type="text" id="input_cep" placeholder="012345678">
-                    </div>
-
-                    <div class="campo Num">
-                        <span>Numero Residencial</span>
-                        <input type="text" id="input_num" placeholder="1234">
-                    </div>
-
-                    <div class="campo complemento">
-                        <span>Complemento:(não obrigatoria)</span>
-                        <input type="text" id="input_comp" placeholder="123 blA aptB">
-                    </div>
-
-                    <div class="campo cnpj">
-                        <span>CNPJ</span>
-                        <input type="text" id="input_cnpj" placeholder="Digite o CNPJ da Empresa">
-                    </div>
-
-                    <div class="campo senha">
-                        <span>Senha</span>
-                        <input type="password" id="input_senha" placeholder="BeeAware@123">
-                    </div>
-
-                    <div class="campo confirmar_senha">
-                        <span>Confirme sua Senha</span>
-                        <input type="password" id="input_conf" placeholder="BeeAware@123">
-                    </div>
+        <div class="div_cadastro_geral">
+            <div id="div_card">
+                <div id="div_texto">
+                    <h1>EQUILÍBRIO IDEAL, PARA COLMEIAS QUE PROSPERAM.</h1>
+                    <br>
+                    <h4>Com o BeeAware, você acompanha em tempo real as condições da sua colmeia e recebe alertas quando
+                        há
+                        risco para suas abelhas.</h4>
                 </div>
             </div>
-            <div id="div_alerta"> <span></span> </div>
-            <div id="div_botao">
-                <button onclick="cadastrar()">Criar Conta Para Empresas</button>
-                <span> Já possui conta? <a href="login.html">Fazer login</a></span>
+
+
+
+            <div id="div_cadastro">
+
+                <img src="img/logo_branca.png" style="width: 40%; height: auto;">
+                <div id="div_titulo">
+                    <h3>Cadastro Empresas</h3>
+                </div>
+                <div style="height: 60%; width: 100%;">
+                    <div id="div_formulario">
+
+                        <div class="campo nome">
+                            <span>Nome Empresa</span>
+                            <input type="text" id="input_nome" placeholder="Digite o nome da Empresa">
+                        </div>
+
+                        <div class="campo email">
+                            <span>Email</span>
+                            <input type="email" id="input_email" placeholder="Digite o Email da Empresa">
+                        </div>
+
+                        <div class="campo telefone">
+                            <span>tel</span>
+                            <input type="text" id="input_tel" placeholder="5511012345678">
+                        </div>
+
+                        <div class="campo cep">
+                            <span>CEP</span>
+                            <input type="text" id="input_cep" placeholder="012345678">
+                        </div>
+
+                        <div class="campo Num">
+                            <span>Numero Residencial</span>
+                            <input type="text" id="input_num" placeholder="1234">
+                        </div>
+
+                        <div class="campo complemento">
+                            <span>Complemento:(não obrigatoria)</span>
+                            <input type="text" id="input_comp" placeholder="123 blA aptB">
+                        </div>
+
+                        <div class="campo cnpj">
+                            <span>CNPJ</span>
+                            <input type="text" id="input_cnpj" placeholder="Digite o CNPJ da Empresa">
+                        </div>
+
+                        <div class="campo senha">
+                            <span>Senha</span>
+                            <input type="password" id="input_senha" placeholder="BeeAware@123">
+                        </div>
+
+                        <div class="campo confirmar_senha">
+                            <span>Confirme sua Senha</span>
+                            <input type="password" id="input_conf" placeholder="BeeAware@123">
+                        </div>
+                    </div>
+                </div>
+                <div id="div_alerta"> <span></span> </div>
+                <div id="div_botao">
+                    <button onclick="cadastrar()">Criar Conta Para Empresas</button>
+                    <span> Já possui conta? <a href="login.html">Fazer login</a></span>
+                </div>
             </div>
+
         </div>
 
-    </div>
-
-</body>
+    </body>
 
 </html>
 
@@ -165,14 +169,14 @@
                 body: JSON.stringify({
                     // crie um atributo que recebe o valor recuperado aqui
                     // Agora vá para o arquivo routes/usuario.js
-                     nomeServer:nomeVar,
-                     emailServer:emailVar,
-                     telServer:telVar,
-                     cepServer:cepVar,
-                     numServer:numVar,
-                     compServer:compVar,
-                     cnpjServer:cnpjVar,
-                     senhaServer:senhaVar,
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    telServer: telVar,
+                    cepServer: cepVar,
+                    numServer: numVar,
+                    compServer: compVar,
+                    cnpjServer: cnpjVar,
+                    senhaServer: senhaVar,
                 }),
             })
                 .then(function (resposta) {

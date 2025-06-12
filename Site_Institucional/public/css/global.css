@@ -13,7 +13,7 @@ header {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    height: 60px;
+    height: 80px;
     margin: 0;
     align-items: center;
 }
@@ -37,11 +37,13 @@ header div {
 .transição_header {
     font-size: 20px;
     transition: 1s;
+    cursor: pointer;
 }
 
 .transição_header:hover {
     color: #fd8b00;
     text-decoration: underline;
+    transform: scale(1.1);
 }
 
 img {
@@ -113,6 +115,14 @@ img {
     transition: 0.1s;
     background-color: black;
     color: #FFA40B;
+}
+
+.coluna_hexa {
+    display: flex;
+    flex-direction: row;
+
+    /* justify-content: center;
+    align-items: center; */
 }
 
 .div_pt1 {
@@ -303,6 +313,8 @@ img {
     border-top: solid 12px black;
     border-bottom: solid 12px black;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/wallpaper_abelha.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -385,7 +397,7 @@ img {
     flex-direction: column;
 }
 
-.header_4 {
+.col .header_4 {
     text-align: center;
     width: 100%;
     color: #E98800;
@@ -409,6 +421,7 @@ img {
 .div_tabela4 {
     display: flex;
     flex-direction: column;
+    width: 50%;
 }
 
 .div_colnuas_4 {
@@ -461,31 +474,36 @@ img {
 
 /* Footer */
 .footer {
-    height: auto;
-    width: 1456px;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     background-color: #000;
     color: white;
-    padding: 60px 40px;
+    padding: 5%;
 }
 
-.redes-sociais {
-    margin-left: 30px;
+/* .Mapa-site {
+    margin-right: 1%;
 
+
+} */
+
+.Copyright {
+
+    margin-right: 327px;
 }
 
-.Mapa-site {
-    margin-right: 20px;
-
+.logo-beeaware {
+    margin-right: 400px;
 
 }
 
 .brasil {
-    margin-right: 65px;
+    margin-right: 200px;
 
 
-}
+}  
 
 .redes-sociais h3 {
     font-weight: 700;
@@ -503,8 +521,11 @@ img {
 
 .container-footer-top {
     display: flex;
+    width: 100%;
     flex-direction: row;
     justify-content: space-between;
+    margin-left: 50px;
+    margin-bottom: 50px;
 }
 
 .container-footer-top .contato span,
@@ -515,14 +536,18 @@ img {
     align-items: center;
     font-weight: 400;
     gap: 8px;
+    cursor: pointer;
 }
 
 
 .container-footer-bottom {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    cursor: pointer;
+   
+    
 }
 
 
