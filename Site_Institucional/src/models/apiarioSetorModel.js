@@ -161,7 +161,7 @@ order by st.fkEmpresa desc limit 15;
 
 
 
-function TemperturaAtualApiario(idUsuario) {
+function TemperturaAtualApiario(idUsuario, apiario) {
     var instrucaoSql = `
 SELECT l.temperatura
         FROM leitura l
@@ -178,7 +178,7 @@ SELECT l.temperatura
     return database.executar(instrucaoSql);
 }
 
-function TemperturaMediaApiario(idUsuario) {
+function TemperturaMediaApiario(idUsuario, apiario) {
     var instrucaoSql = `
         select ROUND(AVG(l.temperatura), 2) AS 'Media Temperatura'
 FROM leitura l
@@ -207,7 +207,7 @@ WHERE (temperatura > 36 OR temperatura < 32) AND fkSensor = ${idUsuario} and  dt
 }
 
 
-function HistoricoTemperatura(idUsuario) {
+function HistoricoTemperatura(idUsuario, apiario) {
     var instrucaoSql = `
         SELECT 
 	DATE_FORMAT(l.dtLeitura, '%H:00') AS hora,
