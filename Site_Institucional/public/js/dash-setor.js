@@ -50,27 +50,53 @@ function carregarApiario(){
     .then(json => {
 
       var apiario = json
-
+      console.log(apiario)
       var div_mensagem = document.getElementById('Scroll_apiario')
 
       for(var i = 0; i < apiario.length; i++){
-        div_mensagem.innerHTML += `
         
-        <div class="colmeia-card " >
-            <div class="card-top " id="card_apiario_${apiario[i].idApiario}">
-              <span>Apiario #${i + 1}</span>
-              <span class="status-label " id="status_apiario_${apiario[i].idApiario}">Normal</span>
-            </div>
-            <div class="card-info">
-              <p>Setor: <strong>${apiario[i].setor}</strong></p>
-              <p id="card_temperatura_${apiario[i].idApiario}">Temperatura: <strong>${apiario[i].temperatura}ºC</strong></p>
-              <p>Colônia: <strong>${apiario[i].identificador_colonia}</strong></p>
-              <p id="Ultima_leitura_${apiario[i].idApiario}">Última leitura: <strong>Há 5 minutos</strong></p>
-            </div>
-            <button class="btn-detalhes" onclick="verInformação(${apiario[i].idApiario})" id="btn_apiario_${apiario[i].idApiario}">Ver Detalhes</button>
-          </div>
-        
-        `
+        if(apiario[i].statusSen == "Ativo" || apiario[i].statusSen == "Manutenção" ){
+          if(apiario[i].statusSen == "Ativo"){
+            div_mensagem.innerHTML += `
+            
+            <div class="colmeia-card " >
+                <div class="card-top " id="card_apiario_${apiario[i].idApiario}">
+                  <span>Apiario #${i + 1}</span>
+                  <span class="status-label " id="status_apiario_${apiario[i].idApiario}"> Estável </span>
+                </div>
+                <div class="card-info">
+                  <p>Setor: <strong>${apiario[i].setor}</strong></p>
+                  <p id="card_temperatura_${apiario[i].idApiario}">Temperatura: <strong>${apiario[i].temperatura}ºC</strong></p>
+                  <p>Colônia: <strong>${apiario[i].identificador_colonia}</strong></p>
+                  <p id="Ultima_leitura_${apiario[i].idApiario}">Última leitura: <strong>Há 5 minutos</strong></p>
+                </div>
+                <button class="btn-detalhes" onclick="verInformação(${apiario[i].idApiario})" id="btn_apiario_${apiario[i].idApiario}">Ver Detalhes</button>
+              </div>
+            
+            `
+          }
+          else{
+            div_mensagem.innerHTML += `
+            
+            <div class="colmeia-card manutencao_apia">
+              <div class="manu_api">
+    <div class="texto_manutencao">Em Manutenção</div>              </div>
+                <div class="card-top " id="card_apiario_${apiario[i].idApiario}" style="  background-color: rgba(68, 68, 68,0.85);">
+                  <span>Apiario #${i + 1}</span>
+                  <span class="status-label  " id="status_apiario_${apiario[i].idApiario}" style="  background-color: rgba(233, 0, 0, 0.85);"> Manutenção </span>
+                </div>
+                <div class="card-info">
+                  <p>Setor: <strong>${apiario[i].setor}</strong></p>
+                  <p id="card_temperatura_${apiario[i].idApiario}">Temperatura: <strong>${apiario[i].temperatura}ºC</strong></p>
+                  <p>Colônia: <strong>${apiario[i].identificador_colonia}</strong></p>
+                  <p id="Ultima_leitura_${apiario[i].idApiario}">Última leitura: <strong>Há 5 minutos</strong></p>
+                </div>
+                <button class="btn-detalhes" onclick="verInformação(${apiario[i].idApiario})" id="btn_apiario_${apiario[i].idApiario}" style="  background-color: rgba(68, 68, 68,0.85);">Ver Detalhes</button>
+              </div>
+            
+            `
+          }
+        }
       }
 
     }
@@ -105,12 +131,21 @@ function carregarTemperatura(){
 
     
       for(var i = 0; i < apiarioTemperatura.length; i++){
+
+        if(apiarioTemperatura[i].statusSen == "Ativo"){
+          if(apiarioTemperatura[i].statusSen == "Ativo" ){
+         if(Number(apiarioTemperatura[i].temperatura) > 39 || Number(apiarioTemperatura[i].temperatura) < 20 ){
+           var status_apiario = document.getElementById(`status_apiario_${apiarioTemperatura[i].idApiario}`)
+           var btn_apiario = document.getElementById(`btn_apiario_${apiarioTemperatura[i].idApiario}`)
+           var card_apiario = document.getElementById(`card_apiario_${apiarioTemperatura[i].idApiario}`)
+
         var status_apiario = document.getElementById(`status_apiario_${apiarioTemperatura[i].idApiario}`)
         var btn_apiario = document.getElementById(`btn_apiario_${apiarioTemperatura[i].idApiario}`)
         var card_apiario = document.getElementById(`card_apiario_${apiarioTemperatura[i].idApiario}`)
 
 
         if(Number(apiarioTemperatura[i].temperatura) > 39 || Number(apiarioTemperatura[i].temperatura) < 20){
+
 
           status_apiario.innerHTML = `Alerta`
 
@@ -147,12 +182,16 @@ function carregarTemperatura(){
         
         Temperatura: <strong>${Number(apiarioTemperatura[i].temperatura)}ºC</strong>
         
+
         `
+      }
+                }
       }
 
     }
       
 
+  }
     )
   }
 

@@ -8,6 +8,7 @@ SELECT
     st.setor,
     a.idApiario,
     a.identificador_colonia,
+	se.statusSen,
     se.numSerie
 FROM empresa e
 JOIN setor st ON st.fkEmpresa = e.idEmpresa
@@ -25,6 +26,7 @@ SELECT
     e.idEmpresa,
 	a.idApiario,
     l.temperatura,
+    	se.statusSen,
     DATE_FORMAT(l.dtLeitura, '%Y-%m-%d %H:%i') as dataLeitura
 FROM empresa e
 JOIN setor st ON st.fkEmpresa = e.idEmpresa

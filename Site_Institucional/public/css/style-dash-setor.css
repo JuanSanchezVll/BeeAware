@@ -492,3 +492,26 @@ body {
   overflow-y: auto;
   height: 50vh;
 }
+.manutencao_apia{
+position: relative;
+padding: 0;
+}
+.manu_api{
+  position: absolute;
+  background-color: rgba(68, 68, 68,0.85);
+  width: 101%;
+  height: 101%;
+    border-radius: 12px;
+    border: solid 2px black;
+}
+.texto_manutencao {
+  transform: rotate(-35deg);
+  font-size: 5vh;
+  color: white;
+  font-weight: 800;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
